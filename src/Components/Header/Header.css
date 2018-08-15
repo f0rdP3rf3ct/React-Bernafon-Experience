@@ -1,0 +1,11 @@
+.Header {
+    margin-top: 20%;
+}
+
+button {
+    padding: 2rem;
+    font-size: 2rem;
+    color: white;
+    margin: 1rem;
+    background-color: red;
+}
