@@ -29,18 +29,13 @@ class App extends Component {
         this.state = {
             locale : 'DE'
         };
-
-        // Event Bindings
-        this.onChangeLanguage = this.onChangeLanguage.bind(this);
-
     }
 
     /**
      * Change application language
      * @param {string} lang
      */
-    onChangeLanguage(lang) {
-
+    handleChangeLanguage = (lang) => {
         switch (lang) {
             case 'EN' : i18nConfig.messages = messages_en; break;
             case 'DE' : i18nConfig.messages = messages_de; break;
@@ -48,15 +43,16 @@ class App extends Component {
         }
 
         this.setState({locale: lang});
-
         i18nConfig.locale = lang;
-    }
+    };
+
 
     render() {
+
     return (
         <IntlProvider key={ i18nConfig.locale} locale={ i18nConfig.locale } messages={ i18nConfig.messages } >
           <div className="App">
-            <Header onChangeLanguage={this.onChangeLanguage} />
+            <Header onChangeLanguage={this.handleChangeLanguage} />
           </div>
         </IntlProvider>
     );
