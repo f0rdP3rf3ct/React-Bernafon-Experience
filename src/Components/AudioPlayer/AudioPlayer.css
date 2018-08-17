@@ -1,0 +1,15 @@
+.AudioPlayer {
+    background-color: rgba(204,17,34, 0.5);
+    text-align: center;
+    color: white;
+}
+
+.AudioPlayer .Information p {
+    font-size: 3rem;
+    margin: 0;
+}
+
+.AudioPlayer .icon {
+    font-size: 4rem;
+    padding: 0.5rem 0;
+}

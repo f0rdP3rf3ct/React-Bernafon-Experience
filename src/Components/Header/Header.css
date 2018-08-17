@@ -1,11 +1,26 @@
 .Header {
-    margin-top: 20%;
+    height: 5rem;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    background-color: rgb(204, 17, 34);
+}
+
+.Header h1 {
+    float: left;
+    color: white;
+    /*margin-left: 1rem; */
+}
+
+.Header .LanguageSelector {
+    float: right;
+    width: 25%;
 }
 
 button {
-    padding: 2rem;
-    font-size: 2rem;
+    padding: 0.5rem;
+    font-size: 1rem;
     color: white;
-    margin: 1rem;
-    background-color: red;
+    margin: 0.5rem;
+    background-color: rgb(204, 17, 34);
 }

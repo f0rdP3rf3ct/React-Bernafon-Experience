@@ -1,13 +1,13 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import Header from './Components/Header/Header';
-
+import Body from './Components/Body/Body';
 import './App.css';
 import {IntlProvider} from 'react-intl';
 
 /**
  * Lang. imports
  */
-import { addLocaleData } from "react-intl";
+import {addLocaleData} from "react-intl";
 import locale_en from 'react-intl/locale-data/en';
 import locale_de from 'react-intl/locale-data/de';
 import messages_de from './Translations/de.json';
@@ -19,7 +19,7 @@ addLocaleData([...locale_en, ...locale_de]);
 
 let i18nConfig = {
     locale: 'en',
-    messages : messages_de
+    messages: messages_de
 };
 
 class App extends Component {
@@ -27,7 +27,7 @@ class App extends Component {
         super(props);
 
         this.state = {
-            locale : 'DE'
+            locale: 'DE'
         };
     }
 
@@ -37,9 +37,15 @@ class App extends Component {
      */
     handleChangeLanguage = (lang) => {
         switch (lang) {
-            case 'EN' : i18nConfig.messages = messages_en; break;
-            case 'DE' : i18nConfig.messages = messages_de; break;
-            default : i18nConfig.messages = messages_en; break;
+            case 'EN' :
+                i18nConfig.messages = messages_en;
+                break;
+            case 'DE' :
+                i18nConfig.messages = messages_de;
+                break;
+            default :
+                i18nConfig.messages = messages_en;
+                break;
         }
 
         this.setState({locale: lang});
@@ -49,14 +55,15 @@ class App extends Component {
 
     render() {
 
-    return (
-        <IntlProvider key={ i18nConfig.locale} locale={ i18nConfig.locale } messages={ i18nConfig.messages } >
-          <div className="App">
-            <Header onChangeLanguage={this.handleChangeLanguage} />
-          </div>
-        </IntlProvider>
-    );
-  }
+        return (
+            <IntlProvider key={i18nConfig.locale} locale={i18nConfig.locale} messages={i18nConfig.messages}>
+                <div className="App">
+                    <Header onChangeLanguage={this.handleChangeLanguage}/>
+                    <Body/>
+                </div>
+            </IntlProvider>
+        );
+    }
 }
 
 export default App;
