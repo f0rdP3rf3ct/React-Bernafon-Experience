@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import Sound from "react-sound";
 import honksound from "../../Files/Audio/sample.mp3";
-import {FormattedMessage} from "react-intl";
 import '../../CSS/IconFont.css';
 import './AudioPlayer.css';
 
@@ -13,7 +12,15 @@ class AudioPlayer extends Component {
             playState: 'PAUSED',
             duration: '',
             position: '0:0:0'
-        }
+        };
+
+        this.id = this.props.id;
+    }
+
+    componentDidMount() {
+        let selector = 'AudioPlayer ' + this.id;
+        this.progressbar = document.getElementsByClassName(selector)[0].getElementsByClassName('Progress')[0];
+        console.log('Progresbar: ', this.progressbar);
     }
 
     /**
@@ -41,15 +48,14 @@ class AudioPlayer extends Component {
         this.setState({playState: newState});
     };
 
-
     /**
      * Handles actions while the file is playing
      */
     handlePlaying = (e) => {
         let formattedDuration = this.convertMSToFormattedString(e.position);
         this.setState({position: formattedDuration});
+        this.progressbar.value = e.position;
     };
-
 
     /**
      * Called when file has finished playing
@@ -61,26 +67,36 @@ class AudioPlayer extends Component {
         })
     };
 
+    /**
+     * Handle completed file load
+     */
+    handleLoading = (e) => {
+        this.setState({duration : e.duration});
+    };
 
     render() {
         return (
-            <div className="AudioPlayer">
+            <div className={"AudioPlayer " + this.props.id }>
 
                 <div className="Information">
                     <p>{this.state.position}</p>
                 </div>
 
+                <input min="0" max={this.state.duration} className="Progress" type="range"></input>
+
                 {/* Reflect playstate */}
                 <div onClick={this.handleSoundState} className={'icon icon-' + this.state.playState}></div>
 
                 <Sound url={honksound}
-                       onFinishedPlaying={(e) => this.handleFinishedPlaying(e)}
+                       onFinishedPlaying={(e) => this.handleFinishedPlaying()}
                        onPlaying={(e) => this.handlePlaying(e)}
+                       onLoading = {(e) => this.handleLoading(e)}
                        playStatus={this.state.playState} loop={false}
                        volume={50}
                 />
             </div>
-        );
+        )
+            ;
     }
 
 }

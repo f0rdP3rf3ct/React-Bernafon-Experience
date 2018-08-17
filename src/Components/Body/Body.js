@@ -7,7 +7,8 @@ class Body extends Component {
     render() {
         return (
             <div className="AppBody">
-                <AudioPlayer />
+                <AudioPlayer id="player-1" />
+                <AudioPlayer id="player-2" />
             </div>
         );
     }
