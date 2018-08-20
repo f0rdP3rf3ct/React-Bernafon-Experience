@@ -11,7 +11,7 @@ class AudioPlayer extends Component {
         this.state = {
             playState: 'PAUSED',
             duration: '',
-            position: '0:0:0'
+            position: 0
         };
 
         this.id = this.props.id;
@@ -20,7 +20,6 @@ class AudioPlayer extends Component {
     componentDidMount() {
         let selector = 'AudioPlayer ' + this.id;
         this.progressbar = document.getElementsByClassName(selector)[0].getElementsByClassName('Progress')[0];
-        console.log('Progresbar: ', this.progressbar);
     }
 
     /**
@@ -52,9 +51,10 @@ class AudioPlayer extends Component {
      * Handles actions while the file is playing
      */
     handlePlaying = (e) => {
-        let formattedDuration = this.convertMSToFormattedString(e.position);
-        this.setState({position: formattedDuration});
+        //let formattedDuration = this.convertMSToFormattedString(e.position);
+        this.setState({position: Number(e.position) });
         this.progressbar.value = e.position;
+
     };
 
     /**
@@ -63,8 +63,27 @@ class AudioPlayer extends Component {
     handleFinishedPlaying = (e) => {
         this.setState({
             playState: 'PAUSED',
-            position: '0:0:0'
+            position: 0
         })
+    };
+
+    /**
+     * Range-Slider MouseDown
+     * @param e
+     */
+    handleMouseDown = (e) => {
+        if(this.state.playState === 'PLAYING') {
+            this.setState({playState : 'PAUSED'});
+        }
+    };
+
+    /**
+     * Range-Slider MouseUp
+     * @param e
+     */
+    handleMouseUp = (e) => {
+        let playPos = Number(e.target.value);
+        this.setState({position : playPos});
     };
 
     /**
@@ -79,19 +98,21 @@ class AudioPlayer extends Component {
             <div className={"AudioPlayer " + this.props.id }>
 
                 <div className="Information">
-                    <p>{this.state.position}</p>
+                    <p>{this.convertMSToFormattedString(this.state.position)}</p>
                 </div>
 
-                <input min="0" max={this.state.duration} className="Progress" type="range"></input>
+                <input onMouseUp={this.handleMouseUp} onMouseDown={this.handleMouseDown} min="0" max={this.state.duration} className="Progress" type="range"></input>
 
                 {/* Reflect playstate */}
                 <div onClick={this.handleSoundState} className={'icon icon-' + this.state.playState}></div>
 
                 <Sound url={honksound}
+                       position={this.state.position}
                        onFinishedPlaying={(e) => this.handleFinishedPlaying()}
                        onPlaying={(e) => this.handlePlaying(e)}
-                       onLoading = {(e) => this.handleLoading(e)}
-                       playStatus={this.state.playState} loop={false}
+                       onLoading={(e) => this.handleLoading(e)}
+                       playStatus={this.state.playState}
+                       loop={false}
                        volume={50}
                 />
             </div>
