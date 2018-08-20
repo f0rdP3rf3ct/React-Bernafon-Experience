@@ -11,7 +11,8 @@ class AudioPlayer extends Component {
         this.state = {
             playState: 'PAUSED',
             duration: '',
-            position: 0
+            position: 0,
+            loading: true
         };
 
         this.id = this.props.id;
@@ -55,7 +56,7 @@ class AudioPlayer extends Component {
         // TODO: Solve this - Catches if soundfile has finished playing. This is a workaround, because onFinishedPlaying does not fire along with autload. react-sound issue.
         let pos = Number(e.position);
 
-        if(pos >= this.state.duration) {
+        if (pos >= this.state.duration) {
 
             this.setState({
                 playState: 'PAUSED',
@@ -64,30 +65,19 @@ class AudioPlayer extends Component {
 
         } else {
 
-            this.setState({position: Number(e.position) });
+            this.setState({position: Number(e.position)});
             this.progressbar.value = e.position;
 
         }
     };
 
     /**
-     * Called when file has finished playing
-     * @param e
-     */
-    // handleFinishedPlaying = (e) => {
-    //     this.setState({
-    //         playState: 'PAUSED',
-    //         position: 0
-    //     })
-    // };
-
-    /**
      * Range-Slider MouseDown
      * @param e
      */
     handleMouseDown = (e) => {
-        if(this.state.playState === 'PLAYING') {
-            this.setState({playState : 'PAUSED'});
+        if (this.state.playState === 'PLAYING') {
+            this.setState({playState: 'PAUSED'});
         }
     };
 
@@ -97,7 +87,7 @@ class AudioPlayer extends Component {
      */
     handleChange = (e) => {
         let playPos = Number(e.target.value);
-        this.setState({position : playPos});
+        this.setState({position: playPos});
     };
 
     /**
@@ -105,34 +95,50 @@ class AudioPlayer extends Component {
      * @param e
      */
     handleLoading = (e) => {
-        this.setState({duration : e.duration});
+        this.setState({duration: e.duration});
+    };
+
+    /**
+     * Soundfile is completely loaded
+     */
+    handleLoad = (e) => {
+        this.setState({loading: false})
     };
 
     render() {
         return (
-            <div className={"AudioPlayer " + this.props.id }>
+            <div className={"AudioPlayer " + this.props.id}>
 
+                {/* Reflects loading process */}
+                {this.state.loading == true ? <h1>Loading...</h1> : null }
+
+                {/*Reflects information state*/}
                 <div className="Information">
                     <p>{this.convertMSToFormattedString(this.state.position)}</p>
                 </div>
 
                 {/*Reflects position of track*/}
-                <input onChange={this.handleChange} onMouseDown={this.handleMouseDown} min="0" max={this.state.duration} className="Progress" type="range"></input>
+                <input onChange={this.handleChange}
+                       onMouseDown={this.handleMouseDown}
+                       min="0"
+                       max={this.state.duration}
+                       className="Progress"
+                       type="range" />
 
                 {/* Reflect playstate */}
-                <div onClick={this.handleSoundState} className={'icon icon-' + this.state.playState}></div>
+                <div onClick={this.handleSoundState} className={'icon icon-' + this.state.playState} />
 
                 <Sound url={honksound}
                        position={this.state.position}
                        onPlaying={(e) => this.handlePlaying(e)}
                        onLoading={(e) => this.handleLoading(e)}
+                       onLoad={(e) => this.handleLoad(e)}
                        playStatus={this.state.playState}
                        volume={50}
                        autoLoad={true}
                 />
             </div>
-        )
-            ;
+        );
     }
 
 }

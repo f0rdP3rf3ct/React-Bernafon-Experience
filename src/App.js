@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import Header from './Components/Header/Header';
 import Body from './Components/Body/Body';
+import './CSS/Variables.css';
 import './App.css';
 import {IntlProvider} from 'react-intl';
 

@@ -1,7 +1,6 @@
 .AudioPlayer {
-    background-color: rgba(204,17,34, 0.5);
     text-align: center;
-    color: white;
+    color: var(--main-color);
 }
 
 .AudioPlayer .Information p {

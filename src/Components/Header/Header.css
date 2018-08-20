@@ -3,7 +3,7 @@
     width: 100%;
     position: fixed;
     top: 0;
-    background-color: rgb(204, 17, 34);
+    background-color: var(--main-color);
 }
 
 .Header h1 {
@@ -22,5 +22,5 @@ button {
     font-size: 1rem;
     color: white;
     margin: 0.5rem;
-    background-color: rgb(204, 17, 34);
+    background-color: var(--main-color);
 }
