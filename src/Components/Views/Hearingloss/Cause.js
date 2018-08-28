@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {FormattedMessage} from 'react-intl';
+import {FormattedMessage, FormattedHTMLMessage} from 'react-intl';
 
 
 class Types extends Component {
@@ -12,7 +12,7 @@ class Types extends Component {
                     />
                 </h1>
                 <p>
-                    <FormattedMessage
+                    <FormattedHTMLMessage
                         id='app.hearingloss.cause.intro'
                     />
                 </p>
