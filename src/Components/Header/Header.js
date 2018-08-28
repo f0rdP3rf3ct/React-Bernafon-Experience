@@ -11,7 +11,7 @@ class Header extends Component {
                 <h1>
                     <FormattedMessage
                         id='app.title'
-                        defaultMessage='The Bernafon experience' />
+                    />
                 </h1>
 
                 <div className="LanguageSelector">

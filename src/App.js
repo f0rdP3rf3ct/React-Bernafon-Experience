@@ -1,8 +1,11 @@
 import React, {Component} from 'react';
 import Header from './Components/Header/Header';
-import Body from './Components/Body/Body';
 import Home from './Components/Views/Home';
-import About from './Components/Views/About/About';
+import About from './Components/Views/Hearingloss/Definition';
+import Types from './Components/Views/Hearingloss/Types';
+import Cause from './Components/Views/Hearingloss/Cause';
+import Degree from './Components/Views/Hearingloss/Degree';
+import Simulator from './Components/Views/Simulator/HearinglossSimulator';
 import './CSS/Variables.css';
 import './App.css';
 import {IntlProvider} from 'react-intl';
@@ -42,15 +45,6 @@ const MainMenu = () => {
                 <button>
                     <FormattedMessage
                         id='app.navigation.home'
-                        defaultMessage='Translation missing'
-                    />
-                </button>
-            </Link>
-            <Link to="/About">
-                <button>
-                    <FormattedMessage
-                        id='app.navigation.home.about'
-                        defaultMessage='Translation missing'
                     />
                 </button>
             </Link>
@@ -92,7 +86,6 @@ class App extends Component {
     };
 
     render() {
-
         return (
             <IntlProvider key={i18nConfig.locale} locale={i18nConfig.locale} messages={i18nConfig.messages}>
                 <Router>
@@ -107,11 +100,13 @@ class App extends Component {
                             <div>
                                 <Route exact path="/" component={Home}/>
                                 <Route exact path="/About" component={About}/>
+                                <Route exact path="/Types" component={Types}/>
+                                <Route exact path="/Cause" component={Cause}/>
+                                <Route exact path="/Degree" component={Degree}/>
+                                <Route exact path="/Simulator" component={Simulator}/>
                             </div>
                         </div>
 
-                        {/*<Header onChangeLanguage={this.handleChangeLanguage}/>*/}
-                        {/*<Body/>*/}
                     </div>
                 </Router>
             </IntlProvider>

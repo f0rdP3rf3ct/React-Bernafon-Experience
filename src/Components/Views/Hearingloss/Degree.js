@@ -2,18 +2,18 @@ import React, {Component} from 'react';
 import {FormattedMessage} from 'react-intl';
 
 
-class Home extends Component {
+class Degree extends Component {
     render() {
         return (
             <div>
                 <h1>
                     <FormattedMessage
-                        id='app.about.title'
+                        id='app.hearingloss.degree.title'
                     />
                 </h1>
                 <p>
                     <FormattedMessage
-                        id='app.about.intro'
+                        id='app.hearingloss.degree.intro'
                     />
                 </p>
             </div>
@@ -21,4 +21,4 @@ class Home extends Component {
     }
 }
 
-export default Home;
+export default Degree;
