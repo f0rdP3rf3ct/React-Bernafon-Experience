@@ -1,5 +1,13 @@
 {
 	"app.intro": "Intro text",
 	"app.playSound": "Honk!Honk! (Play audio)",
-	"app.title": "The Bernafon experience"
+	"app.title": "The Bernafon experience",
+	"app.home.title": "Home",
+	"app.home.intro" : "Some introtext",
+	"app.about.title" : "About",
+	"app.about.intro" : "Some About intro",
+	"app.about.hearingloss.title" : "What is hearing loss?",
+	"app.about.hearingloss.intro" : "In general, people who have hearing loss may experience any or all of the following...",
+	"app.navigation.home.about" : "Learn more about hearing loss",
+	"app.navigation.home" : "Home"
 }

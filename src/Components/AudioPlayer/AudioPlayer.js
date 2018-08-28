@@ -110,7 +110,7 @@ class AudioPlayer extends Component {
             <div className={"AudioPlayer " + this.props.id}>
 
                 {/* Reflects loading process */}
-                {this.state.loading == true ? <h1>Loading...</h1> : null }
+                {this.state.loading === true ? <h1>Loading...</h1> : null }
 
                 {/*Reflects information state*/}
                 <div className="Information">

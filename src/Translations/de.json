@@ -1,5 +1,9 @@
 {
 	"app.intro": "Intro text DE",
 	"app.playSound": "Hup!Hup! (Audio abspielen)",
-	"app.title": "Bernafon erleben"
+	"app.title": "Bernafon erleben",
+	"app.home.title": "Zuhause",
+	"app.home.intro" : "Irgend ein Introtext",
+	"app.about.title" : "Über",
+	"app.about.intro" : "Irgend ein About introtext"
 }
