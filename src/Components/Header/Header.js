@@ -1,35 +1,18 @@
-import React, { Component } from 'react';
-import {FormattedMessage} from 'react-intl';
+import React from 'react';
+import { FormattedMessage } from 'react-intl';
 import './Header.css';
 
-class Header extends Component {
+const Header = ({ onChangeLanguage }) => (
+    <div className="header">
+        <h1>
+            <FormattedMessage id="app.title" />
+        </h1>
 
-    render() {
-        return (
-            <div className="Header">
-
-                <h1>
-                    <FormattedMessage
-                        id='app.title'
-                    />
-                </h1>
-
-                <div className="LanguageSelector">
-
-                    <button onClick={() => {
-                        this.props.onChangeLanguage('EN')
-                    }}>EN
-                    </button>
-                    <button onClick={() => {
-                        this.props.onChangeLanguage('DE')
-                    }}>DE
-                    </button>
-
-                </div>
-
-            </div>
-        );
-    }
-}
+        <div className="languageSelector">
+            <button onClick={() => onChangeLanguage('EN')}>EN</button>
+            <button onClick={() => onChangeLanguage('DE')}>DE</button>
+        </div>
+    </div>
+);
 
 export default Header;

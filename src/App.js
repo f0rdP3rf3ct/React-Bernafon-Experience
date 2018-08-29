@@ -1,30 +1,21 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
+import { IntlProvider, FormattedMessage, addLocaleData } from 'react-intl';
+import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import Header from './Components/Header/Header';
-import Home from './Components/Views/Home';
-import About from './Components/Views/Hearingloss/Definition';
-import Types from './Components/Views/Hearingloss/Types';
-import Cause from './Components/Views/Hearingloss/Cause';
-import Degree from './Components/Views/Hearingloss/Degree';
-import Simulator from './Components/Views/Simulator/HearinglossSimulator';
+import { Home, About, Types, Cause, Degree, Simulator } from './Components/Views';
 import './CSS/Variables.css';
 import './App.css';
-import {IntlProvider} from 'react-intl';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
-import {FormattedMessage} from 'react-intl';
-
 
 /**
  * Lang. imports
  */
-import {addLocaleData} from "react-intl";
 import locale_en from 'react-intl/locale-data/en';
 import locale_de from 'react-intl/locale-data/de';
 import messages_de from './Translations/de.json';
 import messages_en from './Translations/en.json';
 
-
 //TODO: Why is [...] used? What does it mean?
-addLocaleData([...locale_en, ...locale_de]);
+addLocaleData([ ...locale_en, ...locale_de ]);
 
 /**
  * Locale setup
@@ -38,38 +29,28 @@ let i18nConfig = {
 /**
  * Main Menu Component
  */
-const MainMenu = () => {
-    return (
-        <div>
-            <Link to="/">
-                <button>
-                    <FormattedMessage
-                        id='app.navigation.home'
-                    />
-                </button>
-            </Link>
-        </div>
-    );
-};
+const MainMenu = () => (
+    <div>
+        <Link to="/">
+            <button>
+                <FormattedMessage id="app.navigation.home" />
+            </button>
+        </Link>
+    </div>
+);
 
 /**
  * App Component
  */
 class App extends Component {
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            locale: 'EN'
-        };
-    }
+    state = { locale: 'EN' };
 
     /**
      * Change application language
      * @param {string} lang
      */
-    handleChangeLanguage = (lang) => {
-        switch (lang) {
+    handleChangeLanguage = (locale) => {
+        switch (locale) {
             case 'EN' :
                 i18nConfig.messages = messages_en;
                 break;
@@ -81,32 +62,31 @@ class App extends Component {
                 break;
         }
 
-        this.setState({locale: lang});
-        i18nConfig.locale = lang;
+        this.setState({ locale });
+        i18nConfig.locale = locale;
     };
 
     render() {
         return (
             <IntlProvider key={i18nConfig.locale} locale={i18nConfig.locale} messages={i18nConfig.messages}>
                 <Router>
-                    <div className="App">
+                    <div className="app">
                         <Header onChangeLanguage={this.handleChangeLanguage} />
 
-                        <div className="PageContent">
+                        <div className="pageContent">
                             <header>
-                                <MainMenu/>
+                                <MainMenu />
                             </header>
 
-                            <div>
-                                <Route exact path="/" component={Home}/>
-                                <Route exact path="/About" component={About}/>
-                                <Route exact path="/Types" component={Types}/>
-                                <Route exact path="/Cause" component={Cause}/>
-                                <Route exact path="/Degree" component={Degree}/>
-                                <Route exact path="/Simulator" component={Simulator}/>
-                            </div>
+                            <Switch>
+                                <Route exact path="/" component={Home} />
+                                <Route exact path="/about" component={About} />
+                                <Route exact path="/types" component={Types} />
+                                <Route exact path="/cause" component={Cause} />
+                                <Route exact path="/degree" component={Degree} />
+                                <Route exact path="/simulator" component={Simulator} />
+                            </Switch>
                         </div>
-
                     </div>
                 </Router>
             </IntlProvider>

@@ -1,14 +1,14 @@
-.AudioPlayer {
+.audioPlayer {
     text-align: center;
     color: var(--main-color);
 }
 
-.AudioPlayer .Information p {
+.audioPlayer .information p {
     font-size: 3rem;
     margin: 0;
 }
 
-.AudioPlayer .icon {
+.audioPlayer .icon {
     font-size: 4rem;
     padding: 0.5rem 0;
 }
