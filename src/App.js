@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
-import { IntlProvider, FormattedMessage, addLocaleData } from 'react-intl';
-import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
+import React, {Component} from 'react';
+import {IntlProvider, FormattedMessage, addLocaleData} from 'react-intl';
+import {BrowserRouter as Router, Route, Link, Switch} from 'react-router-dom';
 import Header from './Components/Header/Header';
-import { Home, About, Types, Cause, Degree, Simulator } from './Components/Views';
+import {Home, About, Types, Cause, Degree, Simulator, Definition} from './Components/Views';
 import './CSS/Variables.css';
 import './App.css';
 
@@ -15,7 +15,7 @@ import messages_de from './Translations/de.json';
 import messages_en from './Translations/en.json';
 
 //TODO: Why is [...] used? What does it mean?
-addLocaleData([ ...locale_en, ...locale_de ]);
+addLocaleData([...locale_en, ...locale_de]);
 
 /**
  * Locale setup
@@ -33,7 +33,7 @@ const MainMenu = () => (
     <div>
         <Link to="/">
             <button>
-                <FormattedMessage id="app.navigation.home" />
+                <FormattedMessage id="app.navigation.home"/>
             </button>
         </Link>
     </div>
@@ -43,7 +43,7 @@ const MainMenu = () => (
  * App Component
  */
 class App extends Component {
-    state = { locale: 'EN' };
+    state = {locale: 'EN'};
 
     /**
      * Change application language
@@ -62,7 +62,7 @@ class App extends Component {
                 break;
         }
 
-        this.setState({ locale });
+        this.setState({locale});
         i18nConfig.locale = locale;
     };
 
@@ -71,20 +71,23 @@ class App extends Component {
             <IntlProvider key={i18nConfig.locale} locale={i18nConfig.locale} messages={i18nConfig.messages}>
                 <Router>
                     <div className="app">
-                        <Header onChangeLanguage={this.handleChangeLanguage} />
 
-                        <div className="pageContent">
+                        <div className="pageContent container-60-40">
+
+                            <Header onChangeLanguage={this.handleChangeLanguage}/>
+
                             <header>
-                                <MainMenu />
+                                <MainMenu/>
                             </header>
 
                             <Switch>
-                                <Route exact path="/" component={Home} />
-                                <Route exact path="/about" component={About} />
-                                <Route exact path="/types" component={Types} />
-                                <Route exact path="/cause" component={Cause} />
-                                <Route exact path="/degree" component={Degree} />
-                                <Route exact path="/simulator" component={Simulator} />
+                                <Route exact path="/" component={Home}/>
+                                <Route exact path="/about" component={About}/>
+                                <Route exact path="/hearingloss/types" component={Types}/>
+                                <Route exact path="/hearingloss/cause" component={Cause}/>
+                                <Route exact path="/hearingloss/degree" component={Degree}/>
+                                <Route exact path="/hearingloss/definition" component={Definition}/>
+                                <Route exact path="/simulator" component={Simulator}/>
                             </Switch>
                         </div>
                     </div>

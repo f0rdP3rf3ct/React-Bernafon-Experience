@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import Sound from "react-sound";
 import honksound from "../../Files/Audio/sample.mp3";
-import '../../CSS/IconFont.css';
+import '../../CSS/fonts.css';
 import './AudioPlayer.css';
 
 class AudioPlayer extends Component {
