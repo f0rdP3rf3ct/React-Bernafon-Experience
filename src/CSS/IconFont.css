@@ -7,14 +7,26 @@
 */
 @font-face {
     font-family: 'GillSansMTPro-BookItalic';
-    src: url("/design/build/bernafon/assets/GillSansMTPro-BookItalic.eot");
-    src: url("/design/build/bernafon/assets/GillSansMTPro-BookItalic.eot?#iefix") format("embedded-opentype"),
-    url("/design/build/bernafon/assets/GillSansMTPro-BookItalic.ttf") format("truetype"),
-    url("/design/build/bernafon/assets/GillSansMTPro-BookItalic.woff") format("woff"),
-    url("/design/build/bernafon/assets/GillSansMTPro-BookItalic.svg#GillSansMTPro-BookItalic") format("svg");
+    src: url("../Files/Fonts/gillsans/GillSansMTPro-BookItalic.eot");
+    src: url("../Files/Fonts/gillsans/GillSansMTPro-BookItalic.eot?#iefix") format("embedded-opentype"),
+    url("../Files/Fonts/gillsans/GillSansMTPro-BookItalic.ttf") format("truetype"),
+    url("../Files/Fonts/gillsans/GillSansMTPro-BookItalic.woff") format("woff"),
+    url("../Files/Fonts/gillsans/GillSansMTPro-BookItalic.svg#GillSansMTPro-BookItalic") format("svg");
     font-weight: normal;
     font-style: normal;
 }
+
+@font-face {
+    font-family: 'GillSansMTPro-Medium';
+    src: url("../Files/Fonts/gillsans/GillSansMTPro-Medium.eot");
+    src: url("../Files/Fonts/gillsans/GillSansMTPro-Medium.eot?#iefix") format("embedded-opentype"),
+    url("../Files/Fonts/gillsans/GillSansMTPro-Medium.ttf") format("truetype"),
+    url("../Files/Fonts/gillsans/GillSansMTPro-Medium.woff") format("woff"),
+    url("../Files/Fonts/gillsans/GillSansMTPro-Medium.svg#GillSansMTPro-Medium") format("svg");
+    font-weight: normal;
+    font-style: normal;
+}
+
 
 /**
 *
