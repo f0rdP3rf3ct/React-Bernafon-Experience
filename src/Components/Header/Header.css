@@ -1,4 +1,4 @@
-.Header {
+.header {
     height: 5rem;
     width: 100%;
     position: fixed;
@@ -6,13 +6,13 @@
     background-color: var(--main-color);
 }
 
-.Header h1 {
+.header h1 {
     float: left;
     color: white;
     /*margin-left: 1rem; */
 }
 
-.Header .LanguageSelector {
+.header .languageSelector {
     float: right;
     width: 25%;
 }
