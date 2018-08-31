@@ -13,6 +13,7 @@ import locale_en from 'react-intl/locale-data/en';
 import locale_de from 'react-intl/locale-data/de';
 import messages_de from './Translations/de.json';
 import messages_en from './Translations/en.json';
+import {Breadcrumbs} from "./Components/Breadcrumbs/Breadcrumbs";
 
 //TODO: Why is [...] used? What does it mean?
 addLocaleData([...locale_en, ...locale_de]);
@@ -72,22 +73,23 @@ class App extends Component {
                 <Router>
                     <div className="app">
 
-                        <div className="pageContent container-60-40">
+                        <div className="pageContent">
 
                             <Header onChangeLanguage={this.handleChangeLanguage}/>
 
                             <header>
                                 <MainMenu/>
+                                <Breadcrumbs/>
                             </header>
 
                             <Switch>
                                 <Route exact path="/" component={Home}/>
-                                <Route exact path="/about" component={About}/>
+                                <Route exact path="/hearingloss" component={About}/>
                                 <Route exact path="/hearingloss/types" component={Types}/>
                                 <Route exact path="/hearingloss/cause" component={Cause}/>
                                 <Route exact path="/hearingloss/degree" component={Degree}/>
                                 <Route exact path="/hearingloss/definition" component={Definition}/>
-                                <Route exact path="/simulator" component={Simulator}/>
+                                <Route exact path="/hearingloss/simulator" component={Simulator}/>
                             </Switch>
                         </div>
                     </div>

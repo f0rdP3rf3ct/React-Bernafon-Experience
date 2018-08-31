@@ -16,7 +16,7 @@ export const Home = () => (
         </div>
 
         <div className="item-side">
-            <Link to="/about" className="button-style">
+            <Link to="/hearingloss" className="main-button">
                 <FormattedMessage id="app.home.button.start"/>
             </Link>
         </div>
