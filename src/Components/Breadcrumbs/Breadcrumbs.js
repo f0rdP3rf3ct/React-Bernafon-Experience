@@ -12,6 +12,6 @@ export const Breadcrumbs = () =>
         const place = parts[parts.length - 1];
         parts = parts.slice(1, parts.length - 1);
 
-        return <p>{parts.map(Crumb)}/{place}</p>
+        return <p>{parts.map(Crumb)}{place}</p>
     }}
     />;

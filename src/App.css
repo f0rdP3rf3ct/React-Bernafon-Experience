@@ -123,3 +123,18 @@
 .item-side img {
     width: 100%;
 }
+
+.crumb {
+    text-decoration: none;
+    color: var(--main-color);
+}
+
+.crumb:after {
+    content: '\64';
+
+    display: inline;
+
+    font-family: "bernafonexperience";
+    font-size: 1rem;
+
+}
