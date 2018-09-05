@@ -3,6 +3,6 @@
   "plugins" : [
     [ "react-intl", {
       "messagesDir": "build/messages"
-    }]
+    }, "react-css-modules"]
   ]
 }

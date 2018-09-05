@@ -1,0 +1,52 @@
+@import '../../CSS/defaults';
+@import '../../CSS/variables';
+
+/**
+* Module specific vars
+*/
+$bernafonLayerHeight: 7px;
+$breadcrumbWrapperBackgroundColor: #f5f5f5;
+
+/**
+* Defintions
+*/
+
+.bernafonLayer {
+  position: fixed;
+
+  top: 0;
+  left: 0;
+  right: 0;
+
+  width: 100%;
+  height: $bernafonLayerHeight;
+}
+
+.breadcrumbWrapper {
+  background: $breadcrumbWrapperBackgroundColor;
+  padding: 1rem 0 0.5rem 0;
+}
+
+.header {
+  position: absolute;
+  top: 0;
+
+  margin-top: $bernafonLayerHeight;
+  padding: 1rem 0;
+
+  height: 5rem;
+  width: 100%;
+}
+
+.top {
+  margin-bottom: 1rem;
+}
+
+.bottom {
+  margin-bottom: 1rem;
+}
+
+.languageSelector {
+  float: right;
+  width: 25%;
+}

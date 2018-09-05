@@ -1,0 +1,35 @@
+@import '../../CSS/_variables';
+
+/**
+* Module specific vars
+*/
+$playerColor: $mainColor;
+$playerIconFont: $iconFont;
+$iconPlaying: '\61';
+$iconPaused: '\62';
+
+.audioPlayer {
+  text-align: center;
+  color: $playerColor;
+}
+
+.information {
+  font-size: 3rem;
+  margin: 0;
+}
+
+.iconPlaying, .iconPaused {
+  font-size: 4rem;
+  padding: 0.5rem 0;
+  font-family: $playerIconFont;
+}
+
+.iconPlaying:before {
+  content: $iconPlaying;
+  font-family: $playerIconFont;
+}
+
+.iconPaused:before {
+  content: $iconPaused;
+  font-family: $playerIconFont;
+}

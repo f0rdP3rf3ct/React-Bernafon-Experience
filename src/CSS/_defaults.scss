@@ -1,0 +1,112 @@
+@import './_variables.scss';
+
+/**
+* Module specific vars
+*/
+$buttonFont: $mainFont;
+$buttonIconFont: $iconFont;
+$buttonIconBackgroundColor: rgb(255, 255, 255);
+$buttonColor: $mainColor;
+$buttonIcon: '\63';
+$hoverColor: rgb(128, 128, 128);
+
+/**
+* Text
+*/
+
+h1 {
+  font-family: $heavyFont;
+}
+
+p {
+  font-family: $lightFont;
+}
+
+.mainTitle {
+  font-family: $heavyFont;
+}
+
+.mainParagraph {
+  font-family: $lightFont;
+  font-size: 1.5rem;
+
+  line-height: 150%;
+
+  padding: 0.5rem 0;
+
+  border-top: 1px solid $mainColor;
+  border-bottom: 1px solid $mainColor;
+}
+
+/**
+* Buttons
+*/
+
+.textButton,
+.mainButton {
+
+  text-decoration: none;
+  display: inline-block;
+
+  font-family: $buttonFont;
+  text-align: center;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+
+  line-height: 1;
+  color: white;
+
+  border: 1px solid white;
+  border-radius: 50px;
+
+  background-color: $buttonColor;
+
+  &:hover {
+    background-color: $hoverColor;
+    cursor: pointer;
+  }
+
+  &:focus {
+    outline: 0;
+  }
+
+  &.active {
+    background-color: $hoverColor;
+    &:before {
+      color: $hoverColor;
+    }
+  }
+}
+
+.textButton {
+  padding: 1rem 1rem 0.5rem 1rem;
+}
+
+.mainButton {
+
+  padding: 0.1rem 1.3rem 0.5rem 1rem;
+
+  &:before {
+    content: $buttonIcon;
+
+    display: inline-block;
+    position: relative;
+
+    font-family: $buttonIconFont;
+    text-transform: none;
+
+    color: $buttonColor;
+
+    margin: 0.2rem 0.8rem 0.2rem -0.5rem;
+    padding: 0.5rem;
+
+    border-radius: 50%;
+    background-color: $buttonIconBackgroundColor;
+    top: 0.2rem;
+  }
+
+  &:hover:before {
+    color: $hoverColor;
+  }
+
+}

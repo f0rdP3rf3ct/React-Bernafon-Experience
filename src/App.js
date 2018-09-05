@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
-import {IntlProvider, FormattedMessage, addLocaleData} from 'react-intl';
-import {BrowserRouter as Router, Route, Link, Switch} from 'react-router-dom';
+import {IntlProvider, addLocaleData} from 'react-intl';
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import Header from './Components/Header/Header';
 import {Home, About, Types, Cause, Degree, Simulator, Definition} from './Components/Views';
-import './CSS/Variables.css';
-import './App.css';
+import './CSS/_fonts.scss';
+import styles from './App.module.scss';
 
 /**
  * Lang. imports
@@ -13,7 +13,6 @@ import locale_en from 'react-intl/locale-data/en';
 import locale_de from 'react-intl/locale-data/de';
 import messages_de from './Translations/de.json';
 import messages_en from './Translations/en.json';
-import {Breadcrumbs} from "./Components/Breadcrumbs/Breadcrumbs";
 
 //TODO: Why is [...] used? What does it mean?
 addLocaleData([...locale_en, ...locale_de]);
@@ -26,19 +25,6 @@ let i18nConfig = {
     locale: 'en',
     messages: messages_en
 };
-
-/**
- * Main Menu Component
- */
-const MainMenu = () => (
-    <div>
-        <Link to="/">
-            <button>
-                <FormattedMessage id="app.navigation.home"/>
-            </button>
-        </Link>
-    </div>
-);
 
 /**
  * App Component
@@ -71,26 +57,24 @@ class App extends Component {
         return (
             <IntlProvider key={i18nConfig.locale} locale={i18nConfig.locale} messages={i18nConfig.messages}>
                 <Router>
-                    <div className="app">
+                    <div className={styles['container-10-80-10']}>
 
-                        <div className="pageContent">
+                        <div className={styles.app}>
 
-                            <Header onChangeLanguage={this.handleChangeLanguage}/>
+                            <div className={styles.pageContent}>
 
-                            <header>
-                                <MainMenu/>
-                                <Breadcrumbs/>
-                            </header>
+                                <Header onChangeLanguage={this.handleChangeLanguage}/>
 
-                            <Switch>
-                                <Route exact path="/" component={Home}/>
-                                <Route exact path="/hearingloss" component={About}/>
-                                <Route exact path="/hearingloss/types" component={Types}/>
-                                <Route exact path="/hearingloss/cause" component={Cause}/>
-                                <Route exact path="/hearingloss/degree" component={Degree}/>
-                                <Route exact path="/hearingloss/definition" component={Definition}/>
-                                <Route exact path="/hearingloss/simulator" component={Simulator}/>
-                            </Switch>
+                                <Switch>
+                                    <Route exact path="/" component={Home}/>
+                                    <Route exact path="/hearingloss" component={About}/>
+                                    <Route exact path="/hearingloss/types" component={Types}/>
+                                    <Route exact path="/hearingloss/cause" component={Cause}/>
+                                    <Route exact path="/hearingloss/degree" component={Degree}/>
+                                    <Route exact path="/hearingloss/definition" component={Definition}/>
+                                    <Route exact path="/hearingloss/simulator" component={Simulator}/>
+                                </Switch>
+                            </div>
                         </div>
                     </div>
                 </Router>

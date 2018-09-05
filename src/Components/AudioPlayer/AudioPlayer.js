@@ -1,9 +1,25 @@
 import React, {Component} from 'react';
 import Sound from "react-sound";
 import honksound from "../../Files/Audio/sample.mp3";
-import '../../CSS/fonts.css';
-import './AudioPlayer.css';
+import styles from './AudioPlayer.module.scss';
 
+/**
+ * PlayState Component
+ */
+export const PlayState = (props) =>  {
+    const isPlaying = props.isPlaying;
+
+    if(isPlaying === 'PAUSED') {
+        return <div onClick={props.onClick} className={styles.iconPlaying} />
+    }
+
+    return <div onClick={props.onClick} className={styles.iconPaused} />
+};
+
+
+/**
+ * Audioplayer
+ */
 class AudioPlayer extends Component {
     state = {
         playState: 'PAUSED',
@@ -37,6 +53,7 @@ class AudioPlayer extends Component {
      * Toggle Soundstate
      */
     handleSoundState = () => {
+        console.log('change sound state');
         const playState = this.state.playState === 'PLAYING' ? 'PAUSED' : 'PLAYING';
         this.setState({ playState });
     };
@@ -98,7 +115,7 @@ class AudioPlayer extends Component {
                 {this.state.loading === true ? <h1>Loading...</h1> : null }
 
                 {/*Reflects information state*/}
-                <div className="information">
+                <div className={styles.information}>
                     <p>{this.convertMSToFormattedString(this.state.position)}</p>
                 </div>
 
@@ -113,7 +130,7 @@ class AudioPlayer extends Component {
                 />
 
                 {/* Reflect playstate */}
-                <div onClick={this.handleSoundState} className={`icon icon-${this.state.playState}`} />
+                <PlayState isPlaying={this.state.playState} onClick={this.handleSoundState} />,
 
                 <Sound
                     url={honksound}

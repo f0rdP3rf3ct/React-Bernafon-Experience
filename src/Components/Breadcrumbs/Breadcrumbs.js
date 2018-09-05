@@ -1,6 +1,7 @@
 import React from 'react';
 import {Route} from 'react-router-dom';
 import {Crumb} from './Crumb';
+import styles from './Breadcrumbs.module.scss';
 
 export const Breadcrumbs = () =>
 
@@ -12,6 +13,6 @@ export const Breadcrumbs = () =>
         const place = parts[parts.length - 1];
         parts = parts.slice(1, parts.length - 1);
 
-        return <p>{parts.map(Crumb)}{place}</p>
+        return <span className={styles.breadcrumb}>{parts.map(Crumb)}{place}</span>
     }}
     />;

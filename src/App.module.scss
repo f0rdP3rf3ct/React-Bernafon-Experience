@@ -1,0 +1,18 @@
+@import './CSS/layout';
+
+/**
+* Module specific vars
+*/
+$contentOffset: 12rem;
+
+/**
+* Defintions
+*/
+.app {
+  grid-area: content;
+  position: relative;
+}
+
+.pageContent {
+  margin-top: $contentOffset;
+}
