@@ -1,0 +1,42 @@
+@import '../../CSS/_variables';
+
+.music, .speech, .nature {
+  font-family: $iconFont;
+  color: $mainColor;
+  font-size: 3rem;
+}
+
+.music:before {
+  content: '\65';
+}
+
+.speech:before {
+  content: '\66';
+}
+
+.nature:before {
+  content: '\67';
+}
+
+.container-25-25-25-25 {
+  display: grid;
+  grid-template-rows: auto;
+  grid-template-columns: 25% 25% 25% 25% ;
+  grid-template-areas: "icon player1 player2 player3";
+}
+
+.itemIcon {
+  grid-area: icon;
+}
+
+.itemPlayer1 {
+  grid-area: player1
+}
+
+.itemPlayer2 {
+  grid-area: player2
+}
+
+.itemPlayer3 {
+  grid-area: player3
+}
