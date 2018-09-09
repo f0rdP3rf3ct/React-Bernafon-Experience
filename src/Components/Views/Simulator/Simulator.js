@@ -6,8 +6,44 @@ import audioSpeech from "../../../Files/Audio/discussion_sample.mp3";
 
 export class Simulator extends Component {
 
-    onAudioCollectionChange = (target) => {
+    state = {
+        audioCollections: Array(3).fill(null)
+    };
 
+    /**
+     * Renders collection
+     * @param i
+     * @param icon
+     * @param audioFiles
+     * @returns {*}
+     */
+    renderAudioCollection = (i, icon, audioFiles) => {
+        return (
+            <AudioCollection
+                index={i}
+                onAudioCollectionChange={this.onAudioCollectionChange}
+                onActiveCollection={this.state.audioCollections[i]}
+                icon={icon}
+                audiofile={audioFiles}/>
+        )
+    };
+
+    /**
+     * Registers changes on any of the audioCollections and sets canPlay.
+     * @param target
+     */
+    onAudioCollectionChange = (target) => {
+        const isActiveCollection = this.state.audioCollections.slice();
+
+        for (var i = 0; i < isActiveCollection.length; i++) {
+            if (i !== target.props.index) {
+                isActiveCollection[i] = false
+            } else {
+                isActiveCollection[i] = true
+            }
+        }
+
+        this.setState({audioCollections: isActiveCollection});
     };
 
     render() {
@@ -20,9 +56,9 @@ export class Simulator extends Component {
                     <FormattedMessage id="app.simulator.types.intro"/>
                 </p>
 
-                <AudioCollection onAudioCollectionChange={this.onAudioCollectionChange} icon={"speech"} audiofile={audioSpeech}/>
-                <AudioCollection onAudioCollectionChange={this.onAudioCollectionChange} icon={"nature"} audiofile={audioSpeech}/>
-                <AudioCollection onAudioCollectionChange={this.onAudioCollectionChange} icon={"music"} audiofile={audioSpeech}/>
+                {this.renderAudioCollection(0, "speech", audioSpeech)}
+                {this.renderAudioCollection(1, "nature", audioSpeech)}
+                {this.renderAudioCollection(2, "music", audioSpeech)}
 
             </Fragment>
         )

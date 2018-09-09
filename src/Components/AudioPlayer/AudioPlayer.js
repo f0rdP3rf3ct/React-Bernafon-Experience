@@ -27,17 +27,13 @@ class AudioPlayer extends Component {
         loading: true
     };
 
-    componentDidMount() {
-        const selector = `audioPlayer ${this.props.id}`;
-        this.progressbar = document.getElementsByClassName(selector)[0].getElementsByClassName('progress')[0];
-    }
-
     /**
-     * Toggle Soundstate
+     * Toggle Soundstate and pass self to parent when player changes to PLAY
      */
     handleSoundState = () => {
         // Inform parent that this instance started playing
-        if(this.state.playState === 'PAUSED') {
+        if (this.state.playState === 'PAUSED') {
+            // Notify collection that player started playing
             this.props.onPlayerStartsPlaying(this);
         }
 
@@ -50,6 +46,12 @@ class AudioPlayer extends Component {
      * @param e
      */
     handlePause = (e) => {
+        // Set state to pause if its not already.
+        if(this.state.playState !== 'PAUSED') {
+            this.setState({playState : 'PAUSED'})
+        }
+
+        // Call parent callback if state switched to PAUSE
         this.props.onChange(e.position, this);
     };
 
@@ -64,16 +66,21 @@ class AudioPlayer extends Component {
         return (
             <div className={`audioPlayer ${this.props.id}`}>
 
+                <p>IsActivePlayer: {this.props.isActivePlayer.toString()}</p>
+
                 {/* Reflect playstate */}
                 <PlayState isPlaying={this.state.playState} onClick={this.handleSoundState}/>
 
                 <Sound
                     url={this.props.audiofile}
                     playFromPosition={this.props.playFrom}
-                    onPause={(e) => this.handlePause(e)}
                     onLoad={(e) => this.handleLoad(e)}
-                    playStatus={this.state.playState}
+                    onPause={(e) => this.handlePause(e)}
+                    playStatus={
+                        this.props.onActiveCollection === false || this.props.isActivePlayer === false ? 'PAUSED' : this.state.playState
+                    }
                     volume={this.props.volume}
+                    autoLoad={true}
                 />
             </div>
         );

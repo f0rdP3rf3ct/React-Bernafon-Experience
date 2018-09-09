@@ -6,21 +6,53 @@ export class AudioCollection extends Component {
 
     state = {
         position: 0,
+        isActivePlayer: Array(3).fill(false)
     };
 
-    currentPlayer = undefined;
-
-    handleSoundState = (position, target) => {
+    /**
+     * Stores position of audiofile, when player is paused
+     * @param position
+     */
+    handleSoundState = (position) => {
         this.setState({
             position: position
         });
     };
 
+    /**
+     * Ensures that only one Audioplayer of this collection is playing.
+     * @param target
+     */
     onPlayerStartsPlaying = (target) => {
-        if (this.currentPlayer !== undefined) {
-            this.currentPlayer.setState({playState: 'PAUSED'});
-        }
-        this.currentPlayer = target;
+
+        const _isActivePlayer = this.state.isActivePlayer.map((isPlayer, i) => {
+                const isTarget = target.props.id === 'player-' + i ? true : false
+                return isTarget;
+            }
+        );
+
+        this.setState({ isActivePlayer : _isActivePlayer});
+
+        // Passes change of playState to the Simulator
+        this.props.onAudioCollectionChange(this);
+    };
+
+    /**
+     * Renders instance of AudioPlayer
+     * @param i
+     * @param audioFile
+     * @returns {*}
+     */
+    renderAudioPlayer = (i, audioFile) => {
+        return (
+            <AudioPlayer id={"player-" + i}
+                         isActivePlayer={this.state.isActivePlayer[i]}
+                         onActiveCollection={this.props.onActiveCollection}
+                         onPlayerStartsPlaying={this.onPlayerStartsPlaying}
+                         playFrom={this.state.position}
+                         onChange={this.handleSoundState}
+                         audiofile={audioFile}/>
+        )
     };
 
     render() {
@@ -31,28 +63,13 @@ export class AudioCollection extends Component {
                         <span className={styles[this.props.icon]}></span>
                     </div>
                     <div className={styles.itemPlayer1}>
-                        <AudioPlayer id="player-1"
-                                     volume={100}
-                                     playFrom={this.state.position}
-                                     onPlayerStartsPlaying={this.onPlayerStartsPlaying}
-                                     onChange={this.handleSoundState}
-                                     audiofile={this.props.audiofile}/>
+                        {this.renderAudioPlayer(0, this.props.audiofile)}
                     </div>
                     <div className={styles.itemPlayer2}>
-                        <AudioPlayer id="player-2"
-                                     volume={100}
-                                     playFrom={this.state.position}
-                                     onPlayerStartsPlaying={this.onPlayerStartsPlaying}
-                                     onChange={this.handleSoundState}
-                                     audiofile={this.props.audiofile}/>
+                        {this.renderAudioPlayer(1, this.props.audiofile)}
                     </div>
                     <div className={styles.itemPlayer3}>
-                        <AudioPlayer id="player-3"
-                                     volume={100}
-                                     playFrom={this.state.position}
-                                     onPlayerStartsPlaying={this.onPlayerStartsPlaying}
-                                     onChange={this.handleSoundState}
-                                     audiofile={this.props.audiofile}/>
+                        {this.renderAudioPlayer(2, this.props.audiofile)}
                     </div>
                 </div>
             </Fragment>
