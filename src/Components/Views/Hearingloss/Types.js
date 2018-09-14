@@ -1,11 +1,26 @@
 import React, {Component, Fragment} from 'react';
 import {FormattedMessage, FormattedHTMLMessage} from 'react-intl';
 import styles from './Hearingloss.module.scss';
+import {HeaderImage} from "../../HeaderImage/HeaderImage";
+
+import titleImage from "../../../Files/Images/bf_exp_img_header_about.png";
+
+import hearingLossImageSenorineural from "../../../Files/Images/bf_exp_img_hearingloss_sensorineural.png";
+import hearingLossImageConductive from "../../../Files/Images/bf_exp_img_hearingloss_conductive.png";
+import hearingLossImageMixed from "../../../Files/Images/bf_exp_img_hearingloss_mixed.png";
+import hearingLossImage from "../../../Files/Images/bf_exp_img_hearingloss_intro.png";
 
 export class Types extends Component {
 
     state = {
         displayedText: 'intro'
+    };
+
+    imgMap = {
+        intro: hearingLossImage,
+        sensorineural: hearingLossImageSenorineural,
+        conductive: hearingLossImageConductive,
+        mixed: hearingLossImageMixed
     };
 
     handleOnClick = (typeSuffix, event) => {
@@ -32,13 +47,16 @@ export class Types extends Component {
     render() {
         return (
             <Fragment>
+
+                <HeaderImage imgUrl={titleImage} alt={"Types of Hearingloss"}
+                             title={<FormattedMessage id="app.hearingloss.types.title"/>}/>
+
                 <div className={styles['container-60-40']}>
 
                     <div className={styles.itemMain}>
-                        <h1 className={styles.mainTitle}>
-                            <FormattedMessage id="app.hearingloss.types.title"/>
-                        </h1>
+                        <h1><FormattedHTMLMessage id={'app.hearingloss.types.title.' + this.state.displayedText}/></h1>
                         <p className={styles.mainParagraph}>
+                            <img width="100%" src={this.imgMap[this.state.displayedText]}/>
                             <FormattedHTMLMessage id={'app.hearingloss.types.text.' + this.state.displayedText}/>
                         </p>
                     </div>
@@ -63,6 +81,8 @@ export class Types extends Component {
                             </li>
                         </ul>
                     </div>
+
+
                 </div>
             </Fragment>
         )

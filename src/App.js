@@ -2,9 +2,10 @@ import React, {Component} from 'react';
 import {IntlProvider, addLocaleData} from 'react-intl';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import Header from './Components/Header/Header';
-import {Home, About, Types, Cause, Degree, Simulator, Definition} from './Components/Views';
+import {About, Types, Cause, Degree, Simulator, Definition, Audiogram} from './Components/Views';
 import './CSS/_fonts.scss';
 import styles from './App.module.scss';
+
 
 /**
  * Lang. imports
@@ -16,6 +17,7 @@ import messages_en from './Translations/en.json';
 
 //TODO: Why is [...] used? What does it mean?
 addLocaleData([...locale_en, ...locale_de]);
+
 
 /**
  * Locale setup
@@ -66,7 +68,8 @@ class App extends Component {
                                 <Header onChangeLanguage={this.handleChangeLanguage}/>
 
                                 <Switch>
-                                    <Route exact path="/" component={Home}/>
+                                    <Route exact path="/" component={About}/>
+                                    <Route exact path="/audiogram" component={Audiogram}/>
                                     <Route exact path="/hearingloss" component={About}/>
                                     <Route exact path="/hearingloss/types" component={Types}/>
                                     <Route exact path="/hearingloss/cause" component={Cause}/>

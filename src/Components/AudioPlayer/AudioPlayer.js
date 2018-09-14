@@ -66,8 +66,6 @@ class AudioPlayer extends Component {
         return (
             <div className={`audioPlayer ${this.props.id}`}>
 
-                <p>IsActivePlayer: {this.props.isActivePlayer.toString()}</p>
-
                 {/* Reflect playstate */}
                 <PlayState isPlaying={this.state.playState} onClick={this.handleSoundState}/>
 

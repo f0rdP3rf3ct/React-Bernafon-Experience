@@ -24,7 +24,6 @@ export class AudioCollection extends Component {
      * @param target
      */
     onPlayerStartsPlaying = (target) => {
-
         const _isActivePlayer = this.state.isActivePlayer.map((isPlayer, i) => {
                 const isTarget = target.props.id === 'player-' + i ? true : false
                 return isTarget;
@@ -34,7 +33,7 @@ export class AudioCollection extends Component {
         this.setState({ isActivePlayer : _isActivePlayer});
 
         // Passes change of playState to the Simulator
-        this.props.onAudioCollectionChange(this);
+        this.props.onAudioCollectionChange(this, target);
     };
 
     /**

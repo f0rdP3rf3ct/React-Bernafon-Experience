@@ -5,3 +5,4 @@ export * from './Hearingloss/Degree';
 export * from './Hearingloss/Types';
 export * from './Home/Home';
 export * from './Simulator/Simulator';
+export * from './Audiogram/Audiogram';

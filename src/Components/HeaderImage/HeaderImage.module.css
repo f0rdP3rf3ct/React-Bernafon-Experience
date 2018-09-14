@@ -1,0 +1,20 @@
+.wrapper {
+
+    overflow-y: hidden;
+    height: 150px;
+
+    .imgSrc {
+        z-index: 0;
+    }
+}
+
+.imgTitle {
+    position: absolute;
+    padding: 1.0rem;
+
+    color: white;
+
+    font-family: 'GillSansMTPro-Light';
+    font-size: 3rem;
+
+}

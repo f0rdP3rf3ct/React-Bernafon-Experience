@@ -18,6 +18,11 @@ const MainMenu = ({onChangeLanguage}) => (
             </button>
         </Link>
 
+        {/*TODO: Make this go back in  app history not in browser*/}
+        <button className={styles.textButton} onClick={() => (window.history.back())}>
+            <FormattedMessage id="app.navigation.back"/>
+        </button>
+
         <div className={styles.languageSelector}>
             <button className={styles.textButton} onClick={() => onChangeLanguage('EN')}>
                 <FormattedMessage id="app.navigation.language.en"/>
