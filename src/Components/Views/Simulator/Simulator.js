@@ -8,6 +8,7 @@ import sim40Image from "../../../Files/Images/bf_exp_img_simulator_40.png";
 import sim60Image from "../../../Files/Images/bf_exp_img_simulator_60.png";
 import {HeaderImage} from "../../HeaderImage/HeaderImage";
 import aboutImage from "../../../Files/Images/bf_exp_img_header_about.png";
+import {Link} from "react-router-dom";
 
 
 export class Simulator extends Component {
@@ -72,9 +73,14 @@ export class Simulator extends Component {
 
                 <HeaderImage imgUrl={aboutImage} alt={"About Hearing"} title={<FormattedMessage id="app.simulator.title"/>} />
 
+                <Link to="/audiogram" className={styles.mainButton}>
+                    <FormattedMessage id="app.hearingloss.degree.button.audiogram"/>
+                </Link>
+
                 <div className={styles['container-60-40']}>
                     <div className={styles.itemMain}>
-                        <p>
+
+                        <p className={styles.mainParagraph}>
                             <FormattedMessage id="app.simulator.intro"/>
                         </p>
 

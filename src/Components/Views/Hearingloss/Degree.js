@@ -15,62 +15,11 @@ export class Degree extends Component {
         image: img_normalhearing
     };
 
-    componentDidMount = () => {
-
-        const initialSelection = 'normalhearing';
-
-        // Define initial selection
-        let btnElement = document.getElementById(initialSelection);
-        btnElement.classList.add(styles.active);
-        this.prevButtonElement = btnElement;
-    };
-
-    handleOnClick = (type, event) => {
-
-        // Assign active class and new text to state
-        //TODO: Refactor - is duplicated code of Types.js
-        event.currentTarget.classList.add(styles.active);
-
-        if (typeof this.prevButtonElement !== 'undefined') {
-            if (event.currentTarget !== this.prevButtonElement) {
-                this.prevButtonElement.classList.remove(styles.active);
-            }
-        }
-
-        this.prevButtonElement = event.currentTarget;
-
-        let image = '';
-
-        switch (type) {
-            case 'normalhearing':
-                image = img_normalhearing;
-                break;
-            case 'mildhearing':
-                image = img_mildhearing;
-                break;
-            case 'moderatehearing':
-                image = img_moderatehearing;
-                break;
-            case 'profoundhearing':
-                image = img_profoundhearing;
-                break;
-            default:
-                image = img_normalhearing;
-        }
-
-        this.setState({
-            text: type,
-            image: image
-        });
-
-    };
-
     render() {
         return (
             <Fragment>
 
                 <div className={styles['container-60-40']}>
-
 
                     <div className={styles.itemMain}>
 
@@ -82,45 +31,10 @@ export class Degree extends Component {
                             <FormattedMessage id="app.hearingloss.degree.title"/>
                         </h1>
 
-                        <div className={styles['container-50-50']}>
-                            <div className={styles.itemMain}>
-                                <ul className={styles.nonDectoratedList}>
-                                    <li className={styles.listItem}>
-                                        <button id="normalhearing" className={styles.textButton}
-                                                onClick={(e) => this.handleOnClick('normalhearing', e)}>
-                                            <FormattedHTMLMessage id="app.hearingloss.degree.button.normalhearing"/>
-                                        </button>
+                        <p className={styles.mainParagraph}>
+                            <FormattedHTMLMessage id="app.hearingloss.degree.intro"/>
+                        </p>
 
-                                    </li>
-                                    <li className={styles.listItem}>
-                                        <button id="mildhearing" className={styles.textButton}
-                                                onClick={(e) => this.handleOnClick('mildhearing', e)}>
-                                            <FormattedHTMLMessage id="app.hearingloss.degree.button.mildhearing"/>
-                                        </button>
-                                    </li>
-                                    <li className={styles.listItem}>
-                                        <button id="moderatehearing" className={styles.textButton}
-                                                onClick={(e) => this.handleOnClick('moderatehearing', e)}>
-                                            <FormattedHTMLMessage id="app.hearingloss.degree.button.moderatehearing"/>
-                                        </button>
-                                    </li>
-                                    <li className={styles.listItem}>
-                                        <button id="profoundhearing" className={styles.textButton}
-                                                onClick={(e) => this.handleOnClick('profoundhearing', e)}>
-                                            <FormattedHTMLMessage id="app.hearingloss.degree.button.profoundhearing"/>
-                                        </button>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div className={styles.itemSide}>
-                                <h1 className={styles.mainTitle}>
-                                    <FormattedHTMLMessage id={"app.hearingloss.degree.title." + this.state.text}/>
-                                </h1>
-                                <p className={styles.mainParagraph}>
-                                    <FormattedHTMLMessage id={"app.hearingloss.degree.text." + this.state.text}/>
-                                </p>
-                            </div>
-                        </div>
                     </div>
 
                     <div className={styles.itemSide}>
