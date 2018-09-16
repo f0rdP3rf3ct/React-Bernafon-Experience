@@ -56,7 +56,7 @@ export class Types extends Component {
                     <div className={styles.itemMain}>
                         <h1><FormattedHTMLMessage id={'app.hearingloss.types.title.' + this.state.displayedText}/></h1>
                         <p className={styles.mainParagraph}>
-                            <img width="100%" src={this.imgMap[this.state.displayedText]}/>
+                            <img alt="types-hearingloss" width="100%" src={this.imgMap[this.state.displayedText]}/>
                             <FormattedHTMLMessage id={'app.hearingloss.types.text.' + this.state.displayedText}/>
                         </p>
                     </div>

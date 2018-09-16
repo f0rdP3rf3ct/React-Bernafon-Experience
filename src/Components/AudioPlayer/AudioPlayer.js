@@ -22,7 +22,7 @@ export const PlayState = (props) => {
 class AudioPlayer extends Component {
 
     state = {
-        playState: 'PAUSED',
+      //  playState: 'PAUSED',
         position: 0,
         loading: true
     };
@@ -30,15 +30,11 @@ class AudioPlayer extends Component {
     /**
      * Toggle Soundstate and pass self to parent when player changes to PLAY
      */
-    handleSoundState = () => {
-        // Inform parent that this instance started playing
-        if (this.state.playState === 'PAUSED') {
-            // Notify collection that player started playing
-            this.props.onPlayerStartsPlaying(this);
-        }
+    handleSoundState = (target, e) => {
+       // const playState = this.state.playState === 'PLAYING' ? 'PAUSED' : 'PLAYING';
+      //  this.setState({playState});
 
-        const playState = this.state.playState === 'PLAYING' ? 'PAUSED' : 'PLAYING';
-        this.setState({playState});
+        this.props.onClick(target, e);
     };
 
     /**
@@ -47,12 +43,13 @@ class AudioPlayer extends Component {
      */
     handlePause = (e) => {
         // Set state to pause if its not already.
+        /*
         if(this.state.playState !== 'PAUSED') {
             this.setState({playState : 'PAUSED'})
         }
+        */
 
-        // Call parent callback if state switched to PAUSE
-        this.props.onChange(e.position, this);
+        this.setState({position: e.position});
     };
 
     /**
@@ -64,21 +61,19 @@ class AudioPlayer extends Component {
 
     render() {
         return (
-            <div className={`audioPlayer ${this.props.id}`}>
+            <div className={`audioPlayer`}>
 
                 {/* Reflect playstate */}
-                <PlayState isPlaying={this.state.playState} onClick={this.handleSoundState}/>
+                <PlayState isPlaying={this.props.playState} onClick={(e) => this.handleSoundState(this, e)}/>
 
                 <Sound
                     url={this.props.audiofile}
                     playFromPosition={this.props.playFrom}
                     onLoad={(e) => this.handleLoad(e)}
                     onPause={(e) => this.handlePause(e)}
-                    playStatus={
-                        this.props.onActiveCollection === false || this.props.isActivePlayer === false ? 'PAUSED' : this.state.playState
-                    }
                     volume={this.props.volume}
                     autoLoad={true}
+                    playStatus={this.props.playState}
                 />
             </div>
         );
