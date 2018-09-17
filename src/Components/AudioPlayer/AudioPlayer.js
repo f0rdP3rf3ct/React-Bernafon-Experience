@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {Component, Fragment} from 'react';
 import Sound from "react-sound";
 import styles from './AudioPlayer.module.scss';
 
@@ -22,7 +22,6 @@ export const PlayState = (props) => {
 class AudioPlayer extends Component {
 
     state = {
-      //  playState: 'PAUSED',
         position: 0,
         loading: true
     };
@@ -31,9 +30,6 @@ class AudioPlayer extends Component {
      * Toggle Soundstate and pass self to parent when player changes to PLAY
      */
     handleSoundState = (target, e) => {
-       // const playState = this.state.playState === 'PLAYING' ? 'PAUSED' : 'PLAYING';
-      //  this.setState({playState});
-
         this.props.onClick(target, e);
     };
 
@@ -43,39 +39,38 @@ class AudioPlayer extends Component {
      */
     handlePause = (e) => {
         // Set state to pause if its not already.
-        /*
-        if(this.state.playState !== 'PAUSED') {
-            this.setState({playState : 'PAUSED'})
-        }
-        */
-
         this.setState({position: e.position});
     };
 
     /**
      * Soundfile is completely loaded
      */
-    handleLoad = () => {
+    handleLoad = (e) => {
         this.setState({loading: false})
+    };
+
+    handlePlaying = (e) => {
+        this.setState({position: e.position})
     };
 
     render() {
         return (
-            <div className={`audioPlayer`}>
-
+            <Fragment>
                 {/* Reflect playstate */}
-                <PlayState isPlaying={this.props.playState} onClick={(e) => this.handleSoundState(this, e)}/>
+                {/*<PlayState isPlaying={this.props.playState} onClick={(e) => this.handleSoundState(this, e)}/>*/}
 
                 <Sound
                     url={this.props.audiofile}
-                    playFromPosition={this.props.playFrom}
+                    position={this.state.position}
                     onLoad={(e) => this.handleLoad(e)}
                     onPause={(e) => this.handlePause(e)}
+                    onPlaying={(e) => this.handlePlaying(e)}
                     volume={this.props.volume}
                     autoLoad={true}
+                    loop={true}
                     playStatus={this.props.playState}
                 />
-            </div>
+            </Fragment>
         );
     }
 }

@@ -27,5 +27,79 @@
 }
 
 .ageButton {
+
+  text-decoration: none;
+  display: inline-block;
+
   font-size: 3rem;
+  line-height: 1;
+
+  padding: 1.5rem 3rem;
+
+  background-color: transparent;
+
+  border: 1px solid $mainColor;
+  border-radius: 50px;
+
+  color: lightgray;
+
+  &:focus {
+    outline: 0;
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.ageTitle {
+  font-family: $mainFont;
+  text-align: center;
+  font-size: 2rem;
+
+  &:after {
+    content: '';
+
+    position: relative;
+    display: block;
+
+    width: 100%;
+
+    border-bottom: solid 2px $mainColor;
+
+  }
+}
+
+.soundTable {
+  width: 100%;
+
+  td {
+    text-align: center;
+    border-bottom: 1px dotted black;
+    padding: 1rem 0;
+  }
+
+}
+
+.active {
+  background-color: $mainColor;
+}
+
+// Icons
+.music, .speech, .nature {
+  font-family: $iconFont;
+  font-size: 2rem;
+}
+
+
+.music:before {
+  content: '\65';
+}
+
+.speech:before {
+  content: '\66';
+}
+
+.nature:before {
+  content: '\67';
 }
