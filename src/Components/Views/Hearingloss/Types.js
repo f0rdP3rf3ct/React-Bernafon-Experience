@@ -52,12 +52,10 @@ export class Types extends Component {
                              title={<FormattedMessage id="app.hearingloss.types.title"/>}/>
 
 
-                <h1><FormattedHTMLMessage id={'app.hearingloss.types.title.' + this.state.displayedText}/></h1>
-
                 <div className={styles["container-60-40"]}>
 
                     <div className={styles.itemMain}>
-                        <table width="80%" className={styles.infoTable}>
+                        <table width="95%" className={styles.infoTable}>
                             <tr>
                                 <td className={styles.infographic} colspan="2">
                                     <img alt="types-hearingloss" width="100%"
@@ -90,6 +88,7 @@ export class Types extends Component {
                     </div>
 
                     <div className={styles.itemSide}>
+                        <h1 className={styles.title}><FormattedHTMLMessage id={'app.hearingloss.types.title.' + this.state.displayedText}/></h1>
                         <p className={styles.mainParagraph}>
                             <FormattedHTMLMessage id={'app.hearingloss.types.text.' + this.state.displayedText}/>
                         </p>
