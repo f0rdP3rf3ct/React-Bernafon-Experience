@@ -1,12 +1,16 @@
 @import '../../../CSS/defaults';
 @import '../../../CSS/layout';
 
-.nonDectoratedList {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
+.textButton {
+  width: 100%;
+  padding: 1rem 0.5rem 0.5rem 1rem;
 }
 
-.listItem {
-  padding: 0.5rem;
-}
+.infoTable {
+  height: 400px;
+
+  .infographic {
+    padding-bottom: 2rem;
+  }
+ }
+

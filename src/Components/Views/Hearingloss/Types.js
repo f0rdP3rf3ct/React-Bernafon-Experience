@@ -5,10 +5,10 @@ import {HeaderImage} from "../../HeaderImage/HeaderImage";
 
 import titleImage from "../../../Files/Images/bf_exp_img_header_about.png";
 
-import hearingLossImageSenorineural from "../../../Files/Images/bf_exp_img_hearingloss_sensorineural.png";
-import hearingLossImageConductive from "../../../Files/Images/bf_exp_img_hearingloss_conductive.png";
-import hearingLossImageMixed from "../../../Files/Images/bf_exp_img_hearingloss_mixed.png";
-import hearingLossImage from "../../../Files/Images/bf_exp_img_hearingloss_intro.png";
+import hearingLossImageSenorineural from "../../../Files/Images/bf_exp_img_hearingloss_sensorineural.svg";
+import hearingLossImageConductive from "../../../Files/Images/bf_exp_img_hearingloss_conductive.svg";
+import hearingLossImageMixed from "../../../Files/Images/bf_exp_img_hearingloss_mixed.svg";
+import hearingLossImage from "../../../Files/Images/bf_exp_img_hearingloss.svg";
 
 export class Types extends Component {
 
@@ -51,39 +51,51 @@ export class Types extends Component {
                 <HeaderImage imgUrl={titleImage} alt={"Types of Hearingloss"}
                              title={<FormattedMessage id="app.hearingloss.types.title"/>}/>
 
-                <div className={styles['container-60-40']}>
+
+                <h1><FormattedHTMLMessage id={'app.hearingloss.types.title.' + this.state.displayedText}/></h1>
+
+                <div className={styles["container-60-40"]}>
 
                     <div className={styles.itemMain}>
-                        <h1><FormattedHTMLMessage id={'app.hearingloss.types.title.' + this.state.displayedText}/></h1>
+                        <table width="80%" className={styles.infoTable}>
+                            <tr>
+                                <td className={styles.infographic} colspan="2">
+                                    <img alt="types-hearingloss" width="100%"
+                                         src={this.imgMap[this.state.displayedText]}/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="50%">
+                                    <button className={styles.textButton}
+                                            onClick={(e) => this.handleOnClick('conductive', e)}>
+                                        <FormattedMessage id="app.hearingloss.types.button.conductive"/>
+                                    </button>
+                                </td>
+                                <td width="50%">
+                                    <button className={styles.textButton}
+                                            onClick={(e) => this.handleOnClick('sensorineural', e)}>
+                                        <FormattedMessage id="app.hearingloss.types.button.sensorineural"/>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colSpan="2">
+                                    <button stlye="width:100%" className={styles.textButton}
+                                            onClick={(e) => this.handleOnClick('mixed', e)}>
+                                        <FormattedMessage id="app.hearingloss.types.button.mixed"/>
+                                    </button>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div className={styles.itemSide}>
                         <p className={styles.mainParagraph}>
-                            <img alt="types-hearingloss" width="100%" src={this.imgMap[this.state.displayedText]}/>
                             <FormattedHTMLMessage id={'app.hearingloss.types.text.' + this.state.displayedText}/>
                         </p>
                     </div>
-                    <div className={styles.itemSide}>
-                        <ul className={styles.nonDectoratedList}>
-                            <li className={styles.listItem}>
-                                <button className={styles.textButton}
-                                        onClick={(e) => this.handleOnClick('sensorineural', e)}>
-                                    <FormattedMessage id="app.hearingloss.types.button.sensorineural"/>
-                                </button>
-                            </li>
-                            <li className={styles.listItem}>
-                                <button className={styles.textButton}
-                                        onClick={(e) => this.handleOnClick('conductive', e)}>
-                                    <FormattedMessage id="app.hearingloss.types.button.conductive"/>
-                                </button>
-                            </li>
-                            <li className={styles.listItem}>
-                                <button className={styles.textButton} onClick={(e) => this.handleOnClick('mixed', e)}>
-                                    <FormattedMessage id="app.hearingloss.types.button.mixed"/>
-                                </button>
-                            </li>
-                        </ul>
-                    </div>
-
-
                 </div>
+
             </Fragment>
         )
     }
