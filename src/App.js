@@ -3,8 +3,8 @@ import {IntlProvider, addLocaleData} from 'react-intl';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import Header from './Components/Header/Header';
 import {About, Types, Cause, Degree, Simulator, Definition, Audiogram} from './Components/Views';
-import './CSS/_fonts.scss';
-import styles from './App.module.scss';
+import './CSS/globals.fonts.css';
+import styles from './App.module.css';
 
 
 /**
@@ -59,25 +59,23 @@ class App extends Component {
         return (
             <IntlProvider key={i18nConfig.locale} locale={i18nConfig.locale} messages={i18nConfig.messages}>
                 <Router>
-                    <div className={styles['container-10-80-10']}>
 
-                        <div className={styles.app}>
+                    <div>
+                        <Header onChangeLanguage={this.handleChangeLanguage}/>
 
-                            <div className={styles.pageContent}>
+                        <div className={styles.grid}>
 
-                                <Header onChangeLanguage={this.handleChangeLanguage}/>
+                            <Switch>
+                                <Route exact path="/" component={About}/>
+                                <Route exact path="/audiogram" component={Audiogram}/>
+                                <Route exact path="/hearingloss" component={About}/>
+                                <Route exact path="/hearingloss/types" component={Types}/>
+                                <Route exact path="/hearingloss/cause" component={Cause}/>
+                                <Route exact path="/hearingloss/degree" component={Degree}/>
+                                <Route exact path="/hearingloss/definition" component={Definition}/>
+                                <Route exact path="/hearingloss/simulator" component={Simulator}/>
+                            </Switch>
 
-                                <Switch>
-                                    <Route exact path="/" component={About}/>
-                                    <Route exact path="/audiogram" component={Audiogram}/>
-                                    <Route exact path="/hearingloss" component={About}/>
-                                    <Route exact path="/hearingloss/types" component={Types}/>
-                                    <Route exact path="/hearingloss/cause" component={Cause}/>
-                                    <Route exact path="/hearingloss/degree" component={Degree}/>
-                                    <Route exact path="/hearingloss/definition" component={Definition}/>
-                                    <Route exact path="/hearingloss/simulator" component={Simulator}/>
-                                </Switch>
-                            </div>
                         </div>
                     </div>
                 </Router>

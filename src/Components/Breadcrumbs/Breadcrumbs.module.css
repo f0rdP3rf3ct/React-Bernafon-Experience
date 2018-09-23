@@ -1,0 +1,29 @@
+@import '../../CSS/globals.variables.css';
+
+.breadcrumb {
+  position: relative;
+  color: var(--inactiveColor);
+
+  font-family: var(--mainFont);
+  font-size: 1.5rem;
+
+  padding-left: 1rem;
+}
+
+.crumb {
+  color: var(--activeColor);
+  text-decoration: none;
+  margin-right: 1.1rem;
+
+  &:after {
+    content: var(--arrowIcon);
+
+    color: var(--mainColor);
+    font-family: var(--iconFont);
+    font-size: 1rem;
+
+    position: absolute;
+    top: 0.1rem;
+  }
+}
+

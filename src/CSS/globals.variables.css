@@ -1,0 +1,22 @@
+:root {
+    --iconFont: 'bernafonexperience';
+    --mainFont: 'GillSansMTPro-Book';
+    --lightFont: 'GillSansMTPro-Light';
+    --heavyFont: 'GillSansMTPro-Medium';
+
+    /* ICONS */
+    --arrowIcon: '\64';
+    --arrowButtonIcon: '\63';
+    --pauseIcon: '\62';
+    --playIcon: '\61';
+    --musicIcon: '\65';
+    --speechIcon: '\66';
+    --natureIcon: '\67';
+
+    /* COLORS */
+    --mainColor: rgb(204, 17, 34);
+    --mainGradient: linear-gradient(rgb(204, 17, 34) 0%, rgb(148, 14, 25) 100%);
+    --activeColor: rgb(204,16,34);
+    --inactiveColor: rgb(0, 0, 0);
+    --hoverColor: rgb(128,128,128);
+}

@@ -4,7 +4,7 @@ import img_mildhearing from '../../../Files/Images/bf_exp_img_mildhearing.png';
 import img_moderatehearing from '../../../Files/Images/bf_exp_img_moderatehearing.png';
 import img_normalhearing from '../../../Files/Images/bf_exp_img_normalhearing.png';
 import img_profoundhearing from '../../../Files/Images/bf_exp_img_profoundhearing.png';
-import styles from './Hearingloss.module.scss';
+import styles from './Hearingloss.module.css';
 import {Link} from "react-router-dom";
 
 

@@ -1,6 +1,6 @@
 import React, {Component, Fragment} from 'react';
 import {FormattedMessage} from 'react-intl';
-import styles from './Simulator.module.scss';
+import styles from './Simulator.module.css';
 import sim20Image from "../../../Files/Images/bf_exp_img_simulator_20.png";
 import sim60Image from "../../../Files/Images/bf_exp_img_simulator_40.png";
 import sim80Image from "../../../Files/Images/bf_exp_img_simulator_60.png";

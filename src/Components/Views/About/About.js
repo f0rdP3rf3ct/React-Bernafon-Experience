@@ -1,7 +1,7 @@
 import React, {Fragment} from 'react';
 import {FormattedMessage, FormattedHTMLMessage} from 'react-intl';
 import {Link} from "react-router-dom";
-import styles from './About.module.scss';
+import styles from './About.module.css';
 import {HeaderImage} from "../../HeaderImage/HeaderImage";
 import aboutImage from "../../../Files/Images/bf_exp_img_header_about.png";
 

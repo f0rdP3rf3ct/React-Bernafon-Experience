@@ -1,6 +1,6 @@
 import React from 'react';
 import {FormattedMessage} from 'react-intl';
-import styles from './Header.module.scss';
+import styles from './Header.module.css';
 import {Breadcrumbs} from "../Breadcrumbs/Breadcrumbs";
 import imgBernafonLayer from "../../Files/Images/BernafonLayer.svg";
 import {Link} from "react-router-dom";
@@ -37,18 +37,20 @@ const MainMenu = ({onChangeLanguage}) => (
 
 const Header = ({onChangeLanguage}) => (
     <div className={styles.header}>
+        <div className={styles.headerGrid}>
 
-        <div className={styles.top}>
-            <BernafonLayer/>
-            <MainMenu onChangeLanguage={onChangeLanguage}/>
-        </div>
-
-        <div className={styles.bottom}>
-            <div className={styles.breadcrumbWrapper}>
-                <Breadcrumbs/>
+            <div className={styles.top}>
+                <BernafonLayer/>
+                <MainMenu onChangeLanguage={onChangeLanguage}/>
             </div>
-        </div>
 
+            <div className={styles.bottom}>
+                <div className={styles.breadcrumbWrapper}>
+                    <Breadcrumbs/>
+                </div>
+            </div>
+
+        </div>
     </div>
 );
 

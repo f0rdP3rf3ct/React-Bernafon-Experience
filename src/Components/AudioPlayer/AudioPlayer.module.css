@@ -1,0 +1,27 @@
+@import '../../CSS/globals.variables.css';
+
+.audioPlayer {
+  text-align: center;
+  color: var(--mainColor);
+}
+
+.information {
+  font-size: 3rem;
+  margin: 0;
+}
+
+.iconPlaying, .iconPaused {
+  font-size: 4rem;
+  padding: 0.5rem 0;
+  font-family: var(--iconFont);
+}
+
+.iconPlaying:before {
+  content: var(--playIcon);
+  font-family: var(--iconFont);
+}
+
+.iconPaused:before {
+  content: var(--pauseIcon);
+  font-family: var(--iconFont);
+}

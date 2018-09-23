@@ -1,7 +1,7 @@
 import React from 'react';
 import {Route} from 'react-router-dom';
 import {Crumb} from './Crumb';
-import styles from './Breadcrumbs.module.scss';
+import styles from './Breadcrumbs.module.css';
 
 export const Breadcrumbs = () =>
 

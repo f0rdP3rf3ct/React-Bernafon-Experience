@@ -1,6 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import styles from './Breadcrumbs.module.scss'
+import styles from './Breadcrumbs.module.css'
 
 export const Crumb = (part, partIndex, parts) => {
 

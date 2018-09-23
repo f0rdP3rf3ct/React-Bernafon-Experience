@@ -1,6 +1,6 @@
 import React, {Component, Fragment} from 'react';
 import Sound from "react-sound";
-import styles from './AudioPlayer.module.scss';
+import styles from './AudioPlayer.module.css';
 
 /**
  * PlayState Component

@@ -1,5 +1,5 @@
-@import '../../../CSS/defaults';
-@import '../../../CSS/layout';
+@import '../../../CSS/globals.defaults.css';
+@import '../../../CSS/globals.layout.css';
 
 .textButton {
   width: 100%;
@@ -15,7 +15,7 @@
 }
 
 .title {
-  font-family: "GillSansMTPro-Light";
+  font-family: var(--lightFont);
   font-weight: normal;
   font-size: 2.5em;
   color: #7f7f7f;

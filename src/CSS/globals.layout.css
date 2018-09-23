@@ -2,6 +2,13 @@
 * CSS-Grid
 */
 
+.grid {
+  display: grid;
+  grid-template: repeat(5, 20%) / repeat(5, 20%);
+}
+
+
+/*
 .container-60-40,
 .container-50-50 {
   display: grid;
@@ -23,8 +30,11 @@
 .container-50-50 {
   grid-template-columns: 50% 50%;
 }
+*/
 
-.itemMain, .itemSide {
+
+.itemMain,
+.itemSide {
   padding: 0.5rem;
 }
 

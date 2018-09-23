@@ -1,7 +1,7 @@
 import React, {Fragment} from 'react';
 import {FormattedMessage, FormattedHTMLMessage} from 'react-intl';
 import {Link} from 'react-router-dom';
-import styles from './Home.module.scss';
+import styles from './Home.module.css';
 
 
 export const Home = () => (

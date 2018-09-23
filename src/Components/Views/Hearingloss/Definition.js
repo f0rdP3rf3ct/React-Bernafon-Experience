@@ -1,7 +1,7 @@
 import React, {Fragment} from 'react';
 import {FormattedMessage} from 'react-intl';
 import {Link} from 'react-router-dom';
-import styles from './Hearingloss.module.scss';
+import styles from './Hearingloss.module.css';
 import {HeaderImage} from "../../HeaderImage/HeaderImage";
 import aboutImage from "../../../Files/Images/bf_exp_img_header_about.png";
 

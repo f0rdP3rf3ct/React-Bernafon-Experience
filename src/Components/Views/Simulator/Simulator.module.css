@@ -1,6 +1,6 @@
-@import '../../../CSS/_defaults';
-@import '../../../CSS/_variables';
-@import '../../../CSS/_layout';
+@import '../../../CSS/globals.defaults.css';
+@import '../../../CSS/globals.variables.css';
+@import '../../../CSS/globals.layout.css';
 
 
 .container-25-25-25-25 {
@@ -38,7 +38,7 @@
 
   background-color: transparent;
 
-  border: 1px solid $mainColor;
+  border: 1px solid var(--mainColor);
   border-radius: 50px;
 
   color: lightgray;
@@ -53,11 +53,12 @@
 }
 
 .ageTitle {
-  font-family: $mainFont;
+  font-family: var(--mainFont);
   text-align: center;
   font-size: 2rem;
 
   &:after {
+
     content: '';
 
     position: relative;
@@ -65,7 +66,7 @@
 
     width: 100%;
 
-    border-bottom: solid 2px $mainColor;
+    border-bottom: solid 2px var(--mainColor);
 
   }
 }
@@ -82,24 +83,24 @@
 }
 
 .active {
-  background-color: $mainColor;
+  background-color: var(--mainColor);
 }
 
 // Icons
 .music, .speech, .nature {
-  font-family: $iconFont;
+  font-family: var(--iconFont);
   font-size: 2rem;
 }
 
 
 .music:before {
-  content: '\65';
+  content: var(--natureIcon);
 }
 
 .speech:before {
-  content: '\66';
+  content: var(--speechIcon);
 }
 
 .nature:before {
-  content: '\67';
+  content: var(--natureIcon);
 }
