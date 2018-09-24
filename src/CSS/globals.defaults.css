@@ -101,8 +101,10 @@ p {
 }
 
 .buttonList {
-  padding: 0;
   list-style: none;
+
+  padding: 0;
+  margin: 0;
 
   & .listItem {
     margin-bottom: 1rem;

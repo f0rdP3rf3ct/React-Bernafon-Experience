@@ -24,11 +24,11 @@ const MainMenu = ({onChangeLanguage}) => (
         </button>
 
         <div className={styles.languageSelector}>
-            <button className={styles.textButton} onClick={() => onChangeLanguage('EN')}>
+            <button className={styles.languageButton} onClick={() => onChangeLanguage('EN')}>
                 <FormattedMessage id="app.navigation.language.en"/>
             </button>
 
-            <button className={styles.textButton} onClick={() => onChangeLanguage('DE')}>
+            <button className={styles.languageButton} onClick={() => onChangeLanguage('DE')}>
                 <FormattedMessage id="app.navigation.language.de"/>
             </button>
         </div>

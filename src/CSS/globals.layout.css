@@ -16,6 +16,10 @@
   margin-top: 7.6rem; /* Header height */
 }
 
+.content, .side {
+  padding: 0.5rem;
+}
+
 .content {
   grid-area: content;
 }
