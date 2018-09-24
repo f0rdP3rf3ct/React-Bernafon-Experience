@@ -17,12 +17,12 @@ p {
 }
 
 .mainParagraph {
+  margin: 0;
+
   font-family: var(--lightFont);
   font-size: 1.5rem;
 
   line-height: 150%;
-
-  padding: 0.5rem 0;
 
   border-top: 1px solid var(--mainColor);
   border-bottom: 1px solid var(--mainColor);
@@ -73,7 +73,6 @@ p {
 }
 
 .mainButton {
-
   padding: 0.1rem 1.3rem 0.5rem 1rem;
 
   &:before {
@@ -91,12 +90,22 @@ p {
     padding: 0.5rem;
 
     border-radius: 50%;
-    background-color: rgb(255,255,255);
+    background-color: rgb(255, 255, 255);
     top: 0.2rem;
   }
 
   &:hover:before {
     color: var(--hoverColor);
+  }
+
+}
+
+.buttonList {
+  padding: 0;
+  list-style: none;
+
+  & .listItem {
+    margin-bottom: 1rem;
   }
 
 }

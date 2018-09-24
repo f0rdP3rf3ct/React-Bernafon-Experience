@@ -36,22 +36,18 @@ const MainMenu = ({onChangeLanguage}) => (
 );
 
 const Header = ({onChangeLanguage}) => (
-    <div className={styles.header}>
-        <div className={styles.headerGrid}>
-
-            <div className={styles.top}>
-                <BernafonLayer/>
-                <MainMenu onChangeLanguage={onChangeLanguage}/>
-            </div>
-
-            <div className={styles.bottom}>
-                <div className={styles.breadcrumbWrapper}>
-                    <Breadcrumbs/>
-                </div>
-            </div>
-
+    <header className={styles.header}>
+        <div className={styles.headerNavigation}>
+            <BernafonLayer/>
+            <MainMenu onChangeLanguage={onChangeLanguage}/>
         </div>
-    </div>
+
+        <div>
+            <div className={styles.breadcrumbWrapper}>
+                <Breadcrumbs/>
+            </div>
+        </div>
+    </header>
 );
 
 export default Header;

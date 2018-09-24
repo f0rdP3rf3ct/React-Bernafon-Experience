@@ -1,22 +1,23 @@
 @import '../../CSS/globals.variables.css';
 
-.wrapper {
-  height: 150px;
+.headerImage {
   background: var(--mainGradient);
 
   grid-column-start: 1;
   grid-column-end: 6;
+  grid-row-start: 1;
 }
 
 .imgTitle {
-  position: absolute;
+
+  margin: 0;
+  grid-row-start: 1;
+  grid-column: 2 / span 2;
 
   font-family: var(--lightFont);
   font-size: 2.5rem;
   font-weight: normal;
 
   color: white;
-
-  grid-column-start: 3;
 
 }

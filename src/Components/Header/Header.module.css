@@ -26,28 +26,14 @@
   position: absolute;
   top: 0;
 
+  height: 7.6rem;
   margin-top: 7px;
-  padding: 1rem 0;
 
-  height: 5rem;
   width: 100%;
-
 }
 
-.headerGrid {
-  display: grid;
-  grid-template: repeat(5, 20%) / repeat(5, 20%);
-}
-
-.top {
-  grid-column-start: 2;
-  grid-column-end: 6;
-
-  margin-bottom: 1rem;
-}
-
-.bottom {
-  margin-bottom: 1rem;
+.headerNavigation {
+  padding: 1rem 0 0 0;
 }
 
 .languageSelector {

@@ -6,7 +6,6 @@ module.exports = function override(config, env) {
 
     config = rewirePostCSS(config, {
         plugins: loader => [
-            require('autoprefixer')(),
             require('postcss-import')(),
             require('postcss-cssnext')()
         ]
