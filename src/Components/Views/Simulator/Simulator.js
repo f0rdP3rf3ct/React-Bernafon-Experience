@@ -74,32 +74,105 @@ export class Simulator extends Component {
     componentDidMount = () => {
 
         // Initial styling hack
+        /*
         const initActive = ["nature-20", "music-20", "speech-20"];
 
         [].forEach.call(initActive, function (el) {
             let elm = document.getElementById(el);
             elm.classList.add(styles.active);
         });
+        */
+    };
 
+    changeActiveRow = (topic) => {
+
+        let activeRows = Array.from(document.getElementsByClassName(styles.activeRow));
+
+        activeRows.forEach(obj => {
+            obj.classList.remove(styles.activeRow);
+        });
+
+        if (topic !== undefined) {
+            let row = document.getElementById(topic + '-row');
+            row.classList.add(styles.activeRow);
+        }
+    };
+
+    /**
+     * Updates PlayState of AudioPlayer
+     * @param topic
+     */
+    updatePlayState = (topic) => {
+        const states = this.state.audioPlayer.slice();
+
+        states.forEach(obj => {
+            if (obj.topic !== topic) {
+                obj.playState = 'PAUSED';
+            } else {
+                obj.playState = obj.playState === 'PLAYING' ? 'PAUSED' : 'PLAYING';
+
+                if (obj.playState === 'PAUSED') {
+                    this.changeActiveRow(); // No param deselects all
+                } else {
+                    this.selectAgeButton(topic, obj.age);
+                }
+            }
+        });
+
+        this.setState({audioPlayer: states});
+    };
+
+    /**
+     * Updates PlayState of AudioPlayer when switching Agebutton
+     * @param topic
+     */
+    updateWithAgeSelector = (topic, age) => {
+        const states = this.state.audioPlayer.slice();
+
+        states.forEach(obj => {
+            if (obj.topic !== topic) {
+                obj.playState = 'PAUSED';
+            } else {
+                obj.playState = 'PLAYING';
+                obj.age = age;
+            }
+        });
+
+        this.setState({audioPlayer: states});
+    };
+
+    selectAgeButton = (topic, age) => {
+        let ageButtons = Array.from(document.getElementsByClassName(styles.ageButton));
+
+        ageButtons.forEach(obj => {
+            let tData = obj.getAttribute('data-topic');
+            let aData = obj.getAttribute('data-age');
+
+            if (tData === topic && aData === age) {
+                obj.classList.add(styles.active);
+            } else {
+                obj.classList.remove(styles.active);
+            }
+
+        });
     };
 
     handleAgeSelectorClick = (topic, age, e) => {
-        e.preventDefault();
+
+        this.updateWithAgeSelector(topic, age);
+        this.changeActiveRow(topic);
 
         /**
-         * Handle button stylings
+         * Handle button styling
          */
-        const activeClasses = document.getElementsByClassName(styles.active);
+        let activeClasses = Array.from(document.getElementsByClassName(styles.active));
 
-        for (var i = 0; i < activeClasses.length; i++) {
-            activeClasses[i].classList.remove(styles.active);
-        }
+        activeClasses.forEach(obj => {
+            obj.classList.remove(styles.active);
+        });
 
-        //
-        // [].forEach.call(activeClasses, function (el) {
-        //     debugger;
-        //     el.classList.remove(styles.active);
-        // });
+        e.target.classList.add(styles.active);
+
 
         /**
          * Handle AudioPlayer states
@@ -139,25 +212,15 @@ export class Simulator extends Component {
     };
 
     handlePlayStateChange = (target, e) => {
-
-        const states = this.state.audioPlayer.slice();
-
-        states.forEach(obj => {
-            if (obj.topic !== target.props.name) {
-                obj.playState = 'PAUSED';
-            } else {
-                obj.playState = obj.playState === 'PLAYING' ? 'PAUSED' : 'PLAYING';
-            }
-        });
-
-        this.setState({audioPlayer: states});
+        this.changeActiveRow(target.props.name);
+        this.updatePlayState(target.props.name);
     };
 
     renderAgeButton = (topic, age) => {
         const str = topic + "-" + age;
 
         return (
-            <button id={str} className={styles.ageButton}
+            <button data-topic={topic} data-age={age} id={str} className={styles.ageButton}
                     onClick={(e) => this.handleAgeSelectorClick(topic, age, e)}>{age}</button>
         )
     };
@@ -171,19 +234,19 @@ export class Simulator extends Component {
 
                 <div className={styles.content}>
 
-                    <table className={styles.soundTable}>
+                    <table cellPadding="0" cellspacing="0" className={styles.soundTable}>
                         <tbody>
                         <tr>
                             <td></td>
-                            <td colSpan="3">
+                            <td></td>
+                            <td colSpan="4">
                                 <h3 className={styles.ageTitle}>
                                     <FormattedMessage id="app.simulator.age"/>
                                 </h3>
                             </td>
                         </tr>
-                        <tr>
+                        <tr id="nature-row">
                             <td>
-                                <span className={styles.nature}></span>
                                 <AudioPlayer playState={this.state.audioPlayer[0].playState}
                                              name={this.state.audioPlayer[0].topic}
                                              volume={100}
@@ -191,6 +254,9 @@ export class Simulator extends Component {
                                              onHandlePause={(e) => this.handlePause(e)}
                                              onClick={(e) => this.handlePlayStateChange(e)}
                                 />
+                            </td>
+                            <td>
+                                <span className={styles.nature}></span>
                             </td>
                             <td>
                                 {this.renderAgeButton('nature', '20')}
@@ -202,15 +268,17 @@ export class Simulator extends Component {
                                 {this.renderAgeButton('nature', '80')}
                             </td>
                         </tr>
-                        <tr>
+                        <tr id="speech-row">
                             <td>
-                                <span className={styles.speech}></span>
                                 <AudioPlayer playState={this.state.audioPlayer[1].playState}
                                              name={this.state.audioPlayer[1].topic} volume={100}
                                              audiofile={this.state.audioPlayer[1].audiofile}
                                              onHandlePause={(e) => this.handlePause(e)}
                                              onClick={(e) => this.handlePlayStateChange(e)}
                                 />
+                            </td>
+                            <td>
+                                <span className={styles.speech}></span>
                             </td>
                             <td>
                                 {this.renderAgeButton('speech', '20')}
@@ -222,9 +290,8 @@ export class Simulator extends Component {
                                 {this.renderAgeButton('speech', '80')}
                             </td>
                         </tr>
-                        <tr>
+                        <tr id="music-row">
                             <td>
-                                <span className={styles.music}></span>
                                 <AudioPlayer playState={this.state.audioPlayer[2].playState}
                                              name={this.state.audioPlayer[2].topic}
                                              volume={100}
@@ -232,6 +299,9 @@ export class Simulator extends Component {
                                              onHandlePause={(e) => this.handlePause(e)}
                                              onClick={(e) => this.handlePlayStateChange(e)}
                                 />
+                            </td>
+                            <td>
+                                <span className={styles.music}></span>
                             </td>
                             <td>
                                 {this.renderAgeButton('music', '20')}
