@@ -57,7 +57,7 @@ class AudioPlayer extends Component {
         return (
             <Fragment>
                 {/* Reflect playstate */}
-                {/*<PlayState isPlaying={this.props.playState} onClick={(e) => this.handleSoundState(this, e)}/>*/}
+                <PlayState isPlaying={this.props.playState} onClick={(e) => this.handleSoundState(this, e)}/>
 
                 <Sound
                     url={this.props.audiofile}

@@ -2,11 +2,10 @@
 @import '../../../CSS/globals.variables.css';
 @import '../../../CSS/globals.layout.css';
 
-
 .container-25-25-25-25 {
   display: grid;
   grid-template-rows: auto;
-  grid-template-columns: 25% 25% 25% 25% ;
+  grid-template-columns: 25% 25% 25% 25%;
   grid-template-areas: "icon player1 player2 player3";
 }
 
@@ -27,7 +26,6 @@
 }
 
 .ageButton {
-
   text-decoration: none;
   display: inline-block;
 
@@ -86,15 +84,16 @@
   background-color: var(--mainColor);
 }
 
-// Icons
-.music, .speech, .nature {
+.music:before,
+.speech:before,
+.nature:before {
   font-family: var(--iconFont);
   font-size: 2rem;
 }
 
-
 .music:before {
-  content: var(--natureIcon);
+  content: var(--musicIcon);
+
 }
 
 .speech:before {

@@ -11,24 +11,17 @@ export const Audiogram = () => (
         <HeaderImage imgUrl={titleImage} alt={"Audiogram"}
                      title={<FormattedMessage id="app.audiogram.title"/>}/>
 
-        <div className={styles['container-60-40']}>
+        <div className={styles.content}>
+            <p className={styles.mainParagraph}>
+                <FormattedHTMLMessage id="app.audiogram.text"/>
+            </p>
+        </div>
 
-            <div className={styles.itemMain}>
-                <p className={styles.mainParagraph}>
-                    <FormattedHTMLMessage id="app.audiogram.text"/>
-                </p>
-
-
-                {/*TODO: Make this go back in  app history not in browser*/}
-                <button className={styles.textButton} onClick={() => (window.history.back())}>
-                    <FormattedMessage id="app.navigation.back"/>
-                </button>
-
-            </div>
-
-            <div className={styles.itemSide}>
-                <img width="100%" src={img_audiogram} alt="audiogram"/>
-            </div>
+        <div className={styles.side}>
+            {/*TODO: Make this go back in  app history not in browser*/}
+            <button className={styles.textButton} onClick={() => (window.history.back())}>
+                <FormattedMessage id="app.navigation.back"/>
+            </button>
         </div>
 
     </Fragment>

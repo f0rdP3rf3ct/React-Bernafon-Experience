@@ -6,6 +6,8 @@ import img_normalhearing from '../../../Files/Images/bf_exp_img_normalhearing.pn
 import img_profoundhearing from '../../../Files/Images/bf_exp_img_profoundhearing.png';
 import styles from './Hearingloss.module.css';
 import {Link} from "react-router-dom";
+import {HeaderImage} from "../../HeaderImage/HeaderImage";
+import aboutImage from "../../../Files/Images/bf_exp_img_header_about.png";
 
 
 export class Degree extends Component {
@@ -19,27 +21,22 @@ export class Degree extends Component {
         return (
             <Fragment>
 
-                <div className={styles['container-60-40']}>
+                <HeaderImage imgUrl={aboutImage} alt={"About Hearing"} title={<FormattedMessage id="app.hearingloss.degree.title"/>}/>
 
-                    <div className={styles.itemMain}>
+                <div className={styles.side}>
 
-                        <Link to="/audiogram" className={styles.mainButton}>
-                            <FormattedMessage id="app.hearingloss.degree.button.audiogram"/>
-                        </Link>
+                    <Link to="/audiogram" className={styles.mainButton}>
+                        <FormattedMessage id="app.hearingloss.degree.button.audiogram"/>
+                    </Link>
 
-                        <h1>
-                            <FormattedMessage id="app.hearingloss.degree.title"/>
-                        </h1>
+                    <p className={styles.mainParagraph}>
+                        <FormattedHTMLMessage id="app.hearingloss.degree.intro"/>
+                    </p>
 
-                        <p className={styles.mainParagraph}>
-                            <FormattedHTMLMessage id="app.hearingloss.degree.intro"/>
-                        </p>
+                </div>
 
-                    </div>
-
-                    <div className={styles.itemSide}>
-                        <img width="100%" alt="normal hearing" src={this.state.image}/>
-                    </div>
+                <div className={styles.content}>
+                    <img width="100%" alt="normal hearing" src={this.state.image}/>
                 </div>
 
             </Fragment>

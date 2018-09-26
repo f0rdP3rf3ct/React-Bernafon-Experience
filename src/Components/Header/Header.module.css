@@ -40,13 +40,30 @@
   width: 25%;
 }
 
-.languageButton {
-  margin-right: 0.2rem;
-
-  font-size: 1.0rem;
-
+.languageButton,
+.homeButton,
+.backButton {
   color: var(--mainColor);
   border-radius: 50%;
-
-  padding: 1rem;
+  padding: 0.5rem;
+  font-size: 1.5rem;
+  background: none;
+  margin-right: 0.2rem;
 }
+
+.languageButton {
+  font-size: 1.0rem;
+
+  padding: 0.8rem;
+}
+
+.homeButton,
+.backButton {
+  font-family: var(--iconFont);
+
+  &:focus {
+    outline: 0;
+  }
+
+}
+

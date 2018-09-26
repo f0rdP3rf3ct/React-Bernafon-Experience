@@ -51,48 +51,46 @@ export class Types extends Component {
                 <HeaderImage imgUrl={titleImage} alt={"Types of Hearingloss"}
                              title={<FormattedMessage id="app.hearingloss.types.title"/>}/>
 
+                <div className={styles.content}>
 
-                <div className={styles["container-60-40"]}>
+                    <table width="95%" className={styles.infoTable}>
+                        <tr>
+                            <td className={styles.infographic} colspan="2">
+                                <img alt="types-hearingloss" width="100%"
+                                     src={this.imgMap[this.state.displayedText]}/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="50%">
+                                <button className={styles.textButton}
+                                        onClick={(e) => this.handleOnClick('conductive', e)}>
+                                    <FormattedMessage id="app.hearingloss.types.button.conductive"/>
+                                </button>
+                            </td>
+                            <td width="50%">
+                                <button className={styles.textButton}
+                                        onClick={(e) => this.handleOnClick('sensorineural', e)}>
+                                    <FormattedMessage id="app.hearingloss.types.button.sensorineural"/>
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colSpan="2">
+                                <button stlye="width:100%" className={styles.textButton}
+                                        onClick={(e) => this.handleOnClick('mixed', e)}>
+                                    <FormattedMessage id="app.hearingloss.types.button.mixed"/>
+                                </button>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
 
-                    <div className={styles.itemMain}>
-                        <table width="95%" className={styles.infoTable}>
-                            <tr>
-                                <td className={styles.infographic} colspan="2">
-                                    <img alt="types-hearingloss" width="100%"
-                                         src={this.imgMap[this.state.displayedText]}/>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td width="50%">
-                                    <button className={styles.textButton}
-                                            onClick={(e) => this.handleOnClick('conductive', e)}>
-                                        <FormattedMessage id="app.hearingloss.types.button.conductive"/>
-                                    </button>
-                                </td>
-                                <td width="50%">
-                                    <button className={styles.textButton}
-                                            onClick={(e) => this.handleOnClick('sensorineural', e)}>
-                                        <FormattedMessage id="app.hearingloss.types.button.sensorineural"/>
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td colSpan="2">
-                                    <button stlye="width:100%" className={styles.textButton}
-                                            onClick={(e) => this.handleOnClick('mixed', e)}>
-                                        <FormattedMessage id="app.hearingloss.types.button.mixed"/>
-                                    </button>
-                                </td>
-                            </tr>
-                        </table>
-                    </div>
-
-                    <div className={styles.itemSide}>
-                        <h1 className={styles.title}><FormattedHTMLMessage id={'app.hearingloss.types.title.' + this.state.displayedText}/></h1>
-                        <p className={styles.mainParagraph}>
-                            <FormattedHTMLMessage id={'app.hearingloss.types.text.' + this.state.displayedText}/>
-                        </p>
-                    </div>
+                <div className={styles.side}>
+                    <h1 className={styles.title}><FormattedHTMLMessage
+                        id={'app.hearingloss.types.title.' + this.state.displayedText}/></h1>
+                    <p className={styles.mainParagraph}>
+                        <FormattedHTMLMessage id={'app.hearingloss.types.text.' + this.state.displayedText}/>
+                    </p>
                 </div>
 
             </Fragment>

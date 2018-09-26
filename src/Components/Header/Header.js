@@ -12,16 +12,13 @@ const BernafonLayer = () => {
 
 const MainMenu = ({onChangeLanguage}) => (
     <div>
+
         <Link to="/">
-            <button className={styles.mainButton}>
-                <FormattedMessage id="app.navigation.home"/>
-            </button>
+            <button className={styles.homeButton}>h</button>
         </Link>
 
         {/*TODO: Make this go back in  app history not in browser*/}
-        <button className={styles.textButton} onClick={() => (window.history.back())}>
-            <FormattedMessage id="app.navigation.back"/>
-        </button>
+        <button className={styles.backButton} onClick={() => (window.history.back())}>i</button>
 
         <div className={styles.languageSelector}>
             <button className={styles.languageButton} onClick={() => onChangeLanguage('EN')}>

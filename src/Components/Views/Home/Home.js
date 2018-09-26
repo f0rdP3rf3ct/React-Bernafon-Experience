@@ -6,7 +6,8 @@ import styles from './Home.module.css';
 
 export const Home = () => (
     <Fragment>
-        <div className={styles['container-60-40']}>
+
+        <div className={styles.content}>
             <div className={styles.itemMain}>
 
                 <h1 className={styles.mainTitle}>
@@ -19,7 +20,7 @@ export const Home = () => (
 
             </div>
 
-            <div className={styles.itemSide}>
+            <div className={styles.side}>
                 <Link to="/hearingloss" className={styles.mainButton}>
                     <FormattedMessage id="app.home.button.start"/>
                 </Link>

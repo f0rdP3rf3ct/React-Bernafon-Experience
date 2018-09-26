@@ -12,21 +12,14 @@ export const Cause = () => (
         <HeaderImage imgUrl={aboutImage} alt={"About Hearing"}
                      title={<FormattedMessage id="app.hearingloss.cause.title"/>}/>
 
-        <div className={styles['container-60-40']}>
+        <div className={styles.content}>
+            <p className={styles.mainParagraph}>
+                <FormattedHTMLMessage id="app.hearingloss.cause.intro"/>
+            </p>
+        </div>
 
-            <div className={styles.itemMain}>
-                <p className={styles.mainParagraph}>
-                    <FormattedHTMLMessage id="app.hearingloss.cause.intro"/>
-                </p>
-            </div>
-            <div className={styles.itemSide}>
-                <img width="100%" src={causeImage}/>
-            </div>
-
-            {/*<h1 className={styles.mainTitle}>*/}
-            {/*<FormattedMessage id="app.hearingloss.cause.title" />*/}
-            {/*</h1>*/}
-
+        <div className={styles.side}>
+            <img width="100%" src={causeImage}/>
         </div>
 
     </Fragment>
