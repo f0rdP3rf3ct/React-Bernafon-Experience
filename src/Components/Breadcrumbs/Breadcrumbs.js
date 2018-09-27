@@ -14,7 +14,7 @@ export const Breadcrumbs = () =>
         const place = parts[parts.length - 1];
         parts = parts.slice(1, parts.length - 1);
 
-        let transl = <FormattedMessage id={"app.crumb." + place}/>
+        let transl = place !== '' ? <FormattedMessage id={"app.crumb." + place}/> : '';
 
         return <span className={styles.breadcrumb}>{parts.map(Crumb)}{transl}</span>
     }}

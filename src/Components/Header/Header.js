@@ -47,7 +47,6 @@ const Header = ({onChangeLanguage}) => (
             <BernafonLayer/>
             <MainMenu onChangeLanguage={onChangeLanguage}/>
         </div>
-
         <div>
             <div className={styles.breadcrumbWrapper}>
                 <Breadcrumbs/>

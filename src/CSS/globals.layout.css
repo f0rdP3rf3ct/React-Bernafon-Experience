@@ -16,8 +16,12 @@
   margin-top: 8.6rem; /* Header height */
 }
 
+.gridSimulator {
+  grid-template-columns: 10% 3fr 1fr 10%;
+}
+
 .grid {
-  grid-template-columns: 0.5fr 2fr 1fr 0.5fr;
+  grid-template-columns: 10% 2fr 1fr 10%;
 }
 
 .content, .side {

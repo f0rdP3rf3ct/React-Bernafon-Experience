@@ -223,118 +223,120 @@ export class Simulator extends Component {
     render() {
         return (
             <Fragment>
+                <div className={styles.gridSimulator}>
 
-                <HeaderImage imgUrl={aboutImage} alt={"About Hearing"}
-                             title={<FormattedMessage id="app.simulator.title"/>}/>
+                    <HeaderImage imgUrl={aboutImage} alt={"About Hearing"}
+                                 title={<FormattedMessage id="app.simulator.title"/>}/>
 
-                <div className={styles.content}>
+                    <div className={styles.content}>
 
-                    <table cellPadding="0" cellspacing="0" className={styles.soundTable}>
-                        <tbody>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td colSpan="4">
-                                <h3 className={styles.ageTitle}>
-                                    <FormattedMessage id="app.simulator.age"/>
-                                </h3>
-                            </td>
-                        </tr>
-                        <tr id="nature-row">
-                            <td>
-                                <AudioPlayer playState={this.state.audioPlayer[0].playState}
-                                             name={this.state.audioPlayer[0].topic}
-                                             volume={100}
-                                             audiofile={this.state.audioPlayer[0].audiofile}
-                                             onHandlePause={(e) => this.handlePause(e)}
-                                             onClick={(e) => this.handlePlayStateChange(e)}
-                                />
-                            </td>
-                            <td>
-                                <span className={styles.nature}></span>
-                            </td>
-                            <td>
-                                {this.renderAgeButton('nature', '20')}
-                            </td>
-                            <td>
-                                {this.renderAgeButton('nature', '60')}
-                            </td>
-                            <td>
-                                {this.renderAgeButton('nature', '80')}
-                            </td>
-                        </tr>
-                        <tr id="speech-row">
-                            <td>
-                                <AudioPlayer playState={this.state.audioPlayer[1].playState}
-                                             name={this.state.audioPlayer[1].topic} volume={100}
-                                             audiofile={this.state.audioPlayer[1].audiofile}
-                                             onHandlePause={(e) => this.handlePause(e)}
-                                             onClick={(e) => this.handlePlayStateChange(e)}
-                                />
-                            </td>
-                            <td>
-                                <span className={styles.speech}></span>
-                            </td>
-                            <td>
-                                {this.renderAgeButton('speech', '20')}
-                            </td>
-                            <td>
-                                {this.renderAgeButton('speech', '60')}
-                            </td>
-                            <td>
-                                {this.renderAgeButton('speech', '80')}
-                            </td>
-                        </tr>
-                        <tr id="music-row">
-                            <td>
-                                <AudioPlayer playState={this.state.audioPlayer[2].playState}
-                                             name={this.state.audioPlayer[2].topic}
-                                             volume={100}
-                                             audiofile={this.state.audioPlayer[2].audiofile}
-                                             onHandlePause={(e) => this.handlePause(e)}
-                                             onClick={(e) => this.handlePlayStateChange(e)}
-                                />
-                            </td>
-                            <td>
-                                <span className={styles.music}></span>
-                            </td>
-                            <td>
-                                {this.renderAgeButton('music', '20')}
-                            </td>
-                            <td>
-                                {this.renderAgeButton('music', '60')}
-                            </td>
-                            <td>
-                                {this.renderAgeButton('music', '80')}
-                            </td>
-                        </tr>
+                        <table width="100%" cellPadding="0" cellspacing="2px" className={styles.soundTable}>
+                            <tbody>
+                            <tr>
+                                <th></th>
+                                <th></th>
+                                <th colSpan={3}>
+                                    <h3 className={styles.ageTitle}>
+                                        <FormattedMessage id="app.simulator.age"/>
+                                    </h3>
+                                </th>
+                                <th></th>
+                                <th></th>
+                                <th rowSpan={4} className={styles.audiogramCol}>
+                                    <AudiogramImage audiogram={this.state.audiogram}/>
+                                </th>
+                            </tr>
+                            <tr id="nature-row">
+                                <td>
+                                    <AudioPlayer playState={this.state.audioPlayer[0].playState}
+                                                 name={this.state.audioPlayer[0].topic}
+                                                 volume={100}
+                                                 audiofile={this.state.audioPlayer[0].audiofile}
+                                                 onHandlePause={(e) => this.handlePause(e)}
+                                                 onClick={(e) => this.handlePlayStateChange(e)}
+                                    />
+                                </td>
+                                <td>
+                                    <span className={styles.nature}></span>
+                                </td>
+                                <td>
+                                    {this.renderAgeButton('nature', '20')}
+                                </td>
+                                <td>
+                                    {this.renderAgeButton('nature', '60')}
+                                </td>
+                                <td>
+                                    {this.renderAgeButton('nature', '80')}
+                                </td>
+                            </tr>
+                            <tr id="speech-row">
+                                <td>
+                                    <AudioPlayer playState={this.state.audioPlayer[1].playState}
+                                                 name={this.state.audioPlayer[1].topic} volume={100}
+                                                 audiofile={this.state.audioPlayer[1].audiofile}
+                                                 onHandlePause={(e) => this.handlePause(e)}
+                                                 onClick={(e) => this.handlePlayStateChange(e)}
+                                    />
+                                </td>
+                                <td>
+                                    <span className={styles.speech}></span>
+                                </td>
+                                <td>
+                                    {this.renderAgeButton('speech', '20')}
+                                </td>
+                                <td>
+                                    {this.renderAgeButton('speech', '60')}
+                                </td>
+                                <td>
+                                    {this.renderAgeButton('speech', '80')}
+                                </td>
+                            </tr>
+                            <tr id="music-row">
+                                <td>
+                                    <AudioPlayer playState={this.state.audioPlayer[2].playState}
+                                                 name={this.state.audioPlayer[2].topic}
+                                                 volume={100}
+                                                 audiofile={this.state.audioPlayer[2].audiofile}
+                                                 onHandlePause={(e) => this.handlePause(e)}
+                                                 onClick={(e) => this.handlePlayStateChange(e)}
+                                    />
+                                </td>
+                                <td>
+                                    <span className={styles.music}></span>
+                                </td>
+                                <td>
+                                    {this.renderAgeButton('music', '20')}
+                                </td>
+                                <td>
+                                    {this.renderAgeButton('music', '60')}
+                                </td>
+                                <td>
+                                    {this.renderAgeButton('music', '80')}
+                                </td>
+                            </tr>
 
 
-                        </tbody>
-                    </table>
+                            </tbody>
+                        </table>
 
-                    <p className={styles.mainParagraph}>
-                        <FormattedHTMLMessage id="app.simulator.intro"/>
-                    </p>
+                        <button className={styles.audiogramButton} onClick={this.toggleAudiogramText}>
+                            <FormattedHTMLMessage id={"app.audiogram.button." + this.state.showAudiogramInfo}/>
+                        </button>
 
+                        {this.state.showAudiogramInfo && (
+                            <Audiogram/>
+                        )}
+
+                    </div>
+
+                    <div className={styles.side}>
+
+                        <p className={styles.mainParagraph}>
+                            <FormattedHTMLMessage id="app.simulator.intro"/>
+                        </p>
+
+                    </div>
                 </div>
-
-                <div className={styles.side}>
-
-                    <AudiogramImage audiogram={this.state.audiogram}/>
-
-
-                    <button className={styles.audiogramButton} onClick={this.toggleAudiogramText}>
-                        <FormattedHTMLMessage id={"app.audiogram.button." + this.state.showAudiogramInfo}/>
-                    </button>
-
-                    {this.state.showAudiogramInfo && (
-                        <Audiogram />
-                    )}
-
-
-                </div>
-
             </Fragment>
         )
     }

@@ -32,12 +32,12 @@
   font-size: 3rem;
   line-height: 1;
 
-  padding: 1.5rem 3rem;
+  padding: 2rem 2.5rem;
 
   background-color: transparent;
 
   border: 1px solid var(--mainColor);
-  border-radius: 50px;
+  border-radius: 60px;
 
   color: lightgray;
 
@@ -70,8 +70,6 @@
 }
 
 .soundTable {
-  width: 100%;
-
   border: 0;
 
   margin-bottom: 2rem;
@@ -82,6 +80,10 @@
     padding: 1rem 0;
   }
 
+  & .audiogramCol {
+    min-width: 500px;
+    padding: 2rem;
+  }
 }
 
 .active {
@@ -129,5 +131,4 @@
   border-radius: 50px;
   background-color: transparent;
   padding: 1rem 1rem 0.5rem 1rem;
-
 }

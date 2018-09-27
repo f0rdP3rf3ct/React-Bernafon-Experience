@@ -28,3 +28,13 @@
   }
 }
 
+.homeIcon {
+  font-family: var(--iconFont);
+  &:before {
+    content: '\68';
+  }
+  &:after {
+    content: var(--arrowIcon);
+    font-size: 1rem;
+  }
+}
