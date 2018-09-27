@@ -1,9 +1,10 @@
 import React, {Component, Fragment} from 'react';
-import {FormattedMessage} from 'react-intl';
+import {FormattedHTMLMessage, FormattedMessage} from 'react-intl';
 import styles from './Simulator.module.css';
-import sim20Image from "../../../Files/Images/bf_exp_simulator_audiogram.svg";
-import sim60Image from "../../../Files/Images/bf_exp_img_simulator_40.png";
-import sim80Image from "../../../Files/Images/bf_exp_img_simulator_60.png";
+import simImage from "../../../Files/Images/bf_exp_simulator_audiogram_blank.svg";
+import sim20Image from "../../../Files/Images/bf_exp_simulator_audiogram_20.svg";
+import sim60Image from "../../../Files/Images/bf_exp_simulator_audiogram_60.svg";
+import sim80Image from "../../../Files/Images/bf_exp_simulator_audiogram_80.svg";
 import {HeaderImage} from "../../HeaderImage/HeaderImage";
 import aboutImage from "../../../Files/Images/bf_exp_img_header_about.png";
 
@@ -11,8 +12,8 @@ import hl_sim_jazz_20 from "../../../Files/Audio/Hearingloss_Simulation_Jazz_Mus
 import hl_sim_jazz_60 from "../../../Files/Audio/Hearingloss_Simulation_Jazz_Music_v1_60.mp3";
 import hl_sim_jazz_80 from "../../../Files/Audio/Hearingloss_Simulation_Jazz_Music_v1_80.mp3";
 
-import {Link} from "react-router-dom";
 import AudioPlayer from "../../AudioPlayer/AudioPlayer";
+import {Audiogram} from "..";
 
 // Maps audiofiles to the correponding age and topic
 const audioMappings = {
@@ -68,20 +69,8 @@ export class Simulator extends Component {
                 age: '20'
             }
         ],
-        audiogram: ''
-    };
-
-    componentDidMount = () => {
-
-        // Initial styling hack
-        /*
-        const initActive = ["nature-20", "music-20", "speech-20"];
-
-        [].forEach.call(initActive, function (el) {
-            let elm = document.getElementById(el);
-            elm.classList.add(styles.active);
-        });
-        */
+        audiogram: simImage,
+        showAudiogramInfo: false
     };
 
     changeActiveRow = (topic) => {
@@ -208,7 +197,6 @@ export class Simulator extends Component {
         }
 
         this.setState({audiogram: _audiogram});
-
     };
 
     handlePlayStateChange = (target, e) => {
@@ -223,6 +211,13 @@ export class Simulator extends Component {
             <button data-topic={topic} data-age={age} id={str} className={styles.ageButton}
                     onClick={(e) => this.handleAgeSelectorClick(topic, age, e)}>{age}</button>
         )
+    };
+
+    toggleAudiogramText = () => {
+        let shoAudioGram = !this.state.showAudiogramInfo;
+        this.setState({
+            showAudiogramInfo: shoAudioGram
+        })
     };
 
     render() {
@@ -313,21 +308,31 @@ export class Simulator extends Component {
                                 {this.renderAgeButton('music', '80')}
                             </td>
                         </tr>
+
+
                         </tbody>
                     </table>
+
+                    <p className={styles.mainParagraph}>
+                        <FormattedHTMLMessage id="app.simulator.intro"/>
+                    </p>
 
                 </div>
 
                 <div className={styles.side}>
+
                     <AudiogramImage audiogram={this.state.audiogram}/>
 
-                    <p className={styles.mainParagraph}>
-                        <FormattedMessage id="app.simulator.intro"/>
-                    </p>
 
-                    <Link to="/audiogram" className={styles.mainButton}>
-                        <FormattedMessage id="app.hearingloss.degree.button.audiogram"/>
-                    </Link>
+                    <button className={styles.audiogramButton} onClick={this.toggleAudiogramText}>
+                        <FormattedHTMLMessage id={"app.audiogram.button." + this.state.showAudiogramInfo}/>
+                    </button>
+
+                    {this.state.showAudiogramInfo && (
+                        <Audiogram />
+                    )}
+
+
                 </div>
 
             </Fragment>

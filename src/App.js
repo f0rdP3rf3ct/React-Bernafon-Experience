@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {IntlProvider, addLocaleData} from 'react-intl';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import Header from './Components/Header/Header';
-import {About, Types, Cause, Degree, Simulator, Definition, Audiogram} from './Components/Views';
+import {About, Home, Types, Cause, Degree, Simulator, Definition, Audiogram} from './Components/Views';
 import './CSS/globals.fonts.css';
 import styles from './App.module.css';
 
@@ -12,11 +12,16 @@ import styles from './App.module.css';
  */
 import locale_en from 'react-intl/locale-data/en';
 import locale_de from 'react-intl/locale-data/de';
+import locale_fr from 'react-intl/locale-data/fr';
+import locale_es from 'react-intl/locale-data/es';
+
 import messages_de from './Translations/de.json';
 import messages_en from './Translations/en.json';
+import messages_fr from './Translations/fr.json';
+import messages_es from './Translations/es.json';
 
-//TODO: Why is [...] used? What does it mean?
-addLocaleData([...locale_en, ...locale_de]);
+
+addLocaleData([...locale_en, ...locale_de, ...locale_fr, ...locale_es]);
 
 
 /**
@@ -46,6 +51,12 @@ class App extends Component {
             case 'DE' :
                 i18nConfig.messages = messages_de;
                 break;
+            case 'FR' :
+                i18nConfig.messages = messages_fr;
+                break;
+            case 'ES' :
+                i18nConfig.messages = messages_es;
+                break;
             default :
                 i18nConfig.messages = messages_en;
                 break;
@@ -69,9 +80,9 @@ class App extends Component {
                                 <Route exact path="/" component={About}/>
                                 <Route exact path="/audiogram" component={Audiogram}/>
                                 <Route exact path="/hearingloss" component={About}/>
-                                <Route exact path="/hearingloss/types" component={Types}/>
-                                <Route exact path="/hearingloss/cause" component={Cause}/>
-                                <Route exact path="/hearingloss/degree" component={Degree}/>
+                                <Route exact path="/hearingloss/definition/types" component={Types}/>
+                                <Route exact path="/hearingloss/definition/cause" component={Cause}/>
+                                <Route exact path="/hearingloss/definition/degree" component={Degree}/>
                                 <Route exact path="/hearingloss/definition" component={Definition}/>
                                 <Route exact path="/hearingloss/simulator" component={Simulator}/>
                             </Switch>

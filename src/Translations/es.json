@@ -33,7 +33,7 @@
 	"app.hearingloss.degree.title" : "Degrees of hearing loss",
 	"app.hearingloss.degree.intro" : "<ul><li><b>Mild hearing loss</b> Difficulty hearing faint or distant speech, even in a quiet environment</li><li><b>Moderate hearing loss</b> Hears conversational speech only at a close distance</li><li><b>Severe and profound hearing loss</b> Cannot hear conversational speech The degree of hearing loss is defined with a hearing test and results of an audiogram.</li></ul> The <b>audiogram</b> is a graph which gives a detailed description of your hearing ability.",
 	"app.simulator.title" : "Hearingloss simulator",
-	"app.simulator.intro" : "<b>Experience an age-related hearing loss</b></br>As we get older, we gradually lose the ability to hear soft, high-pitched sounds, like birdsong or some specific speech sounds. Speech understanding might be challenging especially in noisy situations or group conversations. </br></br> <i>Click on the play button to hear the sound in the respective age groups with an age-related hearing loss.</i>",
+	"app.simulator.intro" : "Experience an age-related hearing loss As we get older, we gradually lose the ability to hear soft, high-pitched sounds, like birdsong or some specific speech sounds. Speech understanding might be challenging especially in noisy situations or group conversations. Click on the play button to hear the sound in the respective age groups with an age-related hearing loss. ",
 	"app.simulator.age": "Select age",
 	"app.navigation.home" : "Home",
 	"app.navigation.home.about" : "Learn more about hearing loss",

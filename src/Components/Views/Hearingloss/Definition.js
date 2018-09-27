@@ -1,5 +1,5 @@
 import React, {Fragment} from 'react';
-import {FormattedMessage} from 'react-intl';
+import {FormattedHTMLMessage, FormattedMessage} from 'react-intl';
 import {Link} from 'react-router-dom';
 import styles from './Hearingloss.module.css';
 import {HeaderImage} from "../../HeaderImage/HeaderImage";
@@ -13,24 +13,24 @@ export const Definition = () => (
 
         <div className={styles.content}>
             <p className={styles.mainParagraph}>
-                <FormattedMessage id="app.hearingloss.definition.intro"/>
+                <FormattedHTMLMessage id="app.hearingloss.definition.intro"/>
             </p>
         </div>
 
         <div className={styles.side}>
             <ul className={styles.buttonList}>
                 <li>
-                    <Link to="/hearingloss/types" className={styles.mainButton}>
+                    <Link to="/hearingloss/definition/types" className={styles.mainButton}>
                         <FormattedMessage id="app.hearingloss.definition.button.type"/>
                     </Link>
                 </li>
                 <li>
-                    <Link to="/hearingloss/cause" className={styles.mainButton}>
+                    <Link to="/hearingloss/definition/cause" className={styles.mainButton}>
                         <FormattedMessage id="app.hearingloss.definition.button.cause"/>
                     </Link>
                 </li>
                 <li>
-                    <Link to="/hearingloss/degree" className={styles.mainButton}>
+                    <Link to="/hearingloss/definition/degree" className={styles.mainButton}>
                         <FormattedMessage id="app.hearingloss.definition.button.degrees"/>
                     </Link>
                 </li>

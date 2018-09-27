@@ -74,6 +74,8 @@
 
   border: 0;
 
+  margin-bottom: 2rem;
+
   & td {
     text-align: center;
     border-bottom: 1px dotted black;
@@ -101,7 +103,6 @@
 
 .music:before {
   content: var(--musicIcon);
-
 }
 
 .speech:before {
@@ -116,3 +117,17 @@
   background-color: #f5f5f5;
 }
 
+.audiogramButton {
+  color: var(--mainColor);
+
+  font-size: 1rem;
+  font-family: var(--heavyFont);
+  text-transform: uppercase;
+
+  border: 1px solid var(--mainColor);
+
+  border-radius: 50px;
+  background-color: transparent;
+  padding: 1rem 1rem 0.5rem 1rem;
+
+}

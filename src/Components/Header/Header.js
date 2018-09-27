@@ -28,6 +28,15 @@ const MainMenu = ({onChangeLanguage}) => (
             <button className={styles.languageButton} onClick={() => onChangeLanguage('DE')}>
                 <FormattedMessage id="app.navigation.language.de"/>
             </button>
+
+            <button className={styles.languageButton} onClick={() => onChangeLanguage('FR')}>
+                <FormattedMessage id="app.navigation.language.fr"/>
+            </button>
+
+            <button className={styles.languageButton} onClick={() => onChangeLanguage('ES')}>
+                <FormattedMessage id="app.navigation.language.es"/>
+            </button>
+
         </div>
     </div>
 );

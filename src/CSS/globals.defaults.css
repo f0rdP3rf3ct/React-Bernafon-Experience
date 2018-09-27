@@ -17,7 +17,8 @@ p {
 }
 
 .mainParagraph {
-  margin: 0;
+  margin: 1rem 0;
+  padding: 1rem 0;
 
   font-family: var(--lightFont);
   font-size: 1.5rem;
@@ -26,6 +27,7 @@ p {
 
   border-top: 1px solid var(--mainColor);
   border-bottom: 1px solid var(--mainColor);
+
 }
 
 /**
@@ -73,25 +75,30 @@ p {
 }
 
 .mainButton {
-  padding: 0.1rem 1.3rem 0.5rem 1rem;
+  padding: 0.5rem 2rem 0.5rem 0.5rem;
+  text-align: left;
+
+  & span {
+    position: relative;
+    top: 0.3rem;
+  }
 
   &:before {
     content: var(--arrowButtonIcon);
 
     display: inline-block;
-    position: relative;
+    float: left;
 
     font-family: var(--iconFont);
     text-transform: none;
 
     color: var(--mainColor);
 
-    margin: 0.2rem 0.8rem 0.2rem -0.5rem;
     padding: 0.5rem;
+    margin-right: 1rem;
 
     border-radius: 50%;
     background-color: rgb(255, 255, 255);
-    top: 0.2rem;
   }
 
   &:hover:before {

@@ -8,13 +8,23 @@ import styles from './Hearingloss.module.css';
 import {Link} from "react-router-dom";
 import {HeaderImage} from "../../HeaderImage/HeaderImage";
 import aboutImage from "../../../Files/Images/bf_exp_img_header_about.png";
+import {Audiogram, AudiogramImage} from "..";
 
 
 export class Degree extends Component {
 
     state = {
         text: 'normalhearing',
-        image: img_normalhearing
+        image: img_normalhearing,
+        showAudiogramInfo: false
+    };
+
+
+    toggleAudiogramText = () => {
+        let shoAudioGram = !this.state.showAudiogramInfo;
+        this.setState({
+            showAudiogramInfo: shoAudioGram
+        })
     };
 
     render() {
@@ -23,20 +33,26 @@ export class Degree extends Component {
 
                 <HeaderImage imgUrl={aboutImage} alt={"About Hearing"} title={<FormattedMessage id="app.hearingloss.degree.title"/>}/>
 
-                <div className={styles.side}>
+                <div className={styles.content}>
+                    <img width="100%" alt="normal hearing" src={this.state.image}/>
 
-                    <Link to="/audiogram" className={styles.mainButton}>
-                        <FormattedMessage id="app.hearingloss.degree.button.audiogram"/>
-                    </Link>
+                    <button className={styles.audiogramButton} onClick={this.toggleAudiogramText}>
+                        <FormattedHTMLMessage id={"app.audiogram.button." + this.state.showAudiogramInfo}/>
+                    </button>
+
+                    {this.state.showAudiogramInfo && (
+                        <Audiogram />
+                    )}
+
+                </div>
+
+                <div className={styles.side}>
 
                     <p className={styles.mainParagraph}>
                         <FormattedHTMLMessage id="app.hearingloss.degree.intro"/>
                     </p>
 
-                </div>
 
-                <div className={styles.content}>
-                    <img width="100%" alt="normal hearing" src={this.state.image}/>
                 </div>
 
             </Fragment>

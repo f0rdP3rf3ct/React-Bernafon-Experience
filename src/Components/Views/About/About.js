@@ -3,18 +3,15 @@ import {FormattedMessage, FormattedHTMLMessage} from 'react-intl';
 import {Link} from "react-router-dom";
 import styles from './About.module.css';
 import {HeaderImage} from "../../HeaderImage/HeaderImage";
-import aboutImage from "../../../Files/Images/bf_exp_img_header_about.png";
+import introImage from "../../../Files/Images/bf_exp_img_header_about.png";
 
 
 export const About = () => (
     <Fragment>
-
-        <HeaderImage imgUrl={aboutImage} alt={"About Hearing"} title={<FormattedMessage id="app.about.title"/>}/>
+        <HeaderImage imgUrl={introImage} alt={"About Hearing"} title={<FormattedMessage id="app.about.title"/>}/>
 
         <div className={styles.content}>
-            <p className={styles.mainParagraph}>
-                <FormattedHTMLMessage id="app.about.intro"/>
-            </p>
+            <img src={introImage} alt="hearing-loss" />
         </div>
 
         <div className={styles.side}>

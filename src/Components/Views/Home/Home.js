@@ -14,17 +14,13 @@ export const Home = () => (
                     <FormattedMessage id="app.home.title"/>
                 </h1>
 
-                <p className={styles.mainParagraph}>
-                    <FormattedHTMLMessage id="app.home.intro"/>
-                </p>
-
             </div>
+        </div>
 
-            <div className={styles.side}>
-                <Link to="/hearingloss" className={styles.mainButton}>
-                    <FormattedMessage id="app.home.button.start"/>
-                </Link>
-            </div>
+        <div className={styles.side}>
+            <Link to="/hearingloss" className={styles.mainButton}>
+                <FormattedMessage id="app.home.button.start"/>
+            </Link>
         </div>
 
     </Fragment>
