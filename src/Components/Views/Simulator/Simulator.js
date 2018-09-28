@@ -12,20 +12,28 @@ import hl_sim_jazz_20 from "../../../Files/Audio/Hearingloss_Simulation_Jazz_Mus
 import hl_sim_jazz_60 from "../../../Files/Audio/Hearingloss_Simulation_Jazz_Music_v1_60.mp3";
 import hl_sim_jazz_80 from "../../../Files/Audio/Hearingloss_Simulation_Jazz_Music_v1_80.mp3";
 
+import hl_sim_forest_20 from "../../../Files/Audio/Hearingloss_Simulation_Forest_v1_20.mp3";
+import hl_sim_forest_60 from "../../../Files/Audio/Hearingloss_Simulation_Forest_v1_60.mp3";
+import hl_sim_forest_80 from "../../../Files/Audio/Hearingloss_Simulation_Forest_v1_80.mp3";
+
+import hl_sim_rest_20 from "../../../Files/Audio/Hearingloss_Simulation_Restaurant_v1_20.mp3";
+import hl_sim_rest_60 from "../../../Files/Audio/Hearingloss_Simulation_Restaurant_v1_60.mp3";
+import hl_sim_test_80 from "../../../Files/Audio/Hearingloss_Simulation_Restaurant_v1_80.mp3";
+
 import AudioPlayer from "../../AudioPlayer/AudioPlayer";
 import {Audiogram} from "..";
 
 // Maps audiofiles to the correponding age and topic
 const audioMappings = {
     nature: {
-        20: hl_sim_jazz_20,
-        60: hl_sim_jazz_60,
-        80: hl_sim_jazz_80
+        20: hl_sim_forest_20,
+        60: hl_sim_forest_60,
+        80: hl_sim_forest_80
     },
     speech: {
-        20: hl_sim_jazz_20,
-        60: hl_sim_jazz_60,
-        80: hl_sim_jazz_80
+        20: hl_sim_rest_20,
+        60: hl_sim_rest_60,
+        80: hl_sim_test_80
     },
     music: {
         20: hl_sim_jazz_20,
@@ -74,7 +82,6 @@ export class Simulator extends Component {
     };
 
     changeActiveRow = (topic) => {
-
         let activeRows = Array.from(document.getElementsByClassName(styles.activeRow));
 
         activeRows.forEach(obj => {
@@ -109,6 +116,27 @@ export class Simulator extends Component {
         });
 
         this.setState({audioPlayer: states});
+    };
+
+    updateAudiogram = (age) => {
+        let _audiogram = '';
+
+        switch (age) {
+            case '20' :
+                _audiogram = sim20Image;
+                break;
+            case '60':
+                _audiogram = sim60Image;
+                break;
+            case '80':
+                _audiogram = sim80Image;
+                break;
+            default:
+                _audiogram = sim20Image;
+
+        }
+
+        this.setState({audiogram: _audiogram});
     };
 
     /**
@@ -146,10 +174,12 @@ export class Simulator extends Component {
         });
     };
 
+
     handleAgeSelectorClick = (topic, age, e) => {
 
         this.updateWithAgeSelector(topic, age);
         this.changeActiveRow(topic);
+        this.updateAudiogram(age);
 
         /**
          * Handle button styling
@@ -176,32 +206,12 @@ export class Simulator extends Component {
 
         this.setState({audioPlayer: states});
 
-        /**
-         * Handle audiogram state
-         */
-        let _audiogram = '';
-
-        switch (age) {
-            case '20' :
-                _audiogram = sim20Image;
-                break;
-            case '60':
-                _audiogram = sim60Image;
-                break;
-            case '80':
-                _audiogram = sim80Image;
-                break;
-            default:
-                _audiogram = sim20Image;
-
-        }
-
-        this.setState({audiogram: _audiogram});
     };
 
     handlePlayStateChange = (target, e) => {
         this.changeActiveRow(target.props.name);
         this.updatePlayState(target.props.name);
+        this.updateAudiogram(target.props.age);
     };
 
     renderAgeButton = (topic, age) => {
@@ -230,26 +240,26 @@ export class Simulator extends Component {
 
                     <div className={styles.content}>
 
-                        <table width="100%" cellPadding="0" cellspacing="2px" className={styles.soundTable}>
+                        <table width="100%" cellPadding="0" cellspacing="0" className={styles.soundTable}>
                             <tbody>
                             <tr>
-                                <th></th>
-                                <th></th>
+                                <th colSpan={2}></th>
                                 <th colSpan={3}>
                                     <h3 className={styles.ageTitle}>
                                         <FormattedMessage id="app.simulator.age"/>
                                     </h3>
                                 </th>
-                                <th></th>
-                                <th></th>
-                                <th rowSpan={4} className={styles.audiogramCol}>
-                                    <AudiogramImage audiogram={this.state.audiogram}/>
+                                <th>
+                                    <h3 className={styles.ageTitle}>
+                                        <FormattedMessage id="app.simulator.audiogram"/>
+                                    </h3>
                                 </th>
                             </tr>
                             <tr id="nature-row">
                                 <td>
                                     <AudioPlayer playState={this.state.audioPlayer[0].playState}
                                                  name={this.state.audioPlayer[0].topic}
+                                                 age={this.state.audioPlayer[0].age}
                                                  volume={100}
                                                  audiofile={this.state.audioPlayer[0].audiofile}
                                                  onHandlePause={(e) => this.handlePause(e)}
@@ -259,20 +269,25 @@ export class Simulator extends Component {
                                 <td>
                                     <span className={styles.nature}></span>
                                 </td>
-                                <td>
+                                <td className={styles.ageCell}>
                                     {this.renderAgeButton('nature', '20')}
                                 </td>
-                                <td>
+                                <td className={styles.ageCell}>
                                     {this.renderAgeButton('nature', '60')}
                                 </td>
-                                <td>
+                                <td className={styles.ageCell}>
                                     {this.renderAgeButton('nature', '80')}
+                                </td>
+                                <td rowSpan={3} className={styles.audiogramCol}>
+                                    <AudiogramImage audiogram={this.state.audiogram}/>
                                 </td>
                             </tr>
                             <tr id="speech-row">
                                 <td>
                                     <AudioPlayer playState={this.state.audioPlayer[1].playState}
-                                                 name={this.state.audioPlayer[1].topic} volume={100}
+                                                 name={this.state.audioPlayer[1].topic}
+                                                 age={this.state.audioPlayer[1].age}
+                                                 volume={100}
                                                  audiofile={this.state.audioPlayer[1].audiofile}
                                                  onHandlePause={(e) => this.handlePause(e)}
                                                  onClick={(e) => this.handlePlayStateChange(e)}
@@ -281,13 +296,13 @@ export class Simulator extends Component {
                                 <td>
                                     <span className={styles.speech}></span>
                                 </td>
-                                <td>
+                                <td className={styles.ageCell}>
                                     {this.renderAgeButton('speech', '20')}
                                 </td>
-                                <td>
+                                <td className={styles.ageCell}>
                                     {this.renderAgeButton('speech', '60')}
                                 </td>
-                                <td>
+                                <td className={styles.ageCell}>
                                     {this.renderAgeButton('speech', '80')}
                                 </td>
                             </tr>
@@ -295,6 +310,7 @@ export class Simulator extends Component {
                                 <td>
                                     <AudioPlayer playState={this.state.audioPlayer[2].playState}
                                                  name={this.state.audioPlayer[2].topic}
+                                                 age={this.state.audioPlayer[2].age}
                                                  volume={100}
                                                  audiofile={this.state.audioPlayer[2].audiofile}
                                                  onHandlePause={(e) => this.handlePause(e)}
@@ -304,18 +320,16 @@ export class Simulator extends Component {
                                 <td>
                                     <span className={styles.music}></span>
                                 </td>
-                                <td>
+                                <td className={styles.ageCell}>
                                     {this.renderAgeButton('music', '20')}
                                 </td>
-                                <td>
+                                <td className={styles.ageCell}>
                                     {this.renderAgeButton('music', '60')}
                                 </td>
-                                <td>
+                                <td className={styles.ageCell}>
                                     {this.renderAgeButton('music', '80')}
                                 </td>
                             </tr>
-
-
                             </tbody>
                         </table>
 
@@ -326,7 +340,6 @@ export class Simulator extends Component {
                         {this.state.showAudiogramInfo && (
                             <Audiogram/>
                         )}
-
                     </div>
 
                     <div className={styles.side}>
