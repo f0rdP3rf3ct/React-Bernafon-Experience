@@ -223,7 +223,7 @@ export class Simulator extends Component {
         )
     };
 
-    toggleAudiogramText = () => {
+    showAudiogramText = (e) => {
         let shoAudioGram = !this.state.showAudiogramInfo;
         this.setState({
             showAudiogramInfo: shoAudioGram
@@ -232,6 +232,7 @@ export class Simulator extends Component {
 
     render() {
         return (
+
             <Fragment>
                 <div className={styles.gridSimulator}>
 
@@ -333,13 +334,8 @@ export class Simulator extends Component {
                             </tbody>
                         </table>
 
-                        <button className={styles.audiogramButton} onClick={this.toggleAudiogramText}>
-                            <FormattedHTMLMessage id={"app.audiogram.button." + this.state.showAudiogramInfo}/>
-                        </button>
+                        <Audiogram onClick={this.showAudiogramText} show={this.state.showAudiogramInfo} />
 
-                        {this.state.showAudiogramInfo && (
-                            <Audiogram/>
-                        )}
                     </div>
 
                     <div className={styles.side}>
@@ -347,6 +343,10 @@ export class Simulator extends Component {
                         <p className={styles.mainParagraph}>
                             <FormattedHTMLMessage id="app.simulator.intro"/>
                         </p>
+
+                        <button className={styles.audiogramButton} onClick={this.showAudiogramText}>
+                            <FormattedHTMLMessage id={"app.audiogram.button." + this.state.showAudiogramInfo}/>
+                        </button>
 
                     </div>
                 </div>

@@ -18,11 +18,11 @@
 }
 
 .gridSimulator {
-  grid-template-columns: 10% 3fr 320px 10%;
+  grid-template-columns: 5% 3fr 320px 5%;
 }
 
 .grid {
-  grid-template-columns: 10% 2fr 1fr 10%;
+  grid-template-columns: 5% 2fr 1fr 5%;
 }
 
 .content, .side {

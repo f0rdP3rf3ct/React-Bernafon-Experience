@@ -30,20 +30,16 @@ export class Degree extends Component {
 
                     <div className={styles.content}>
                         <img width="100%" alt="normal hearing" src={this.state.image}/>
-
-                        <button className={styles.audiogramButton} onClick={this.toggleAudiogramText}>
-                            <FormattedHTMLMessage id={"app.audiogram.button." + this.state.showAudiogramInfo}/>
-                        </button>
-
-                        {this.state.showAudiogramInfo && (
-                            <Audiogram/>
-                        )}
+                        <Audiogram onClick={this.toggleAudiogramText} show={this.state.showAudiogramInfo}/>
                     </div>
 
                     <div className={styles.side}>
                         <p className={styles.mainParagraph}>
                             <FormattedHTMLMessage id="app.hearingloss.degree.intro"/>
                         </p>
+                        <button className={styles.audiogramButton} onClick={this.toggleAudiogramText}>
+                            <FormattedHTMLMessage id={"app.audiogram.button.false"}/>
+                        </button>
                     </div>
                 </div>
             </Fragment>
