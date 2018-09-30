@@ -29,7 +29,7 @@ addLocaleData([...locale_en, ...locale_de, ...locale_fr, ...locale_es]);
  * @type {{locale: string, messages}}
  */
 let i18nConfig = {
-    locale: 'en',
+    locale: 'EN',
     messages: messages_en
 };
 

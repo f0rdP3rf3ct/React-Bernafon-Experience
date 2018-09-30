@@ -50,5 +50,6 @@
 	"app.crumb.types" : "Types of hearing loss",
 	"app.crumb.cause" : "The causes of hearing loss",
 	"app.crumb.degree" : "Degrees of hearing loss",
-	"app.crumb.simulator" : "Simulator"
+	"app.crumb.simulator" : "Simulator",
+	"test" : "Test message"
 }

@@ -1,10 +1,14 @@
 import React, {Component, Fragment} from 'react';
-import {FormattedHTMLMessage, FormattedMessage} from 'react-intl';
+import {injectIntl, intlShape, FormattedHTMLMessage, FormattedMessage} from 'react-intl';
 import styles from './Simulator.module.css';
+
+/*
 import simImage from "../../../Files/Images/bf_exp_simulator_audiogram_blank.svg";
 import sim20Image from "../../../Files/Images/bf_exp_simulator_audiogram_20.svg";
 import sim60Image from "../../../Files/Images/bf_exp_simulator_audiogram_60.svg";
 import sim80Image from "../../../Files/Images/bf_exp_simulator_audiogram_80.svg";
+*/
+
 import {HeaderImage} from "../../HeaderImage/HeaderImage";
 import aboutImage from "../../../Files/Images/bf_exp_img_header_about.png";
 
@@ -22,6 +26,7 @@ import hl_sim_test_80 from "../../../Files/Audio/Hearingloss_Simulation_Restaura
 
 import AudioPlayer from "../../AudioPlayer/AudioPlayer";
 import {Audiogram} from "..";
+import AudiogramImage from "../../AudiogramImage/AudiogramImage";
 
 // Maps audiofiles to the correponding age and topic
 const audioMappings = {
@@ -40,15 +45,6 @@ const audioMappings = {
         60: hl_sim_jazz_60,
         80: hl_sim_jazz_80
     }
-};
-
-export const AudiogramImage = (props) => {
-
-    if (props.audiogram !== '') {
-        return <img alt="audiogram" width="100%" src={props.audiogram}/>
-    }
-
-    return '';
 };
 
 export class Simulator extends Component {
@@ -77,7 +73,7 @@ export class Simulator extends Component {
                 age: '20'
             }
         ],
-        audiogram: simImage,
+        audiogram: '_blank',
         showAudiogramInfo: false
     };
 
@@ -119,6 +115,7 @@ export class Simulator extends Component {
     };
 
     updateAudiogram = (age) => {
+        /*
         let _audiogram = '';
 
         switch (age) {
@@ -135,8 +132,9 @@ export class Simulator extends Component {
                 _audiogram = sim20Image;
 
         }
+        */
 
-        this.setState({audiogram: _audiogram});
+        this.setState({audiogram: age});
     };
 
     /**
