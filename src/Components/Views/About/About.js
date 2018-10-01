@@ -1,5 +1,5 @@
 import React, {Fragment} from 'react';
-import {FormattedMessage, FormattedHTMLMessage} from 'react-intl';
+import {FormattedMessage} from 'react-intl';
 import {Link} from "react-router-dom";
 import styles from './About.module.css';
 import {HeaderImage} from "../../HeaderImage/HeaderImage";

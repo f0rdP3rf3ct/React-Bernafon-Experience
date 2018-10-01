@@ -1,10 +1,10 @@
 import React from 'react';
 import {injectIntl, intlShape} from "react-intl";
 
-import bananaImage_en from "../../Files/Images/bf_exp_speechbanana.svg";
-import bananaImage_de from "../../Files/Images/bf_exp_speechbanana.svg";
-import bananaImage_fr from "../../Files/Images/bf_exp_speechbanana.svg";
-import bananaImage_es from "../../Files/Images/bf_exp_speechbanana.svg";
+import bananaImage_en from "../../Files/Images/bf_exp_speechbanana_EN.svg";
+import bananaImage_de from "../../Files/Images/bf_exp_speechbanana_DE.svg";
+import bananaImage_fr from "../../Files/Images/bf_exp_speechbanana_FR.svg";
+import bananaImage_es from "../../Files/Images/bf_exp_speechbanana_ES.svg";
 
 const imgMappings = {
     "EN": bananaImage_en,

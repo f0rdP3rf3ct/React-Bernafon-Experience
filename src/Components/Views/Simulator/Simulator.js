@@ -1,13 +1,6 @@
 import React, {Component, Fragment} from 'react';
-import {injectIntl, intlShape, FormattedHTMLMessage, FormattedMessage} from 'react-intl';
+import {FormattedHTMLMessage, FormattedMessage} from 'react-intl';
 import styles from './Simulator.module.css';
-
-/*
-import simImage from "../../../Files/Images/bf_exp_simulator_audiogram_blank.svg";
-import sim20Image from "../../../Files/Images/bf_exp_simulator_audiogram_20.svg";
-import sim60Image from "../../../Files/Images/bf_exp_simulator_audiogram_60.svg";
-import sim80Image from "../../../Files/Images/bf_exp_simulator_audiogram_80.svg";
-*/
 
 import {HeaderImage} from "../../HeaderImage/HeaderImage";
 import aboutImage from "../../../Files/Images/bf_exp_img_header_about.png";

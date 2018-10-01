@@ -23,7 +23,21 @@ export class Types extends Component {
         mixed: hearingLossImageMixed
     };
 
+
     handleOnClick = (typeSuffix, event) => {
+
+        // handle styling
+        let alllabels = Array.from(document.getElementsByClassName(styles.labelWrapper));
+
+        alllabels.forEach(obj => {
+           obj.classList.remove(styles.activelabel);
+        });
+
+        let activeRows = Array.from(document.querySelectorAll('[data-belongsTo=' + typeSuffix + ']'));
+
+        activeRows.forEach(obj => {
+            obj.classList.add(styles.activelabel);
+        });
 
         // Assign active class and assgin new text to state
         event.currentTarget.classList.add(styles.active);
@@ -57,19 +71,51 @@ export class Types extends Component {
 
                         <table width="95%" className={styles.infoTable}>
                             <tr>
-                                <td className={styles.infographic} colspan="2">
+                                <td className={styles.infographic} colSpan="6">
                                     <img alt="types-hearingloss" width="100%"
                                          src={this.imgMap[this.state.displayedText]}/>
                                 </td>
                             </tr>
                             <tr>
-                                <td width="50%">
+                                <td width="16%" className={styles.labelCell}>
+                                    <div data-belongsTo="sensorineural" className={styles.labelWrapper}>
+                                        <FormattedMessage id="app.hearingloss.types.img.sound"/>
+                                    </div>
+                                </td>
+                                <td width="18.7%" className={styles.labelCell}>
+                                    <div data-belongsTo="sensorineural" className={styles.labelWrapper}>
+                                        <FormattedMessage id="app.hearingloss.types.img.externalear"/>
+                                    </div>
+                                </td>
+                                <td width="15.4%" className={styles.labelCell}>
+                                    <div data-belongsTo="sensorineural" className={styles.labelWrapper}>
+                                        <FormattedMessage id="app.hearingloss.types.img.middleear"/>
+                                    </div>
+                                </td>
+                                <td width="17.6%" className={styles.labelCell}>
+                                    <div data-belongsTo="conductive" className={styles.labelWrapper}>
+                                        <FormattedMessage id="app.hearingloss.types.img.innerear"/>
+                                    </div>
+                                </td>
+                                <td width="17.9%" className={styles.labelCell}>
+                                    <div data-belongsTo="conductive" className={styles.labelWrapper}>
+                                        <FormattedMessage id="app.hearingloss.types.img.auditorynerve"/>
+                                    </div>
+                                </td>
+                                <td width="16%" className={styles.labelCell}>
+                                    <div  data-belongsTo="conductive" className={styles.labelWrapper}>
+                                        <FormattedMessage id="app.hearingloss.types.img.brain"/>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="50%" colSpan={3}>
                                     <button className={styles.textButton}
                                             onClick={(e) => this.handleOnClick('conductive', e)}>
                                         <FormattedMessage id="app.hearingloss.types.button.conductive"/>
                                     </button>
                                 </td>
-                                <td width="50%">
+                                <td width="50%" colSpan={3}>
                                     <button className={styles.textButton}
                                             onClick={(e) => this.handleOnClick('sensorineural', e)}>
                                         <FormattedMessage id="app.hearingloss.types.button.sensorineural"/>
@@ -77,7 +123,7 @@ export class Types extends Component {
                                 </td>
                             </tr>
                             <tr>
-                                <td colSpan="2">
+                                <td colSpan={6}>
                                     <button stlye="width:100%" className={styles.textButton}
                                             onClick={(e) => this.handleOnClick('mixed', e)}>
                                         <FormattedMessage id="app.hearingloss.types.button.mixed"/>

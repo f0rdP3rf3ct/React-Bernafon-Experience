@@ -1,9 +1,9 @@
 import React, {Component, Fragment} from 'react';
 import styles from './Audiogram.module.css';
 import {FormattedHTMLMessage} from 'react-intl';
-import brn_exp_img_audiogram from "../../../Files/Images/bf_exp_img_audiogram.png";
 import topFactImg from "../../../Files/Images/bf_exp_facts_top.svg";
 import bottomFactImg from "../../../Files/Images/bf_exp_facts_bottom.svg";
+import AudiogramInfoImage from "../../AudiogramInfoImage/AudiogramInfoImage";
 
 
 export class Audiogram extends Component {
@@ -11,7 +11,6 @@ export class Audiogram extends Component {
     state = {
         show: true
     };
-
 
     render() {
         return (
@@ -43,7 +42,8 @@ export class Audiogram extends Component {
                                             </p>
                                         </td>
                                         <td>
-                                            <img width="500px" src={brn_exp_img_audiogram}/>
+                                            <AudiogramInfoImage/>
+                                            {/*<img width="500px" src={brn_exp_img_audiogram}/>*/}
                                         </td>
                                     </tr>
                                     <tr>
