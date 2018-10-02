@@ -2,10 +2,9 @@ import React, {Component} from 'react';
 import {IntlProvider, addLocaleData} from 'react-intl';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import Header from './Components/Header/Header';
-import {About, Home, Types, Cause, Degree, Simulator, Definition, Audiogram} from './Components/Views';
+import {About, Types, Cause, Degree, Simulator, Definition, Audiogram} from './Components/Views';
 import './CSS/globals.fonts.css';
-import styles from './App.module.css';
-
+// import styles from './App.module.css';
 
 /**
  * Lang. imports
@@ -29,7 +28,7 @@ addLocaleData([...locale_en, ...locale_de, ...locale_fr, ...locale_es]);
  * @type {{locale: string, messages}}
  */
 let i18nConfig = {
-    locale: 'en',
+    locale: 'EN',
     messages: messages_en
 };
 
@@ -73,21 +72,15 @@ class App extends Component {
 
                     <div>
                         <Header onChangeLanguage={this.handleChangeLanguage}/>
-
-                        {/*<div className={styles.grid}>*/}
-
-                            <Switch>
-                                <Route exact path="/" component={About}/>
-                                <Route exact path="/audiogram" component={Audiogram}/>
-                                {/*<Route exact path="/hearingloss" component={About}/>*/}
-                                <Route exact path="/definition/types" component={Types}/>
-                                <Route exact path="/definition/cause" component={Cause}/>
-                                <Route exact path="/definition/degree" component={Degree}/>
-                                <Route exact path="/definition" component={Definition}/>
-                                <Route exact path="/simulator" component={Simulator}/>
-                            </Switch>
-
-                        {/*</div>*/}
+                        <Switch>
+                            <Route exact path="/" component={About}/>
+                            <Route exact path="/audiogram" component={Audiogram}/>
+                            <Route exact path="/definition/types" component={Types}/>
+                            <Route exact path="/definition/cause" component={Cause}/>
+                            <Route exact path="/definition/degree" component={Degree}/>
+                            <Route exact path="/definition" component={Definition}/>
+                            <Route exact path="/simulator" component={Simulator}/>
+                        </Switch>
                     </div>
                 </Router>
             </IntlProvider>

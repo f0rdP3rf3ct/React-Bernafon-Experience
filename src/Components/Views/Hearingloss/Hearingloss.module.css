@@ -26,7 +26,6 @@
 
   font-size: 1rem;
   font-family: var(--heavyFont);
-  text-transform: uppercase;
 
   border: 1px solid var(--mainColor);
 
@@ -39,4 +38,36 @@
   &:focus {
     outline: none;
   }
+}
+
+.labelWrapper {
+  position: relative;
+
+  & span {
+    display: block;
+    text-align: center;
+  }
+}
+
+.activelabel {
+  &:before {
+    content: '';
+    background-color: rgba(255, 255, 255, 0.8);
+    z-index: 100;
+
+    position: absolute;
+
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.labelCell {
+  padding: 0.7rem 0;
+
+  border-bottom: 1px solid var(--mainColor);
+  border-right: 1px solid var(--mainColor);
+  border-left: 1px solid var(--mainColor);
+
+
 }

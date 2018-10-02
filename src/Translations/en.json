@@ -21,6 +21,12 @@
 	"app.hearingloss.types.text.conductive" : "<b>Conductive hearing loss</b> is caused by a mechanical problem in the outer or middle ear or an obstruction in the ear canal such as ear wax that blocks sound from getting to the eardrum. It can be permanent but more often, it is temporary and can be medically treated.",
 	"app.hearingloss.types.title.mixed" : "Mixed hearing loss",
 	"app.hearingloss.types.text.mixed" : "<b>Mixed hearing loss</b> results when there are components of both sensorineural and conductive hearing loss present.",
+	"app.hearingloss.types.img.sound" : "Sound",
+	"app.hearingloss.types.img.externalear" : "External ear",
+	"app.hearingloss.types.img.middleear" : "Middle ear",
+	"app.hearingloss.types.img.innerear" : "Inner ear",
+	"app.hearingloss.types.img.auditorynerve" : "Auditory nerve",
+	"app.hearingloss.types.img.brain" : "Brain",
 	"app.hearingloss.types.button.sensorineural" : "Sensorineural hearing loss",
 	"app.hearingloss.types.button.conductive" : "Conductive hearing loss",
 	"app.hearingloss.types.button.mixed" : "Mixed hearing loss",
@@ -46,9 +52,10 @@
 	"app.navigation.back" : "Back",
 	"app.crumb." : "hearing loss",
 	"app.crumb.hearingloss" : "hearing loss",
-	"app.crumb.definition" : "about",
+	"app.crumb.definition" : "What is hearing loss?",
 	"app.crumb.types" : "Types of hearing loss",
 	"app.crumb.cause" : "The causes of hearing loss",
 	"app.crumb.degree" : "Degrees of hearing loss",
-	"app.crumb.simulator" : "Simulator"
+	"app.crumb.simulator" : "Simulator",
+	"test" : "Test message"
 }

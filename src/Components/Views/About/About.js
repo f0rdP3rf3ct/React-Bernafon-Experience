@@ -1,5 +1,5 @@
 import React, {Fragment} from 'react';
-import {FormattedMessage, FormattedHTMLMessage} from 'react-intl';
+import {FormattedMessage} from 'react-intl';
 import {Link} from "react-router-dom";
 import styles from './About.module.css';
 import {HeaderImage} from "../../HeaderImage/HeaderImage";
@@ -12,7 +12,7 @@ export const About = () => (
             <HeaderImage imgUrl={introImage} alt={"About Hearing"} title={<FormattedMessage id="app.about.title"/>}/>
 
             <div className={styles.content}>
-                <img src={introImage} alt="hearing-loss"/>
+                <img width="100%" src={introImage} alt="hearing-loss"/>
             </div>
 
             <div className={styles.side}>

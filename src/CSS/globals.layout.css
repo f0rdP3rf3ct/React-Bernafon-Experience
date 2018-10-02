@@ -8,21 +8,20 @@
 
   grid-column-gap: 1rem;
 
-  grid-template-rows: 10rem min-content 10rem;
+  grid-template-rows: 10rem min-content;
   grid-template-areas:
           "bleed1 header1 header2 bleed2"
-          "bleed3 content side bleed4"
-          "footer1 footer2 footer3 footer4";
+          "bleed3 content side bleed4";
 
   margin-top: 8.6rem; /* Header height */
 }
 
 .gridSimulator {
-  grid-template-columns: 10% 3fr 320px 10%;
+  grid-template-columns: 5% 1fr 2fr 5%;
 }
 
 .grid {
-  grid-template-columns: 10% 2fr 1fr 10%;
+  grid-template-columns: 5% 2fr 1fr 5%;
 }
 
 .content, .side {
