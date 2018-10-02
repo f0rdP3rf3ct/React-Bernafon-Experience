@@ -41,7 +41,7 @@
 	"app.hearingloss.degree.intro" : "<ul><li><b>Perte auditive légère</b> Difficulté à entendre des paroles faibles ou distantes, même dans un environnement calme</li><li><b>Perte auditive modérée</b> Possibilité de comprendre une conversation uniquement à une distance rapprochée</li><li><b>Perte auditive sévère et profonde</b> Impossibilité de comprendre une conversion</li></ul> Le degré de perte auditive est déterminé au moyen d’un test auditif et par les résultats d’un audiogramme. L’<b>audiogramme</b> est un graphique qui donne une description détaillée de votre capacité auditive.",
 	"app.simulator.title" : "Simulateur de perte auditive",
 	"app.simulator.intro" : "<b>Faire l’expérience d’une perte auditive liée à l’âge</b></br> En vieillissant, nous perdons progressivement la capacité d’entendre des sons faibles et aigus, comme les chants des oiseaux ou certains sons spécifiques de la parole.  La compréhension de la parole peut être difficile en particulier dans les situations bruyantes ou les conversations en groupe.</br></br><i>Cliquez sur le bouton pour entendre le son dans la tranche d’âge respective pour une perte auditive liée à l’âge.</i>",
-	"app.simulator.age": "Select age",
+	"app.simulator.age": "Sélectionnez l’âge",
 	"app.simulator.audiogram": "L’audiogramme",
 	"app.navigation.home" : "Home",
 	"app.navigation.home.about" : "Learn more about hearing loss",
