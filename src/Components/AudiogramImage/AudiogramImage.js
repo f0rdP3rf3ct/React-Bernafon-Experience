@@ -2,25 +2,25 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {injectIntl, intlShape} from "react-intl";
 
-import simImage_en from "../../Files/Images/bf_exp_simulator_audiogram_blank_EN.svg";
-import simImage_de from "../../Files/Images/bf_exp_simulator_audiogram_blank_DE.svg";
-import simImage_fr from "../../Files/Images/bf_exp_simulator_audiogram_blank_FR.svg";
-import simImage_es from "../../Files/Images/bf_exp_simulator_audiogram_blank_ES.svg";
+import simImage_en from "./../../Files/Images/bf_exp_simulator_audiogram_blank_EN.svg";
+import simImage_de from "./../../Files/Images/bf_exp_simulator_audiogram_blank_DE.svg";
+import simImage_fr from "./../../Files/Images/bf_exp_simulator_audiogram_blank_FR.svg";
+import simImage_es from "./../../Files/Images/bf_exp_simulator_audiogram_blank_ES.svg";
 
-import sim20Image_en from "../../Files/Images/bf_exp_simulator_audiogram_20_EN.svg";
-import sim20Image_de from "../../Files/Images/bf_exp_simulator_audiogram_20_DE.svg";
-import sim20Image_fr from "../../Files/Images/bf_exp_simulator_audiogram_20_FR.svg";
-import sim20Image_es from "../../Files/Images/bf_exp_simulator_audiogram_20_ES.svg";
+import sim20Image_en from "./../../Files/Images/bf_exp_simulator_audiogram_20_EN.svg";
+import sim20Image_de from "./../../Files/Images/bf_exp_simulator_audiogram_20_DE.svg";
+import sim20Image_fr from "./../../Files/Images/bf_exp_simulator_audiogram_20_FR.svg";
+import sim20Image_es from "./../../Files/Images/bf_exp_simulator_audiogram_20_ES.svg";
 
-import sim60Image_en from "../../Files/Images/bf_exp_simulator_audiogram_60_EN.svg";
-import sim60Image_de from "../../Files/Images/bf_exp_simulator_audiogram_60_DE.svg";
-import sim60Image_fr from "../../Files/Images/bf_exp_simulator_audiogram_60_FR.svg";
-import sim60Image_es from "../../Files/Images/bf_exp_simulator_audiogram_60_ES.svg";
+import sim60Image_en from "./../../Files/Images/bf_exp_simulator_audiogram_60_EN.svg";
+import sim60Image_de from "./../../Files/Images/bf_exp_simulator_audiogram_60_DE.svg";
+import sim60Image_fr from "./../../Files/Images/bf_exp_simulator_audiogram_60_FR.svg";
+import sim60Image_es from "./../../Files/Images/bf_exp_simulator_audiogram_60_ES.svg";
 
-import sim80Image_en from "../../Files/Images/bf_exp_simulator_audiogram_80_EN.svg";
-import sim80Image_de from "../../Files/Images/bf_exp_simulator_audiogram_80_DE.svg";
-import sim80Image_fr from "../../Files/Images/bf_exp_simulator_audiogram_80_FR.svg";
-import sim80Image_es from "../../Files/Images/bf_exp_simulator_audiogram_80_ES.svg";
+import sim80Image_en from "./../../Files/Images/bf_exp_simulator_audiogram_80_EN.svg";
+import sim80Image_de from "./../../Files/Images/bf_exp_simulator_audiogram_80_DE.svg";
+import sim80Image_fr from "./../../Files/Images/bf_exp_simulator_audiogram_80_FR.svg";
+import sim80Image_es from "./../../Files/Images/bf_exp_simulator_audiogram_80_ES.svg";
 
 const imgMappings = {
     _blank : {

@@ -1,10 +1,10 @@
 import React from 'react';
 import {injectIntl, intlShape} from "react-intl";
 
-import Image_en from "../../Files/Images/bf_exp_img_audiogram_EN.svg";
-import Image_de from "../../Files/Images/bf_exp_img_audiogram_DE.svg";
-import Image_fr from "../../Files/Images/bf_exp_img_audiogram_FR.svg";
-import Image_es from "../../Files/Images/bf_exp_img_audiogram_ES.svg";
+import Image_en from "./../../Files/Images/bf_exp_img_audiogram_EN.svg";
+import Image_de from "./../../Files/Images/bf_exp_img_audiogram_DE.svg";
+import Image_fr from "./../../Files/Images/bf_exp_img_audiogram_FR.svg";
+import Image_es from "./../../Files/Images/bf_exp_img_audiogram_ES.svg";
 
 const imgMappings = {
     'EN': Image_en,

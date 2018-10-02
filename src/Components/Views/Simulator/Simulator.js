@@ -2,24 +2,24 @@ import React, {Component, Fragment} from 'react';
 import {FormattedHTMLMessage, FormattedMessage} from 'react-intl';
 import styles from './Simulator.module.css';
 
-import {HeaderImage} from "../../HeaderImage/HeaderImage";
-import aboutImage from "../../../Files/Images/bf_exp_img_header_about.png";
+import {HeaderImage} from "./../../HeaderImage/HeaderImage";
+import aboutImage from "./../../../Files/Images/bf_exp_img_header_about.png";
 
-import hl_sim_jazz_20 from "../../../Files/Audio/Hearingloss_Simulation_Jazz_Music_v1_20.mp3";
-import hl_sim_jazz_60 from "../../../Files/Audio/Hearingloss_Simulation_Jazz_Music_v1_60.mp3";
-import hl_sim_jazz_80 from "../../../Files/Audio/Hearingloss_Simulation_Jazz_Music_v1_80.mp3";
+import hl_sim_jazz_20 from "./../../../Files/Audio/Hearingloss_Simulation_Jazz_Music_v1_20.mp3";
+import hl_sim_jazz_60 from "./../../../Files/Audio/Hearingloss_Simulation_Jazz_Music_v1_60.mp3";
+import hl_sim_jazz_80 from "./../../../Files/Audio/Hearingloss_Simulation_Jazz_Music_v1_80.mp3";
 
-import hl_sim_forest_20 from "../../../Files/Audio/Hearingloss_Simulation_Forest_v1_20.mp3";
-import hl_sim_forest_60 from "../../../Files/Audio/Hearingloss_Simulation_Forest_v1_60.mp3";
-import hl_sim_forest_80 from "../../../Files/Audio/Hearingloss_Simulation_Forest_v1_80.mp3";
+import hl_sim_forest_20 from "./../../../Files/Audio/Hearingloss_Simulation_Forest_v1_20.mp3";
+import hl_sim_forest_60 from "./../../../Files/Audio/Hearingloss_Simulation_Forest_v1_60.mp3";
+import hl_sim_forest_80 from "./../../../Files/Audio/Hearingloss_Simulation_Forest_v1_80.mp3";
 
-import hl_sim_rest_20 from "../../../Files/Audio/Hearingloss_Simulation_Restaurant_v1_20.mp3";
-import hl_sim_rest_60 from "../../../Files/Audio/Hearingloss_Simulation_Restaurant_v1_60.mp3";
-import hl_sim_test_80 from "../../../Files/Audio/Hearingloss_Simulation_Restaurant_v1_80.mp3";
+import hl_sim_rest_20 from "./../../../Files/Audio/Hearingloss_Simulation_Restaurant_v1_20.mp3";
+import hl_sim_rest_60 from "./../../../Files/Audio/Hearingloss_Simulation_Restaurant_v1_60.mp3";
+import hl_sim_test_80 from "./../../../Files/Audio/Hearingloss_Simulation_Restaurant_v1_80.mp3";
 
-import AudioPlayer from "../../AudioPlayer/AudioPlayer";
+import AudioPlayer from "./../../AudioPlayer/AudioPlayer";
 import {Audiogram} from "..";
-import AudiogramImage from "../../AudiogramImage/AudiogramImage";
+import AudiogramImage from "./../../AudiogramImage/AudiogramImage";
 
 // Maps audiofiles to the correponding age and topic
 const audioMappings = {

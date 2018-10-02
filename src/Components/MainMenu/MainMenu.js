@@ -1,5 +1,5 @@
 import {Link, withRouter} from "react-router-dom";
-import styles from "../Header/Header.module.css";
+import styles from "./../Header/Header.module.css";
 import {FormattedMessage, intlShape} from "react-intl";
 import React from "react";
 

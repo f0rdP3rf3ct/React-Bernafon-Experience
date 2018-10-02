@@ -1,9 +1,9 @@
 import React, {Component, Fragment} from 'react';
 import styles from './Audiogram.module.css';
 import {FormattedHTMLMessage} from 'react-intl';
-import topFactImg from "../../../Files/Images/bf_exp_facts_top.svg";
-import bottomFactImg from "../../../Files/Images/bf_exp_facts_bottom.svg";
-import AudiogramInfoImage from "../../AudiogramInfoImage/AudiogramInfoImage";
+import topFactImg from "./../../../Files/Images/bf_exp_facts_top.svg";
+import bottomFactImg from "./../../../Files/Images/bf_exp_facts_bottom.svg";
+import AudiogramInfoImage from "./../../AudiogramInfoImage/AudiogramInfoImage";
 
 
 export class Audiogram extends Component {

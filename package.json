@@ -2,7 +2,9 @@
   "name": "bernafon-experience",
   "version": "0.1.0",
   "private": true,
+  "homepage": "./",
   "dependencies": {
+    "electron-is-dev": "^1.0.1",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
     "react-intl": "^2.4.0",
@@ -10,28 +12,38 @@
     "react-scripts": "1.1.4",
     "react-sound": "^1.2.0"
   },
-  "main": "src/electron-starter.js",
-  "homepage": "./",
+  "main": "public/electron.js",
   "scripts": {
     "start": "react-app-rewired start",
     "build": "react-app-rewired build",
     "test": "react-app-rewired test --env=jsdom",
     "eject": "react-scripts eject",
     "extract-messages": "NODE_ENV=production babel ./src  --out-file /dev/null",
-    "electron-dev": "ELECTRON_START_URL=http://localhost:3000 electron .",
-    "electron": "electron ."
+    "electron-dev": "concurrently \"BROWSER=none yarn start\" \"wait-on http://localhost:3000 && electron .\"",
+    "electron-pack": "electron-builder -c.extraMetadata.main=build/electron.js",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-plugin-react-intl": "^2.4.0",
     "babel-preset-react-app": "^3.1.2",
+    "concurrently": "^4.0.1",
     "electron": "^3.0.2",
+    "electron-builder": "^20.28.4",
     "node-sass": "^4.9.3",
     "postcss-cssnext": "^3.1.0",
     "postcss-import": "^12.0.0",
     "react-app-rewire-css-modules": "github:codebandits/react-app-rewire-css-modules",
     "react-app-rewire-postcss": "^1.0.2",
     "react-app-rewired": "^1.6.2",
-    "sass-loader": "^7.1.0"
+    "sass-loader": "^7.1.0",
+    "wait-on": "^3.0.1"
+  },
+  "build": {
+    "appId": "your.id",
+    "mac": {
+      "category": "your.app.category.type"
+    }
   }
 }

@@ -1,5 +1,5 @@
 import React, {Component, Fragment} from 'react';
-import styles from "../Views/Simulator/Simulator.module.css";
+import styles from "./../Views/Simulator/Simulator.module.css";
 
 export default class AgeButton extends Component {
 

@@ -1,9 +1,9 @@
 import React, {Component, Fragment} from 'react';
 import {FormattedMessage, FormattedHTMLMessage} from 'react-intl';
 import styles from './Hearingloss.module.css';
-import {HeaderImage} from "../../HeaderImage/HeaderImage";
-import SpeechBanana from "../../SpeechBanana/SpeechBanana";
-import aboutImage from "../../../Files/Images/bf_exp_img_header_about.png";
+import {HeaderImage} from "./../../HeaderImage/HeaderImage";
+import SpeechBanana from "./../../SpeechBanana/SpeechBanana";
+import aboutImage from "./../../../Files/Images/bf_exp_img_header_about.png";
 import {Audiogram} from "..";
 
 export class Degree extends Component {

@@ -1,14 +1,14 @@
 import React, {Component, Fragment} from 'react';
 import {FormattedMessage, FormattedHTMLMessage} from 'react-intl';
 import styles from './Hearingloss.module.css';
-import {HeaderImage} from "../../HeaderImage/HeaderImage";
+import {HeaderImage} from "./../../HeaderImage/HeaderImage";
 
-import titleImage from "../../../Files/Images/bf_exp_img_header_about.png";
+import titleImage from "./../../../Files/Images/bf_exp_img_header_about.png";
 
-import hearingLossImageSenorineural from "../../../Files/Images/bf_exp_img_hearingloss_sensorineural.svg";
-import hearingLossImageConductive from "../../../Files/Images/bf_exp_img_hearingloss_conductive.svg";
-import hearingLossImageMixed from "../../../Files/Images/bf_exp_img_hearingloss_mixed.svg";
-import hearingLossImage from "../../../Files/Images/bf_exp_img_hearingloss.svg";
+import hearingLossImageSenorineural from "./../../../Files/Images/bf_exp_img_hearingloss_sensorineural.svg";
+import hearingLossImageConductive from "./../../../Files/Images/bf_exp_img_hearingloss_conductive.svg";
+import hearingLossImageMixed from "./../../../Files/Images/bf_exp_img_hearingloss_mixed.svg";
+import hearingLossImage from "./../../../Files/Images/bf_exp_img_hearingloss.svg";
 
 export class Types extends Component {
 

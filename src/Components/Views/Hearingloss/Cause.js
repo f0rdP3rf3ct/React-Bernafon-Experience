@@ -1,9 +1,9 @@
 import React, {Fragment} from 'react';
 import {FormattedMessage, FormattedHTMLMessage} from 'react-intl';
 import styles from './Hearingloss.module.css';
-import {HeaderImage} from "../../HeaderImage/HeaderImage";
-import aboutImage from "../../../Files/Images/bf_exp_img_header_about.png";
-import causeImage from "../../../Files/Images/bf_exp_img_causes.png";
+import {HeaderImage} from "./../../HeaderImage/HeaderImage";
+import aboutImage from "./../../../Files/Images/bf_exp_img_header_about.png";
+import causeImage from "./../../../Files/Images/bf_exp_img_causes.png";
 
 
 export const Cause = () => (

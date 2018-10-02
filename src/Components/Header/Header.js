@@ -1,10 +1,8 @@
 import React from 'react';
-import {FormattedMessage} from 'react-intl';
 import styles from './Header.module.css';
-import {Breadcrumbs} from "../Breadcrumbs/Breadcrumbs";
-import {MainMenu} from "../MainMenu/MainMenu";
-import imgBernafonLayer from "../../Files/Images/BernafonLayer.svg";
-import {Link} from "react-router-dom";
+import {Breadcrumbs} from "./../Breadcrumbs/Breadcrumbs";
+import {MainMenu} from "./../MainMenu/MainMenu";
+import imgBernafonLayer from "./../../Files/Images/BernafonLayer.svg";
 
 const BernafonLayer = () => {
     return <img alt="bernafon layer" className={styles.bernafonLayer} src={imgBernafonLayer}/>
