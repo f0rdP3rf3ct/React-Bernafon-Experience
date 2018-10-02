@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {IntlProvider, addLocaleData} from 'react-intl';
-import {HashRouter, Route, Switch} from 'react-router-dom';
+import {HashRouter as Router, Route, Switch} from 'react-router-dom';
 import Header from './Components/Header/Header';
 import {About, Types, Cause, Degree, Simulator, Definition, Audiogram} from './Components/Views';
 import './CSS/globals.fonts.css';
@@ -68,7 +68,7 @@ class App extends Component {
     render() {
         return (
             <IntlProvider key={i18nConfig.locale} locale={i18nConfig.locale} messages={i18nConfig.messages}>
-                <HashRouter>
+                <Router>
 
                     <div>
                         <Header onChangeLanguage={this.handleChangeLanguage}/>
@@ -82,7 +82,7 @@ class App extends Component {
                             <Route exact path="/simulator" component={Simulator}/>
                         </Switch>
                     </div>
-                </HashRouter>
+                </Router>
             </IntlProvider>
         );
     }
