@@ -14,7 +14,7 @@ const imgMappings = {
 };
 
 const AudiogramInfoImage = ({intl}) => {
-    return <img alt="audiogram" width="500px" src={imgMappings[intl.locale]}/>
+    return <img alt="audiogram" style={{padding:"2rem"}} width="500px" src={imgMappings[intl.locale]}/>
 };
 
 AudiogramInfoImage.propTypes = {
