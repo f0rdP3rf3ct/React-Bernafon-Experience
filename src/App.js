@@ -72,21 +72,15 @@ class App extends Component {
 
                     <div>
                         <Header onChangeLanguage={this.handleChangeLanguage}/>
-
-                        {/*<div className={styles.grid}>*/}
-
-                            <Switch>
-                                <Route exact path="/" component={About}/>
-                                <Route exact path="/audiogram" component={Audiogram}/>
-                                {/*<Route exact path="/hearingloss" component={About}/>*/}
-                                <Route exact path="/definition/types" component={Types}/>
-                                <Route exact path="/definition/cause" component={Cause}/>
-                                <Route exact path="/definition/degree" component={Degree}/>
-                                <Route exact path="/definition" component={Definition}/>
-                                <Route exact path="/simulator" component={Simulator}/>
-                            </Switch>
-
-                        {/*</div>*/}
+                        <Switch>
+                            <Route exact path="/" component={About}/>
+                            <Route exact path="/audiogram" component={Audiogram}/>
+                            <Route exact path="/definition/types" component={Types}/>
+                            <Route exact path="/definition/cause" component={Cause}/>
+                            <Route exact path="/definition/degree" component={Degree}/>
+                            <Route exact path="/definition" component={Definition}/>
+                            <Route exact path="/simulator" component={Simulator}/>
+                        </Switch>
                     </div>
                 </Router>
             </IntlProvider>
