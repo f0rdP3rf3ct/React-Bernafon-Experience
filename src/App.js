@@ -1,10 +1,9 @@
 import React, {Component} from 'react';
 import {IntlProvider, addLocaleData} from 'react-intl';
-import {HashRouter as Router, Route, Switch} from 'react-router-dom';
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import Header from './Components/Header/Header';
 import {About, Types, Cause, Degree, Simulator, Definition, Audiogram} from './Components/Views';
 import './CSS/globals.fonts.css';
-// import styles from './App.module.css';
 
 /**
  * Lang. imports
