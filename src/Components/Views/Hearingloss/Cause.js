@@ -19,7 +19,7 @@ export const Cause = () => (
             </div>
 
             <div className={styles.side}>
-                <img width="100%" src={causeImage}/>
+                <img className={styles.causeImage} width="100%" src={causeImage}/>
             </div>
         </div>
 
