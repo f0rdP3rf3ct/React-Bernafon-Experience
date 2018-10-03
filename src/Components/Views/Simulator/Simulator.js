@@ -331,7 +331,7 @@ export class Simulator extends Component {
 
                     <div className={styles.side}>
 
-                        <p className={styles.mainParagraph}>
+                        <p className={[styles.mainParagraph, styles.spaceUp].join(' ')}>
                             <FormattedHTMLMessage id="app.simulator.intro"/>
                         </p>
 
