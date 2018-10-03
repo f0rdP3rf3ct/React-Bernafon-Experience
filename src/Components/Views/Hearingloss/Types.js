@@ -108,7 +108,7 @@ export class Types extends Component {
                                     </div>
                                 </td>
                             </tr>
-                            <tr>
+                            <tr className={styles.buttonRow}>
                                 <td width="50%" colSpan={3}>
                                     <button className={styles.textButton}
                                             onClick={(e) => this.handleOnClick('conductive', e)}>
@@ -134,7 +134,7 @@ export class Types extends Component {
                     </div>
 
                     <div className={styles.side}>
-                        <h1 className={styles.title}><FormattedHTMLMessage
+                        <h1 className={styles.typeTitle}><FormattedHTMLMessage
                             id={'app.hearingloss.types.title.' + this.state.displayedText}/></h1>
                         <p className={styles.mainParagraph}>
                             <FormattedHTMLMessage id={'app.hearingloss.types.text.' + this.state.displayedText}/>
