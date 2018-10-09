@@ -32,7 +32,8 @@
   font-size: 3rem;
   line-height: 1;
 
-  padding: 1.3rem;
+  padding: 1.2rem 0.9rem;
+  margin: 0 0.3rem;
 
   background-color: transparent;
 
@@ -58,12 +59,9 @@
 
   &:after {
     content: '';
-
     position: relative;
     display: block;
-
-    width: 100%;
-
+    margin: 0 0.2rem;
     border-bottom: solid 2px var(--mainColor);
   }
 }
@@ -138,7 +136,7 @@
 
   & span {
     display: block;
-    position: relative;
+    //position: relative;
 
     padding-left: 2rem;
     padding-right: 2rem;
@@ -153,4 +151,18 @@
 
 .spaceUp {
   margin-top: 3.3rem;
+}
+
+.soundIndicator {
+  font-family: var(--iconFont);
+  font-size: 1.5rem;
+
+  &:after {
+    content: '';
+    position: relative;
+    display: block;
+    margin: 0 0.2rem;
+    border-bottom: solid 2px var(--mainColor);
+  }
+
 }

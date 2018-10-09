@@ -11,10 +11,10 @@
 
   & span {
     display: block;
-    position: relative;
 
-    padding-left: 2rem;
-    padding-right: 2rem;
+    //position: relative;
+    //padding-left: 2rem;
+    //padding-right: 2rem;
 
     top: 0.3rem;
   }
@@ -37,7 +37,7 @@
 
   & span {
     display: block;
-    position: relative;
+    //position: relative;
 
     padding-left: 2rem;
     padding-right: 2rem;

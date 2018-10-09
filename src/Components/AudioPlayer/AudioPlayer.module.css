@@ -11,9 +11,19 @@
 }
 
 .iconPlaying, .iconPaused {
-  font-size: 4rem;
-  padding: 0.5rem 0;
+  font-size: 3rem;
+  padding: 1rem 1.1rem 1rem 1.2rem;
   font-family: var(--iconFont);
+
+  margin: 0 0.5rem;
+
+  border: 1px solid var(--mainColor);
+  border-radius: 60px;
+}
+
+.iconPlaying {
+  background-color: var(--mainColor);
+  color: lightgray;
 }
 
 .iconPlaying:before {

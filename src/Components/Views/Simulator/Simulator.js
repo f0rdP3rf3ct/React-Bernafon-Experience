@@ -108,25 +108,6 @@ export class Simulator extends Component {
     };
 
     updateAudiogram = (age) => {
-        /*
-        let _audiogram = '';
-
-        switch (age) {
-            case '20' :
-                _audiogram = sim20Image;
-                break;
-            case '60':
-                _audiogram = sim60Image;
-                break;
-            case '80':
-                _audiogram = sim80Image;
-                break;
-            default:
-                _audiogram = sim20Image;
-
-        }
-        */
-
         this.setState({audiogram: age});
     };
 
@@ -235,7 +216,9 @@ export class Simulator extends Component {
                         <table width="100%" cellPadding="0" cellspacing="0" className={styles.soundTable}>
                             <tbody>
                             <tr>
-                                <th colSpan={2}></th>
+                                <th colSpan={2}>
+                                    <span className={styles.soundIndicator}>j</span>
+                                </th>
                                 <th colSpan={3}>
                                     <h3 className={styles.ageTitle}>
                                         <FormattedMessage id="app.simulator.age"/>
@@ -249,6 +232,9 @@ export class Simulator extends Component {
                             </tr>
                             <tr id="nature-row">
                                 <td>
+                                    <span className={styles.nature}></span>
+                                </td>
+                                <td>
                                     <AudioPlayer playState={this.state.audioPlayer[0].playState}
                                                  name={this.state.audioPlayer[0].topic}
                                                  age={this.state.audioPlayer[0].age}
@@ -257,9 +243,6 @@ export class Simulator extends Component {
                                                  onHandlePause={(e) => this.handlePause(e)}
                                                  onClick={(e) => this.handlePlayStateChange(e)}
                                     />
-                                </td>
-                                <td>
-                                    <span className={styles.nature}></span>
                                 </td>
                                 <td className={styles.ageCell}>
                                     {this.renderAgeButton('nature', '20')}
@@ -276,6 +259,9 @@ export class Simulator extends Component {
                             </tr>
                             <tr id="speech-row">
                                 <td>
+                                    <span className={styles.speech}></span>
+                                </td>
+                                <td>
                                     <AudioPlayer playState={this.state.audioPlayer[1].playState}
                                                  name={this.state.audioPlayer[1].topic}
                                                  age={this.state.audioPlayer[1].age}
@@ -284,9 +270,6 @@ export class Simulator extends Component {
                                                  onHandlePause={(e) => this.handlePause(e)}
                                                  onClick={(e) => this.handlePlayStateChange(e)}
                                     />
-                                </td>
-                                <td>
-                                    <span className={styles.speech}></span>
                                 </td>
                                 <td className={styles.ageCell}>
                                     {this.renderAgeButton('speech', '20')}
@@ -300,6 +283,9 @@ export class Simulator extends Component {
                             </tr>
                             <tr id="music-row">
                                 <td>
+                                    <span className={styles.music}></span>
+                                </td>
+                                <td>
                                     <AudioPlayer playState={this.state.audioPlayer[2].playState}
                                                  name={this.state.audioPlayer[2].topic}
                                                  age={this.state.audioPlayer[2].age}
@@ -308,9 +294,6 @@ export class Simulator extends Component {
                                                  onHandlePause={(e) => this.handlePause(e)}
                                                  onClick={(e) => this.handlePlayStateChange(e)}
                                     />
-                                </td>
-                                <td>
-                                    <span className={styles.music}></span>
                                 </td>
                                 <td className={styles.ageCell}>
                                     {this.renderAgeButton('music', '20')}
