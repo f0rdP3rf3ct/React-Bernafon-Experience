@@ -22,8 +22,12 @@
 }
 
 .iconPlaying {
+  color: var(--mainColor);
+}
+
+.iconPaused {
+  color: white;
   background-color: var(--mainColor);
-  color: lightgray;
 }
 
 .iconPlaying:before {

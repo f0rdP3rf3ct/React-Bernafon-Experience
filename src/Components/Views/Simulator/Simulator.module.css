@@ -62,7 +62,7 @@
     position: relative;
     display: block;
     margin: 0 0.2rem;
-    border-bottom: solid 2px var(--mainColor);
+    border-bottom: solid 1px var(--mainColor);
   }
 }
 
@@ -136,7 +136,6 @@
 
   & span {
     display: block;
-    //position: relative;
 
     padding-left: 2rem;
     padding-right: 2rem;
@@ -162,7 +161,7 @@
     position: relative;
     display: block;
     margin: 0 0.2rem;
-    border-bottom: solid 2px var(--mainColor);
+    border-bottom: solid 1px var(--mainColor);
   }
 
 }
