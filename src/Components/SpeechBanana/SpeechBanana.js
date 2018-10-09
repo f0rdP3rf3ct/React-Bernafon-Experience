@@ -1,10 +1,11 @@
 import React from 'react';
 import {injectIntl, intlShape} from "react-intl";
 
-import bananaImage_en from "./../../Files/Images/bf_exp_speechbanana_EN.svg";
-import bananaImage_de from "./../../Files/Images/bf_exp_speechbanana_DE.svg";
-import bananaImage_fr from "./../../Files/Images/bf_exp_speechbanana_FR.svg";
-import bananaImage_es from "./../../Files/Images/bf_exp_speechbanana_ES.svg";
+import bananaImage_en from "../../Files/Images/bf_exp_speechbanana_EN.png";
+import bananaImage_de from "../../Files/Images/bf_exp_speechbanana_DE.png";
+import bananaImage_fr from "../../Files/Images/bf_exp_speechbanana_FR.png";
+import bananaImage_es from "../../Files/Images/bf_exp_speechbanana_ES.png";
+import styles from "./SpechBanana.module.css";
 
 const imgMappings = {
     "EN": bananaImage_en,
@@ -14,7 +15,7 @@ const imgMappings = {
 };
 
 const SpeechBanana = ({intl}) => {
-    return <img alt="speechbanana" width="100%" src={imgMappings[intl.locale]}/>
+    return <img className={styles.bananaImage} alt="speechbanana" width="100%" src={imgMappings[intl.locale]}/>
 };
 
 SpeechBanana.propTypes = {

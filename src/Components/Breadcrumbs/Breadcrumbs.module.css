@@ -13,8 +13,9 @@
 .crumb {
   color: var(--activeColor);
   text-decoration: none;
-  margin-right: 1.1rem;
+  //margin-right: 1.1rem;
 
+  /*
   &:after {
     position: absolute;
 
@@ -26,6 +27,12 @@
 
     top: 0.1rem;
   }
+  */
+}
+
+.icon {
+  font-family: var(--iconFont);
+  font-size: 1rem;
 }
 
 .homeIcon {

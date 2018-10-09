@@ -1,2 +1,7 @@
 @import '../../../CSS/globals.defaults.css';
 @import '../../../CSS/globals.layout.css';
+
+
+.introImage {
+  margin-top: 1rem;
+}
