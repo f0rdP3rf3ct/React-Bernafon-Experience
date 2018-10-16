@@ -43,15 +43,13 @@ export class Audiogram extends Component {
                                         </td>
                                         <td>
                                             <AudiogramInfoImage/>
-                                            {/*<img width="500px" src={brn_exp_img_audiogram}/>*/}
                                         </td>
                                     </tr>
                                     <tr>
                                         <td className={styles.factBottom}>
                                             <img height="39px" src={bottomFactImg}/>
                                         </td>
-                                        <td>
-                                        </td>
+                                        <td></td>
                                     </tr>
                                 </table>
                             </div>

@@ -9,11 +9,9 @@ export const Home = () => (
 
         <div className={styles.content}>
             <div className={styles.itemMain}>
-
                 <h1 className={styles.mainTitle}>
                     <FormattedMessage id="app.home.title"/>
                 </h1>
-
             </div>
         </div>
 
@@ -22,5 +20,6 @@ export const Home = () => (
                 <FormattedMessage id="app.home.button.start"/>
             </Link>
         </div>
+
     </div>
 );

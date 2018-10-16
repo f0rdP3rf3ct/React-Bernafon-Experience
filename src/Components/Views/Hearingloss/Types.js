@@ -138,6 +138,7 @@ export class Types extends Component {
                         <FormattedHTMLMessage id={'app.hearingloss.types.text.' + this.state.displayedText}/>
                     </p>
                 </div>
+
             </div>
         )
     }
