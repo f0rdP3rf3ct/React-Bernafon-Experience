@@ -10,8 +10,8 @@
 
   grid-template-rows: 10rem min-content;
   grid-template-areas:
-          "bleed1 header1 header2 bleed2"
-          "bleed3 content side bleed4";
+          "header header header header"
+          ". content side .";
 
   margin-top: 9.2rem; /* Header height */
 }
