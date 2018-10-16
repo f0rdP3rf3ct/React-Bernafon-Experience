@@ -22,26 +22,24 @@ export class Degree extends Component {
 
     render() {
         return (
-            <Fragment>
-                <div className={styles.grid}>
-                    <HeaderImage imgUrl={aboutImage} alt={"About Hearing"}
-                                 title={<FormattedMessage id="app.hearingloss.degree.title"/>}/>
+            <div className={styles.grid}>
+                <HeaderImage imgUrl={aboutImage} alt={"About Hearing"}
+                             title={<FormattedMessage id="app.hearingloss.degree.title"/>}/>
 
-                    <div className={styles.content}>
-                        <SpeechBanana />
-                        <Audiogram onClick={this.toggleAudiogramText} show={this.state.showAudiogramInfo}/>
-                    </div>
-
-                    <div className={styles.side}>
-                        <p className={styles.mainParagraph}>
-                            <FormattedHTMLMessage id="app.hearingloss.degree.intro"/>
-                        </p>
-                        <button className={styles.audiogramButton} onClick={this.toggleAudiogramText}>
-                            <FormattedHTMLMessage id={"app.audiogram.button.false"}/>
-                        </button>
-                    </div>
+                <div className={styles.content}>
+                    <SpeechBanana/>
+                    <Audiogram onClick={this.toggleAudiogramText} show={this.state.showAudiogramInfo}/>
                 </div>
-            </Fragment>
+
+                <div className={styles.side}>
+                    <p className={styles.mainParagraph}>
+                        <FormattedHTMLMessage id="app.hearingloss.degree.intro"/>
+                    </p>
+                    <button className={styles.audiogramButton} onClick={this.toggleAudiogramText}>
+                        <FormattedHTMLMessage id={"app.audiogram.button.false"}/>
+                    </button>
+                </div>
+            </div>
         )
     }
 }

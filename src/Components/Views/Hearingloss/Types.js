@@ -30,7 +30,7 @@ export class Types extends Component {
         let alllabels = Array.from(document.getElementsByClassName(styles.labelWrapper));
 
         alllabels.forEach(obj => {
-           obj.classList.remove(styles.activelabel);
+            obj.classList.remove(styles.activelabel);
         });
 
         let activeRows = Array.from(document.querySelectorAll('[data-belongsTo=' + typeSuffix + ']'));
@@ -60,88 +60,85 @@ export class Types extends Component {
 
     render() {
         return (
-            <Fragment>
+            <div className={styles.grid}>
 
-                <div className={styles.grid}>
+                <HeaderImage imgUrl={titleImage} alt={"Types of Hearingloss"}
+                             title={<FormattedMessage id="app.hearingloss.types.title"/>}/>
 
-                    <HeaderImage imgUrl={titleImage} alt={"Types of Hearingloss"}
-                                 title={<FormattedMessage id="app.hearingloss.types.title"/>}/>
+                <div className={styles.content}>
 
-                    <div className={styles.content}>
-
-                        <table width="95%" className={styles.infoTable}>
-                            <tr>
-                                <td className={styles.infographic} colSpan="6">
-                                    <img alt="types-hearingloss" width="100%"
-                                         src={this.imgMap[this.state.displayedText]}/>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td width="16%" className={styles.labelCell}>
-                                    <div data-belongsTo="sensorineural" className={styles.labelWrapper}>
-                                        <FormattedMessage id="app.hearingloss.types.img.sound"/>
-                                    </div>
-                                </td>
-                                <td width="18.7%" className={styles.labelCell}>
-                                    <div data-belongsTo="sensorineural" className={styles.labelWrapper}>
-                                        <FormattedMessage id="app.hearingloss.types.img.externalear"/>
-                                    </div>
-                                </td>
-                                <td width="15.4%" className={styles.labelCell}>
-                                    <div data-belongsTo="sensorineural" className={styles.labelWrapper}>
-                                        <FormattedMessage id="app.hearingloss.types.img.middleear"/>
-                                    </div>
-                                </td>
-                                <td width="17.6%" className={styles.labelCell}>
-                                    <div data-belongsTo="conductive" className={styles.labelWrapper}>
-                                        <FormattedMessage id="app.hearingloss.types.img.innerear"/>
-                                    </div>
-                                </td>
-                                <td width="17.9%" className={styles.labelCell}>
-                                    <div data-belongsTo="conductive" className={styles.labelWrapper}>
-                                        <FormattedMessage id="app.hearingloss.types.img.auditorynerve"/>
-                                    </div>
-                                </td>
-                                <td width="16%" className={styles.labelCell}>
-                                    <div  data-belongsTo="conductive" className={styles.labelWrapper}>
-                                        <FormattedMessage id="app.hearingloss.types.img.brain"/>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr className={styles.buttonRow}>
-                                <td width="50%" colSpan={3}>
-                                    <button className={styles.textButton}
-                                            onClick={(e) => this.handleOnClick('conductive', e)}>
-                                        <FormattedMessage id="app.hearingloss.types.button.conductive"/>
-                                    </button>
-                                </td>
-                                <td width="50%" colSpan={3}>
-                                    <button className={styles.textButton}
-                                            onClick={(e) => this.handleOnClick('sensorineural', e)}>
-                                        <FormattedMessage id="app.hearingloss.types.button.sensorineural"/>
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td colSpan={6}>
-                                    <button stlye="width:100%" className={styles.textButton}
-                                            onClick={(e) => this.handleOnClick('mixed', e)}>
-                                        <FormattedMessage id="app.hearingloss.types.button.mixed"/>
-                                    </button>
-                                </td>
-                            </tr>
-                        </table>
-                    </div>
-
-                    <div className={styles.side}>
-                        <h1 className={styles.typeTitle}><FormattedHTMLMessage
-                            id={'app.hearingloss.types.title.' + this.state.displayedText}/></h1>
-                        <p className={styles.mainParagraph}>
-                            <FormattedHTMLMessage id={'app.hearingloss.types.text.' + this.state.displayedText}/>
-                        </p>
-                    </div>
+                    <table width="95%" className={styles.infoTable}>
+                        <tr>
+                            <td className={styles.infographic} colSpan="6">
+                                <img alt="types-hearingloss" width="100%"
+                                     src={this.imgMap[this.state.displayedText]}/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="16%" className={styles.labelCell}>
+                                <div data-belongsTo="sensorineural" className={styles.labelWrapper}>
+                                    <FormattedMessage id="app.hearingloss.types.img.sound"/>
+                                </div>
+                            </td>
+                            <td width="18.7%" className={styles.labelCell}>
+                                <div data-belongsTo="sensorineural" className={styles.labelWrapper}>
+                                    <FormattedMessage id="app.hearingloss.types.img.externalear"/>
+                                </div>
+                            </td>
+                            <td width="15.4%" className={styles.labelCell}>
+                                <div data-belongsTo="sensorineural" className={styles.labelWrapper}>
+                                    <FormattedMessage id="app.hearingloss.types.img.middleear"/>
+                                </div>
+                            </td>
+                            <td width="17.6%" className={styles.labelCell}>
+                                <div data-belongsTo="conductive" className={styles.labelWrapper}>
+                                    <FormattedMessage id="app.hearingloss.types.img.innerear"/>
+                                </div>
+                            </td>
+                            <td width="17.9%" className={styles.labelCell}>
+                                <div data-belongsTo="conductive" className={styles.labelWrapper}>
+                                    <FormattedMessage id="app.hearingloss.types.img.auditorynerve"/>
+                                </div>
+                            </td>
+                            <td width="16%" className={styles.labelCell}>
+                                <div data-belongsTo="conductive" className={styles.labelWrapper}>
+                                    <FormattedMessage id="app.hearingloss.types.img.brain"/>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr className={styles.buttonRow}>
+                            <td width="50%" colSpan={3}>
+                                <button className={styles.textButton}
+                                        onClick={(e) => this.handleOnClick('conductive', e)}>
+                                    <FormattedMessage id="app.hearingloss.types.button.conductive"/>
+                                </button>
+                            </td>
+                            <td width="50%" colSpan={3}>
+                                <button className={styles.textButton}
+                                        onClick={(e) => this.handleOnClick('sensorineural', e)}>
+                                    <FormattedMessage id="app.hearingloss.types.button.sensorineural"/>
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colSpan={6}>
+                                <button stlye="width:100%" className={styles.textButton}
+                                        onClick={(e) => this.handleOnClick('mixed', e)}>
+                                    <FormattedMessage id="app.hearingloss.types.button.mixed"/>
+                                </button>
+                            </td>
+                        </tr>
+                    </table>
                 </div>
-            </Fragment>
+
+                <div className={styles.side}>
+                    <h1 className={styles.typeTitle}><FormattedHTMLMessage
+                        id={'app.hearingloss.types.title.' + this.state.displayedText}/></h1>
+                    <p className={styles.mainParagraph}>
+                        <FormattedHTMLMessage id={'app.hearingloss.types.text.' + this.state.displayedText}/>
+                    </p>
+                </div>
+            </div>
         )
     }
 };

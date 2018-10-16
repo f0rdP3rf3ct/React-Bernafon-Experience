@@ -4,7 +4,6 @@ import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import Header from './Components/Header/Header';
 import {About, Types, Cause, Degree, Simulator, Definition, Audiogram} from './Components/Views';
 import './CSS/globals.fonts.css';
-// import styles from './App.module.css';
 
 /**
  * Lang. imports
@@ -69,7 +68,6 @@ class App extends Component {
         return (
             <IntlProvider key={i18nConfig.locale} locale={i18nConfig.locale} messages={i18nConfig.messages}>
                 <Router>
-
                     <div>
                         <Header onChangeLanguage={this.handleChangeLanguage}/>
                         <Switch>
