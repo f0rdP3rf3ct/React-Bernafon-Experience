@@ -12,14 +12,12 @@ const BernafonLayer = () => {
 
 const Header = ({onChangeLanguage}) => (
     <header className={styles.header}>
-        <div className={styles.headerNavigation}>
-            <BernafonLayer/>
+        <BernafonLayer/>
+        <nav className={styles.navigation}>
             <MainMenu onChangeLanguage={onChangeLanguage}/>
-        </div>
-        <div>
-            <div className={styles.breadcrumbWrapper}>
-                <Breadcrumbs/>
-            </div>
+        </nav>
+        <div className={styles.breadCrumb}>
+            <Breadcrumbs/>
         </div>
     </header>
 );

@@ -21,4 +21,9 @@
     --activeColor: rgb(204,16,34);
     --inactiveColor: rgb(0, 0, 0);
     --hoverColor: rgb(128,128,128);
+    --breadCrumbBackground: rgb(245,245,245);
+
+    /* DIMENSIONS */
+    --headerHeight: 9.2rem;
+    --bernafonLayerHeight: 7px;
 }

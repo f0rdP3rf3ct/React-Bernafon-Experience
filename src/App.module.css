@@ -1,12 +1,5 @@
 @import '/CSS/globals.layout.css';
 
-/*
-.app {
-    grid-area: content;
-    position: relative;
-}
-*/
-
 .pageContent {
     margin-top: 12rem;
 }

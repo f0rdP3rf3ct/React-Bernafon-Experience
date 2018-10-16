@@ -1,14 +1,13 @@
-import {Link, withRouter} from "react-router-dom";
-import styles from "../Header/Header.module.css";
-import {FormattedMessage, intlShape} from "react-intl";
+import {Link} from "react-router-dom";
+import styles from "../MainMenu/MainMenu.module.css";
+import {FormattedMessage} from "react-intl";
 import React, {Fragment} from "react";
 
 export const MainMenu = ({onChangeLanguage}) => {
 
     // Don't show home Icon on Root
     if (window.location.pathname === '/') {
-        return <div>
-            <div className={styles.languageSelector}>
+        return <div className={styles.languageSelector}>
                 <button className={styles.languageButton} onClick={() => onChangeLanguage('EN')}>
                     <FormattedMessage id="app.navigation.language.en"/>
                 </button>
@@ -25,7 +24,6 @@ export const MainMenu = ({onChangeLanguage}) => {
                     <FormattedMessage id="app.navigation.language.es"/>
                 </button>
             </div>
-        </div>
     }
 
     // Show home Icon on Root

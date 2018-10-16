@@ -7,29 +7,26 @@ import introImage from "../../../Files/Images/bf_exp_img_header_about.png";
 
 
 export const About = () => (
-    <Fragment>
-        <div className={styles.grid}>
-            <HeaderImage imgUrl={introImage} alt={"About Hearing"} title={<FormattedMessage id="app.about.title"/>}/>
+    <div className={styles.grid}>
+        <HeaderImage imgUrl={introImage} alt={"About Hearing"} title={<FormattedMessage id="app.about.title"/>}/>
 
-            <div className={styles.content}>
-                <img className={styles.introImage} width="100%" src={introImage} alt="hearing-loss"/>
-            </div>
-
-            <div className={styles.side}>
-                <ul className={styles.buttonList}>
-                    <li className={styles.listItem}>
-                        <Link to="/definition" className={styles.mainButton}>
-                            <FormattedMessage id="app.about.button.definition"/>
-                        </Link>
-                    </li>
-                    <li className={styles.listItem}>
-                        <Link to="/simulator" className={styles.mainButton}>
-                            <FormattedMessage id="app.about.button.simulator"/>
-                        </Link>
-                    </li>
-                </ul>
-            </div>
+        <div className={styles.content}>
+            <img className={styles.introImage} width="100%" src={introImage} alt="hearing-loss"/>
         </div>
 
-    </Fragment>
+        <div className={styles.side}>
+            <ul className={styles.buttonList}>
+                <li className={styles.listItem}>
+                    <Link to="/definition" className={styles.mainButton}>
+                        <FormattedMessage id="app.about.button.definition"/>
+                    </Link>
+                </li>
+                <li className={styles.listItem}>
+                    <Link to="/simulator" className={styles.mainButton}>
+                        <FormattedMessage id="app.about.button.simulator"/>
+                    </Link>
+                </li>
+            </ul>
+        </div>
+    </div>
 );
