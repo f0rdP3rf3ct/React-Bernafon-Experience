@@ -1,43 +1,80 @@
-import React, {Component, Fragment} from 'react';
-import {FormattedHTMLMessage, FormattedMessage} from 'react-intl';
+import React, { Component, Fragment } from 'react';
+import { FormattedHTMLMessage, FormattedMessage, intlShape } from 'react-intl';
+import PropTypes from 'prop-types';
 import styles from './Simulator.module.css';
 
-import {HeaderImage} from "../../HeaderImage/HeaderImage";
-import aboutImage from "../../../Files/Images/bf_exp_img_header_about.png";
+import HeaderImage from '../../HeaderImage/HeaderImage';
+import AudioPlayer from '../../AudioPlayer/AudioPlayer';
+import AudiogramImage from '../../AudiogramImage/AudiogramImage';
+import {  Audiogram  } from '..';
+import aboutImage from '../../../Files/Images/bf_exp_img_header_about.png';
 
-import hl_sim_jazz_20 from "../../../Files/Audio/Hearingloss_Simulation_Jazz_Music_v1_20.mp3";
-import hl_sim_jazz_60 from "../../../Files/Audio/Hearingloss_Simulation_Jazz_Music_v1_60.mp3";
-import hl_sim_jazz_80 from "../../../Files/Audio/Hearingloss_Simulation_Jazz_Music_v1_80.mp3";
+import hlSimJazz20 from '../../../Files/Audio/Hearingloss_Simulation_Jazz_Music_v1_20.mp3';
+import hlSimJazz60 from '../../../Files/Audio/Hearingloss_Simulation_Jazz_Music_v1_60.mp3';
+import hlSimJazz80 from '../../../Files/Audio/Hearingloss_Simulation_Jazz_Music_v1_80.mp3';
 
-import hl_sim_forest_20 from "../../../Files/Audio/Hearingloss_Simulation_Forest_v1_20.mp3";
-import hl_sim_forest_60 from "../../../Files/Audio/Hearingloss_Simulation_Forest_v1_60.mp3";
-import hl_sim_forest_80 from "../../../Files/Audio/Hearingloss_Simulation_Forest_v1_80.mp3";
+import hlSimForest20 from '../../../Files/Audio/Hearingloss_Simulation_Forest_v1_20.mp3';
+import hlSimForest60 from '../../../Files/Audio/Hearingloss_Simulation_Forest_v1_60.mp3';
+import hlSimForest80 from '../../../Files/Audio/Hearingloss_Simulation_Forest_v1_80.mp3';
 
-import hl_sim_rest_20 from "../../../Files/Audio/Hearingloss_Simulation_Restaurant_v1_20.mp3";
-import hl_sim_rest_60 from "../../../Files/Audio/Hearingloss_Simulation_Restaurant_v1_60.mp3";
-import hl_sim_test_80 from "../../../Files/Audio/Hearingloss_Simulation_Restaurant_v1_80.mp3";
+import hlSimRest20 from '../../../Files/Audio/Hearingloss_Simulation_Restaurant_v1_20.mp3';
+import hlSimRest60 from '../../../Files/Audio/Hearingloss_Simulation_Restaurant_v1_60.mp3';
+import hlSimTest80 from '../../../Files/Audio/Hearingloss_Simulation_Restaurant_v1_80.mp3';
 
-import AudioPlayer from "../../AudioPlayer/AudioPlayer";
-import {Audiogram} from "..";
-import AudiogramImage from "../../AudiogramImage/AudiogramImage";
-
-// Maps audiofiles to the correponding age and topic
-const audioMappings = {
+/**
+ * Maps Soundfiles to object
+ */
+const AUDIO_DICT = {
     nature: {
-        20: hl_sim_forest_20,
-        60: hl_sim_forest_60,
-        80: hl_sim_forest_80
-    },
+        20: hlSimForest20,
+        60: hlSimForest60,
+        80: hlSimForest80
+     },
     speech: {
-        20: hl_sim_rest_20,
-        60: hl_sim_rest_60,
-        80: hl_sim_test_80
-    },
+        20: hlSimRest20,
+        60: hlSimRest60,
+        80: hlSimTest80
+     },
     music: {
-        20: hl_sim_jazz_20,
-        60: hl_sim_jazz_60,
-        80: hl_sim_jazz_80
-    }
+        20: hlSimJazz20,
+        60: hlSimJazz60,
+        80: hlSimJazz80
+     }
+ };
+
+export const AgeButtonRow = (props) => {
+    return (
+        <Fragment>
+            <td className={  styles.ageCell  }>
+                <button data-topic={  props.topic  }
+                        data-age={  20  } id={  props.topic + '-20'  }
+                        className={  styles.ageButton  }
+                        onClick={  (e) => props.onAgebuttonClick(props.topic, 20, e)  }>20
+                </button>
+            </td>
+            <td className={  styles.ageCell  }>
+                <button data-topic={  props.topic  }
+                        data-age={  60  }
+                        id={  props.topic + '-60'  }
+                        className={  styles.ageButton  }
+                        onClick={  (e) => props.onAgebuttonClick(props.topic, 60, e)  }>60
+                </button>
+            </td>
+            <td className={  styles.ageCell  }>
+                <button data-topic={  props.topic  }
+                        data-age={  80  }
+                        id={  props.topic + '-80'  }
+                        className={  styles.ageButton  }
+                        onClick={  (e) => props.onAgebuttonClick(props.topic, 80, e)  }>80
+                </button>
+            </td>
+        </Fragment>
+    )
+ };
+
+AgeButtonRow.propTypes = {
+    onAgebuttonClick: PropTypes.any.isRequired,
+    topic: intlShape.isRequired
 };
 
 export class Simulator extends Component {
@@ -46,46 +83,51 @@ export class Simulator extends Component {
         audioPlayer: [
             {
                 topic: 'nature',
-                audiofile: audioMappings['nature']['20'],
+                audiofile: AUDIO_DICT[ 'nature' ][ '20' ],
                 position: 0,
                 playState: 'PAUSED',
                 age: '20'
-            },
+             },
             {
                 topic: 'speech',
-                audiofile: audioMappings['speech']['20'],
+                audiofile: AUDIO_DICT[ 'speech' ][ '20' ],
                 position: 0,
                 playState: 'PAUSED',
                 age: '20'
-            },
+             },
             {
                 topic: 'music',
-                audiofile: audioMappings['music']['20'],
+                audiofile: AUDIO_DICT[ 'music' ][ '20' ],
                 position: 0,
                 playState: 'PAUSED',
                 age: '20'
-            }
+             }
         ],
         audiogram: '_blank',
         showAudiogramInfo: false
-    };
+     };
 
-    changeActiveRow = (topic) => {
-        let activeRows = Array.from(document.getElementsByClassName(styles.activeRow));
+    /**
+     * Change currently active row to a new topic.
+     * If topic is undefined it deactives all.
+     * @param { string } topic - name of topic to change to
+     */
+    changeActivePlayerRow = (topic) => {
+        const activeRows = Array.from(document.getElementsByClassName(styles.activeRow));
 
         activeRows.forEach(obj => {
             obj.classList.remove(styles.activeRow);
-        });
+         });
 
-        if (topic !== undefined) {
-            let row = document.getElementById(topic + '-row');
+        if (topic !== undefined && topic !== '') {
+            const row = document.getElementById(topic + '-row');
             row.classList.add(styles.activeRow);
-        }
-    };
+         }
+     };
 
     /**
-     * Updates PlayState of AudioPlayer
-     * @param topic
+     * Updates PlayState of AudioPlayer.
+     * @param { string } topic - name of topic to activate
      */
     updatePlayState = (topic) => {
         const states = this.state.audioPlayer.slice();
@@ -93,77 +135,100 @@ export class Simulator extends Component {
         states.forEach(obj => {
             if (obj.topic !== topic) {
                 obj.playState = 'PAUSED';
-            } else {
+             } else {
                 obj.playState = obj.playState === 'PLAYING' ? 'PAUSED' : 'PLAYING';
-
                 if (obj.playState === 'PAUSED') {
-                    this.changeActiveRow(); // No param deselects all
-                } else {
+                    this.changeActivePlayerRow('');
+                 } else {
                     this.selectAgeButton(topic, obj.age);
-                }
-            }
-        });
+                 }
+             }
+         });
 
-        this.setState({audioPlayer: states});
-    };
-
-    updateAudiogram = (age) => {
-        this.setState({audiogram: age});
-    };
+        this.setState({ audioPlayer: states });
+     };
 
     /**
-     * Updates PlayState of AudioPlayer when switching Agebutton
-     * @param topic
+     * Change state of audiogram
+     * @param { number } age - audiogram of age to be displayed
      */
-    updateWithAgeSelector = (topic, age) => {
+    updateAudiogramState = (age) => {
+        this.setState({ audiogram: age });
+     };
+
+    /**
+     * Updates PlayState of AudioPlayer when switching AgeButton
+     * @param { string } topic - name of topic to change to
+     * @param { number } age - age to change to
+     */
+    updatePlayStateWithAgeSelector = (topic, age) => {
         const states = this.state.audioPlayer.slice();
 
         states.forEach(obj => {
             if (obj.topic !== topic) {
                 obj.playState = 'PAUSED';
-            } else {
+             } else {
                 obj.playState = 'PLAYING';
                 obj.age = age;
-            }
-        });
+             }
+         });
 
-        this.setState({audioPlayer: states});
-    };
+        this.setState({ audioPlayer: states });
+     };
 
+    /**
+     * Adds active class depending on params to an AgeButton
+     * @param { string } topic - name of topic
+     * @param { number } age
+     */
     selectAgeButton = (topic, age) => {
-        let ageButtons = Array.from(document.getElementsByClassName(styles.ageButton));
+        const ageButtons = Array.from(document.getElementsByClassName(styles.ageButton));
 
         ageButtons.forEach(obj => {
-            let tData = obj.getAttribute('data-topic');
-            let aData = obj.getAttribute('data-age');
+            const tData = obj.getAttribute('data-topic');
+            const aData = obj.getAttribute('data-age');
 
             if (tData === topic && aData === age) {
                 obj.classList.add(styles.active);
-            } else {
+             } else {
                 obj.classList.remove(styles.active);
-            }
+             }
 
-        });
-    };
+         });
+     };
 
+    /**
+     * Update Simulator on AudioPlayer Click
+     * @param { AudioPlayer } target - Clicked Audioplayer reference
+     */
+    handleAudioPlayerClick = (target) => {
+        const props = target.props;
+        this.updatePlayState(props.name);
+        this.changeActivePlayerRow(props.name);
+        this.updateAudiogramState(props.age);
+     };
 
+    /**
+     * Update Simulator on AgeButton Click
+     * @param { string } topic - topic to change to
+     * @param { number } age - age to change to
+     * @param { object } e - event object
+     */
     handleAgeSelectorClick = (topic, age, e) => {
-
-        this.updateWithAgeSelector(topic, age);
-        this.changeActiveRow(topic);
-        this.updateAudiogram(age);
+        this.updatePlayStateWithAgeSelector(topic, age);
+        this.changeActivePlayerRow(topic);
+        this.updateAudiogramState(age);
 
         /**
          * Handle button styling
          */
-        let activeClasses = Array.from(document.getElementsByClassName(styles.active));
+        const activeClasses = Array.from(document.getElementsByClassName(styles.active));
 
         activeClasses.forEach(obj => {
             obj.classList.remove(styles.active);
-        });
+         });
 
         e.target.classList.add(styles.active);
-
 
         /**
          * Handle AudioPlayer states
@@ -172,159 +237,133 @@ export class Simulator extends Component {
 
         states.forEach(obj => {
             if (obj.topic === topic) {
-                obj.audiofile = audioMappings[topic][age];
-            }
-        });
+                obj.audiofile = AUDIO_DICT[ topic ][ age ];
+             }
+         });
 
-        this.setState({audioPlayer: states});
+        this.setState({  audioPlayer: states  });
+     };
 
-    };
-
-    handlePlayStateChange = (target, e) => {
-        this.changeActiveRow(target.props.name);
-        this.updatePlayState(target.props.name);
-        this.updateAudiogram(target.props.age);
-    };
-
-    renderAgeButton = (topic, age) => {
-        const str = topic + "-" + age;
-
-        return (
-            <button data-topic={topic} data-age={age} id={str} className={styles.ageButton}
-                    onClick={(e) => this.handleAgeSelectorClick(topic, age, e)}>{age}</button>
-        )
-    };
-
-    showAudiogramText = (e) => {
-        let shoAudioGram = !this.state.showAudiogramInfo;
+    /**
+     * Show / Hide Audiogram Lightbox
+     */
+    handleAudiogramButtonClick = () => {
+        const shoAudioGram = !this.state.showAudiogramInfo;
         this.setState({
             showAudiogramInfo: shoAudioGram
-        })
-    };
+         })
+     };
 
     render() {
-        return (
+        return <Fragment>
+            <div className={ styles.gridSimulator }>
 
-            <Fragment>
-                <div className={styles.gridSimulator}>
+                <HeaderImage imgUrl={  aboutImage  } alt={  'About Hearing'  }
+                             title={  <FormattedMessage id='app.simulator.title'/>  }/>
 
-                    <HeaderImage imgUrl={aboutImage} alt={"About Hearing"}
-                                 title={<FormattedMessage id="app.simulator.title"/>}/>
+                <div className={ styles.content }>
 
-                    <div className={styles.content}>
-
-                        <table width="100%" cellPadding="0" cellspacing="0" className={styles.soundTable}>
-                            <tbody>
+                    <table width='100%' cellPadding='0' cellSpacing='0' className={  styles.soundTable  }>
+                        <thead>
                             <tr>
-                                <th colSpan={2}>
-                                    <span className={styles.soundIndicator}>j</span>
+                                <th colSpan='2'>
+                                    <span className={  styles.sound  }></span>
                                 </th>
-                                <th colSpan={3}>
-                                    <h3 className={styles.ageTitle}>
-                                        <FormattedMessage id="app.simulator.age"/>
+                                <th colSpan='3'>
+                                    <h3 className={  styles.ageTitle  }>
+                                        <FormattedMessage id='app.simulator.age'/>
                                     </h3>
                                 </th>
                                 <th>
-                                    <h3 className={styles.ageTitle}>
-                                        <FormattedMessage id="app.simulator.audiogram"/>
+                                    <h3 className={  styles.ageTitle  }>
+                                        <FormattedMessage id='app.simulator.audiogram'/>
                                     </h3>
                                 </th>
                             </tr>
-                            <tr id="nature-row">
+                        </thead>
+
+                        <tbody>
+                            <tr id='nature-row'>
                                 <td>
-                                    <span className={styles.nature}></span>
+                                    <span className={  styles.nature  }>{ /* Nature Icon */ }</span>
                                 </td>
                                 <td>
-                                    <AudioPlayer playState={this.state.audioPlayer[0].playState}
-                                                 name={this.state.audioPlayer[0].topic}
-                                                 age={this.state.audioPlayer[0].age}
-                                                 volume={100}
-                                                 audiofile={this.state.audioPlayer[0].audiofile}
-                                                 onHandlePause={(e) => this.handlePause(e)}
-                                                 onClick={(e) => this.handlePlayStateChange(e)}
+                                    <AudioPlayer playState={  this.state.audioPlayer[ 0 ].playState  }
+                                                 name={  this.state.audioPlayer[ 0 ].topic  }
+                                                 age={  this.state.audioPlayer[ 0 ].age  }
+                                                 volume={  100  }
+                                                 audiofile={  this.state.audioPlayer[ 0 ].audiofile  }
+                                                 onHandlePause={  (e) => this.handlePause(e)  }
+                                                 onClick={  (e) => this.handleAudioPlayerClick(e)  }
                                     />
                                 </td>
-                                <td className={styles.ageCell}>
-                                    {this.renderAgeButton('nature', '20')}
-                                </td>
-                                <td className={styles.ageCell}>
-                                    {this.renderAgeButton('nature', '60')}
-                                </td>
-                                <td className={styles.ageCell}>
-                                    {this.renderAgeButton('nature', '80')}
-                                </td>
-                                <td rowSpan={3} className={styles.audiogramCol}>
-                                    <AudiogramImage audiogram={this.state.audiogram}/>
+                                <AgeButtonRow
+                                    topic={  'nature'  }
+                                    onAgebuttonClick={  (topic, age, e) => this.handleAgeSelectorClick(topic, age, e)  }
+                                />
+                                { /* Exceptional audiogram column*/ }
+                                <td rowSpan='3' className={  styles.audiogramCol  }>
+                                    <AudiogramImage audiogram={  this.state.audiogram  }/>
                                 </td>
                             </tr>
-                            <tr id="speech-row">
+
+                            <tr id='speech-row'>
                                 <td>
-                                    <span className={styles.speech}></span>
+                                    <span className={  styles.speech  }>{ /* speech Icon */ }</span>
                                 </td>
                                 <td>
-                                    <AudioPlayer playState={this.state.audioPlayer[1].playState}
-                                                 name={this.state.audioPlayer[1].topic}
-                                                 age={this.state.audioPlayer[1].age}
-                                                 volume={100}
-                                                 audiofile={this.state.audioPlayer[1].audiofile}
-                                                 onHandlePause={(e) => this.handlePause(e)}
-                                                 onClick={(e) => this.handlePlayStateChange(e)}
+                                    <AudioPlayer playState={  this.state.audioPlayer[ 1 ].playState  }
+                                                 name={  this.state.audioPlayer[ 1 ].topic  }
+                                                 age={  this.state.audioPlayer[ 1 ].age  }
+                                                 volume={  100  }
+                                                 audiofile={  this.state.audioPlayer[ 1 ].audiofile  }
+                                                 onHandlePause={  (e) => this.handlePause(e)  }
+                                                 onClick={  (e) => this.handleAudioPlayerClick(e)  }
                                     />
                                 </td>
-                                <td className={styles.ageCell}>
-                                    {this.renderAgeButton('speech', '20')}
-                                </td>
-                                <td className={styles.ageCell}>
-                                    {this.renderAgeButton('speech', '60')}
-                                </td>
-                                <td className={styles.ageCell}>
-                                    {this.renderAgeButton('speech', '80')}
-                                </td>
+                                <AgeButtonRow
+                                    topic={ 'speech' }
+                                    onAgebuttonClick={ (topic, age, e) => this.handleAgeSelectorClick(topic, age, e) }
+                                />
                             </tr>
-                            <tr id="music-row">
+
+                            <tr id='music-row'>
                                 <td>
-                                    <span className={styles.music}></span>
+                                    <span className={ styles.music }>{ /* Music Icon */ }</span>
                                 </td>
                                 <td>
-                                    <AudioPlayer playState={this.state.audioPlayer[2].playState}
-                                                 name={this.state.audioPlayer[2].topic}
-                                                 age={this.state.audioPlayer[2].age}
-                                                 volume={100}
-                                                 audiofile={this.state.audioPlayer[2].audiofile}
-                                                 onHandlePause={(e) => this.handlePause(e)}
-                                                 onClick={(e) => this.handlePlayStateChange(e)}
+                                    <AudioPlayer playState={  this.state.audioPlayer[ 2 ].playState  }
+                                                 name={  this.state.audioPlayer[ 2 ].topic  }
+                                                 age={  this.state.audioPlayer[ 2 ].age  }
+                                                 volume={  100  }
+                                                 audiofile={  this.state.audioPlayer[ 2 ].audiofile  }
+                                                 onHandlePause={  (e) => this.handlePause(e)  }
+                                                 onClick={  (e) => this.handleAudioPlayerClick(e)  }
                                     />
                                 </td>
-                                <td className={styles.ageCell}>
-                                    {this.renderAgeButton('music', '20')}
-                                </td>
-                                <td className={styles.ageCell}>
-                                    {this.renderAgeButton('music', '60')}
-                                </td>
-                                <td className={styles.ageCell}>
-                                    {this.renderAgeButton('music', '80')}
-                                </td>
+                                <AgeButtonRow
+                                    topic={  'music'  }
+                                    onAgebuttonClick={  (topic, age, e) => this.handleAgeSelectorClick(topic, age, e)  }
+                                />
                             </tr>
-                            </tbody>
-                        </table>
+                        </tbody>
+                    </table>
 
-                        <Audiogram onClick={this.showAudiogramText} show={this.state.showAudiogramInfo} />
+                    <Audiogram onClick={ this.handleAudiogramButtonClick } show={ this.state.showAudiogramInfo }/>
 
-                    </div>
-
-                    <div className={styles.side}>
-
-                        <p className={[styles.mainParagraph, styles.spaceUp].join(' ')}>
-                            <FormattedHTMLMessage id="app.simulator.intro"/>
-                        </p>
-
-                        <button className={styles.audiogramButton} onClick={this.showAudiogramText}>
-                            <FormattedHTMLMessage id={"app.audiogram.button." + this.state.showAudiogramInfo}/>
-                        </button>
-
-                    </div>
                 </div>
-            </Fragment>
-        )
-    }
-}
+
+                <div className={ styles.side }>
+                    <p className={ [ styles.mainParagraph, styles.spaceUp ].join(' ') }>
+                        <FormattedHTMLMessage id='app.simulator.intro'/>
+                    </p>
+
+                    <button className={ styles.audiogramButton } onClick={ this.handleAudiogramButtonClick }>
+                        <FormattedHTMLMessage id={ 'app.audiogram.button.' + this.state.showAudiogramInfo }/>
+                    </button>
+                </div>
+
+            </div>
+        </Fragment>
+     }
+ }
