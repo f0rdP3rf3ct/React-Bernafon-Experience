@@ -240,10 +240,10 @@ export class Simulator extends Component {
      * @param { string } topic
      * @param { string | number } age
      */
-    renderAgeButton = (topic, age) => {
+    renderAgeButton = (topic, age, e) => {
         return <AgeButton
             topic={ topic }
-            onAgebuttonClick={  () => this.handleAgeSelectorClick(topic, age, e)  }
+            onAgebuttonClick={  (topic, age, e) => this.handleAgeSelectorClick(topic, age, e)  }
             age = { age }
         />
     };
