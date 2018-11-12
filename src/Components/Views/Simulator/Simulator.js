@@ -19,7 +19,7 @@ import hlSimForest80 from '../../../Files/Audio/Hearingloss_Simulation_Forest_v1
 
 import hlSimRest20 from '../../../Files/Audio/Hearingloss_Simulation_Restaurant_v1_20.mp3';
 import hlSimRest60 from '../../../Files/Audio/Hearingloss_Simulation_Restaurant_v1_60.mp3';
-import hlSimTest80 from '../../../Files/Audio/Hearingloss_Simulation_Restaurant_v1_80.mp3';
+import hlSimRest80 from '../../../Files/Audio/Hearingloss_Simulation_Restaurant_v1_80.mp3';
 
 /**
  * Maps Soundfiles to object
@@ -33,7 +33,7 @@ const AUDIO_DICT = {
     speech: {
         20: hlSimRest20,
         60: hlSimRest60,
-        80: hlSimTest80
+        80: hlSimRest80
      },
     music: {
         20: hlSimJazz20,
@@ -168,7 +168,7 @@ export class Simulator extends Component {
         ageButtons.forEach(obj => {
             const tData = obj.getAttribute('data-topic');
             const aData = obj.getAttribute('data-age');
-            if (tData === topic && aData == age) {
+            if (tData === topic && aData === age) {
                 obj.classList.add(styles.active);
              } else {
                 obj.classList.remove(styles.active);
@@ -181,11 +181,10 @@ export class Simulator extends Component {
      * Update Simulator on AudioPlayer Click
      * @param { AudioPlayer } target - Clicked Audioplayer reference
      */
-    handleAudioPlayerClick = (target) => {
-        const props = target.props;
-        this.updatePlayState(props.name);
-        this.changeActivePlayerRow(props.name);
-        this.updateAudiogramState(props.age);
+    handleAudioPlayerClick = (topic, age, e) => {
+        this.updatePlayState(topic);
+        this.changeActivePlayerRow(topic);
+        this.updateAudiogramState(age);
      };
 
     /**
@@ -274,7 +273,7 @@ export class Simulator extends Component {
                                                  volume={  100  }
                                                  audiofile={  this.state.audioPlayer[ 0 ].audiofile  }
                                                  onHandlePause={  (e) => this.handlePause(e)  }
-                                                 onClick={  (e) => this.handleAudioPlayerClick(e)  }
+                                                 onClick={  (topic, age, e) => this.handleAudioPlayerClick(topic, age, e)  }
                                     />
                                 </td>
                                 <td className={  styles.ageCell  }>
@@ -388,12 +387,10 @@ export class Simulator extends Component {
                     <p className={ [ styles.mainParagraph, styles.spaceUp ].join(' ') }>
                         <FormattedHTMLMessage id='app.simulator.intro'/>
                     </p>
-
                     <button className={ styles.audiogramButton } onClick={ this.handleAudiogramButtonClick }>
                         <FormattedHTMLMessage id={ 'app.audiogram.button.' + this.state.showAudiogramInfo }/>
                     </button>
                 </div>
-
             </div>
         </Fragment>
      }

@@ -42,8 +42,8 @@ class AudioPlayer extends Component {
      * @param { object } target - reference to this component
      * @param { object } e - event object
      */
-    handleSoundState = (target, e) => {
-        this.props.onClick(target, e);
+    handleSoundState = (topic, age, e) => {
+        this.props.onClick(topic, age, e);
      };
 
     /**
@@ -67,7 +67,7 @@ class AudioPlayer extends Component {
         return (
             <Fragment>
                 { /* Reflect playstate */ }
-                <PlayState isPlaying={ this.props.playState } onClick={ (e) => this.handleSoundState(this, e) }/>
+                <PlayState isPlaying={ this.props.playState } onClick={ (topic, age, e) => this.handleSoundState(this.props.name, this.props.age, e) }/>
 
                 <Sound
                     url={ this.props.audiofile }
@@ -91,7 +91,9 @@ AudioPlayer.propTypes = {
     playState: PropTypes.any.isRequired,
     audiofile: PropTypes.any.isRequired,
     volume: PropTypes.any.isRequired,
-    onClick:PropTypes.any.isRequired
+    onClick:PropTypes.any.isRequired,
+    name: PropTypes.any.isRequired,
+    age: PropTypes.any.isRequired
 };
 
 export default AudioPlayer;
