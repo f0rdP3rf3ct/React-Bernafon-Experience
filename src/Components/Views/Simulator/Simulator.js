@@ -298,7 +298,7 @@ export class Simulator extends Component {
                                     />
                                 </td>
                                 { /* Exceptional audiogram column*/ }
-                                <td rowSpan='3' className={  styles.audiogramCol  }>
+                                <td rowSpan={ 3 } className={  styles.audiogramCol  }>
                                     <AudiogramImage audiogram={  this.state.audiogram  }/>
                                 </td>
                             </tr>

@@ -71,7 +71,7 @@ export class Types extends Component {
                         <table width='95%' className={ styles.infoTable }>
                             <tbody>
                                 <tr>
-                                    <td className={ styles.infographic } colSpan='6'>
+                                    <td className={ styles.infographic } colSpan={ 6 }>
                                         <img alt='types-hearingloss' width='100%'
                                              src={ this.imgMap[ this.state.displayedText ] }/>
                                     </td>
@@ -109,13 +109,13 @@ export class Types extends Component {
                                     </td>
                                 </tr>
                                 <tr className={ styles.buttonRow }>
-                                    <td width='50%' colspan='3'>
+                                    <td width='50%' colSpan={ 3 }>
                                         <button className={ styles.textButton }
                                                 onClick={ (e) => this.handleOnClick('conductive', e) }>
                                             <FormattedMessage id='app.hearingloss.types.button.conductive'/>
                                         </button>
                                     </td>
-                                    <td colspan='3' width='50%'>
+                                    <td colSpan={ 3 } width='50%'>
                                         <button className={ styles.textButton }
                                                 onClick={ (e) => this.handleOnClick('sensorineural', e) }>
                                             <FormattedMessage id='app.hearingloss.types.button.sensorineural'/>
@@ -123,7 +123,7 @@ export class Types extends Component {
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td colSpan='6'>
+                                    <td colSpan={ 6 }>
                                         <button className={ styles.textButton }
                                                 onClick={ (e) => this.handleOnClick('mixed', e) }>
                                             <FormattedMessage id='app.hearingloss.types.button.mixed'/>
