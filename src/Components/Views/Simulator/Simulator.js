@@ -160,7 +160,7 @@ export class Simulator extends Component {
     /**
      * Adds active class depending on params to an AgeButton
      * @param { string } topic - name of topic
-     * @param { number } age
+     * @param { number | string } age
      */
     selectAgeButton = (topic, age) => {
         const ageButtons = Array.from(document.getElementsByClassName(styles.ageButton));
@@ -168,7 +168,8 @@ export class Simulator extends Component {
         ageButtons.forEach(obj => {
             const tData = obj.getAttribute('data-topic');
             const aData = obj.getAttribute('data-age');
-            if (tData === topic && aData === age) {
+
+            if (tData === topic && aData === age.toString()) {
                 obj.classList.add(styles.active);
              } else {
                 obj.classList.remove(styles.active);
@@ -242,7 +243,7 @@ export class Simulator extends Component {
     renderAgeButton = (topic, age) => {
         return <AgeButton
             topic={ topic }
-            onAgebuttonClick={  (topic, age, e) => this.handleAgeSelectorClick(topic, age, e)  }
+            onAgebuttonClick={  () => this.handleAgeSelectorClick(topic, age, e)  }
             age = { age }
         />
     };
@@ -258,7 +259,7 @@ export class Simulator extends Component {
                      volume={  volume  }
                      audiofile={  this.state.audioPlayer[ index ].audiofile  }
                      onHandlePause={  (e) => this.handlePause(e)  }
-                     onClick={  (topic, age, e) => this.handleAudioPlayerClick(topic, age, e)  }
+                     onClick={  (topic, age, e) => this.handleAudioPlayerClick(topic, age)  }
         />
     };
 
