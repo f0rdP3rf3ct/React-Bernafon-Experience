@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import styles from '../Header/Header.module.css';
+import styles from './MainMenu.module.css';
 import { FormattedMessage } from 'react-intl';
 
 const MainMenu = ({ onChangeLanguage }) => {

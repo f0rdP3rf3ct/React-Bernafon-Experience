@@ -143,3 +143,17 @@
 .spaceUp {
   margin-top: 3.3rem;
 }
+
+.soundIndicator {
+  font-family: var(--iconFont);
+  font-size: 1.5rem;
+
+  &:after {
+    content: '';
+    position: relative;
+    display: block;
+    margin: 0 0.2rem;
+    border-bottom: solid 1px var(--mainColor);
+  }
+
+}
