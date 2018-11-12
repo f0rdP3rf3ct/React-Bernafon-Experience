@@ -42,39 +42,20 @@ const AUDIO_DICT = {
      }
  };
 
-export const AgeButtonRow = (props) => {
+export const AgeButton = (props) => {
     return (
-        <Fragment>
-            <td className={  styles.ageCell  }>
-                <button data-topic={  props.topic  }
-                        data-age={  20  } id={  props.topic + '-20'  }
-                        className={  styles.ageButton  }
-                        onClick={  (e) => props.onAgebuttonClick(props.topic, 20, e)  }>20
-                </button>
-            </td>
-            <td className={  styles.ageCell  }>
-                <button data-topic={  props.topic  }
-                        data-age={  60  }
-                        id={  props.topic + '-60'  }
-                        className={  styles.ageButton  }
-                        onClick={  (e) => props.onAgebuttonClick(props.topic, 60, e)  }>60
-                </button>
-            </td>
-            <td className={  styles.ageCell  }>
-                <button data-topic={  props.topic  }
-                        data-age={  80  }
-                        id={  props.topic + '-80'  }
-                        className={  styles.ageButton  }
-                        onClick={  (e) => props.onAgebuttonClick(props.topic, 80, e)  }>80
-                </button>
-            </td>
-        </Fragment>
+        <button data-topic={  props.topic  }
+                data-age={  props.age  } id={  props.topic + '-' + props.age  }
+                className={  styles.ageButton  }
+                onClick={  (e) => props.onAgebuttonClick(props.topic, props.age, e)  }>{props.age}
+        </button>
     )
- };
+};
 
-AgeButtonRow.propTypes = {
+AgeButton.propTypes = {
     onAgebuttonClick: PropTypes.any.isRequired,
-    topic: intlShape.isRequired
+    topic: intlShape.isRequired,
+    age: PropTypes.any.isRequired
 };
 
 export class Simulator extends Component {
@@ -187,8 +168,7 @@ export class Simulator extends Component {
         ageButtons.forEach(obj => {
             const tData = obj.getAttribute('data-topic');
             const aData = obj.getAttribute('data-age');
-
-            if (tData === topic && aData === age) {
+            if (tData === topic && aData == age) {
                 obj.classList.add(styles.active);
              } else {
                 obj.classList.remove(styles.active);
@@ -297,10 +277,27 @@ export class Simulator extends Component {
                                                  onClick={  (e) => this.handleAudioPlayerClick(e)  }
                                     />
                                 </td>
-                                <AgeButtonRow
-                                    topic={  'nature'  }
-                                    onAgebuttonClick={  (topic, age, e) => this.handleAgeSelectorClick(topic, age, e)  }
-                                />
+                                <td className={  styles.ageCell  }>
+                                    <AgeButton
+                                        topic={ 'nature' }
+                                        onAgebuttonClick={  (topic, age, e) => this.handleAgeSelectorClick(topic, age, e)  }
+                                        age = { 20 }
+                                    />
+                                </td>
+                                <td className={  styles.ageCell  }>
+                                    <AgeButton
+                                        topic={ 'nature' }
+                                        onAgebuttonClick={  (topic, age, e) => this.handleAgeSelectorClick(topic, age, e)  }
+                                        age = { 60 }
+                                    />
+                                </td>
+                                <td className={  styles.ageCell  }>
+                                    <AgeButton
+                                        topic={ 'nature' }
+                                        onAgebuttonClick={  (topic, age, e) => this.handleAgeSelectorClick(topic, age, e)  }
+                                        age = { 80 }
+                                    />
+                                </td>
                                 { /* Exceptional audiogram column*/ }
                                 <td rowSpan='3' className={  styles.audiogramCol  }>
                                     <AudiogramImage audiogram={  this.state.audiogram  }/>
@@ -321,10 +318,27 @@ export class Simulator extends Component {
                                                  onClick={  (e) => this.handleAudioPlayerClick(e)  }
                                     />
                                 </td>
-                                <AgeButtonRow
-                                    topic={ 'speech' }
-                                    onAgebuttonClick={ (topic, age, e) => this.handleAgeSelectorClick(topic, age, e) }
-                                />
+                                <td className={  styles.ageCell  }>
+                                    <AgeButton
+                                        topic={ 'speech' }
+                                        onAgebuttonClick={  (topic, age, e) => this.handleAgeSelectorClick(topic, age, e)  }
+                                        age = { 20 }
+                                    />
+                                </td>
+                                <td className={  styles.ageCell  }>
+                                    <AgeButton
+                                        topic={ 'speech' }
+                                        onAgebuttonClick={  (topic, age, e) => this.handleAgeSelectorClick(topic, age, e)  }
+                                        age = { 60 }
+                                    />
+                                </td>
+                                <td className={  styles.ageCell  }>
+                                    <AgeButton
+                                        topic={ 'speech' }
+                                        onAgebuttonClick={  (topic, age, e) => this.handleAgeSelectorClick(topic, age, e)  }
+                                        age = { 80 }
+                                    />
+                                </td>
                             </tr>
 
                             <tr id='music-row'>
@@ -341,10 +355,27 @@ export class Simulator extends Component {
                                                  onClick={  (e) => this.handleAudioPlayerClick(e)  }
                                     />
                                 </td>
-                                <AgeButtonRow
-                                    topic={  'music'  }
-                                    onAgebuttonClick={  (topic, age, e) => this.handleAgeSelectorClick(topic, age, e)  }
-                                />
+                                <td className={  styles.ageCell  }>
+                                    <AgeButton
+                                        topic={ 'music' }
+                                        onAgebuttonClick={  (topic, age, e) => this.handleAgeSelectorClick(topic, age, e)  }
+                                        age = { 20 }
+                                    />
+                                </td>
+                                <td className={  styles.ageCell  }>
+                                    <AgeButton
+                                        topic={ 'music' }
+                                        onAgebuttonClick={  (topic, age, e) => this.handleAgeSelectorClick(topic, age, e)  }
+                                        age = { 60 }
+                                    />
+                                </td>
+                                <td className={  styles.ageCell  }>
+                                    <AgeButton
+                                        topic={ 'music' }
+                                        onAgebuttonClick={  (topic, age, e) => this.handleAgeSelectorClick(topic, age, e)  }
+                                        age = { 80 }
+                                    />
+                                </td>
                             </tr>
                         </tbody>
                     </table>
