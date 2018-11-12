@@ -6,7 +6,7 @@ import styles from './Simulator.module.css';
 import HeaderImage from '../../HeaderImage/HeaderImage';
 import AudioPlayer from '../../AudioPlayer/AudioPlayer';
 import AudiogramImage from '../../AudiogramImage/AudiogramImage';
-import {  Audiogram  } from '..';
+import {  Audiogram  } from '../Audiogram/Audiogram';
 import aboutImage from '../../../Files/Images/bf_exp_img_header_about.png';
 
 import hlSimJazz20 from '../../../Files/Audio/Hearingloss_Simulation_Jazz_Music_v1_20.mp3';
