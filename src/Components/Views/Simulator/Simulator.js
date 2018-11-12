@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react';
-import { FormattedHTMLMessage, FormattedMessage, intlShape } from 'react-intl';
+import { FormattedHTMLMessage, FormattedMessage } from 'react-intl';
 import PropTypes from 'prop-types';
 import styles from './Simulator.module.css';
 
@@ -54,7 +54,7 @@ export const AgeButton = (props) => {
 
 AgeButton.propTypes = {
     onAgebuttonClick: PropTypes.any.isRequired,
-    topic: intlShape.isRequired,
+    topic: PropTypes.object.isRequired,
     age: PropTypes.any.isRequired
 };
 
@@ -179,9 +179,10 @@ export class Simulator extends Component {
 
     /**
      * Update Simulator on AudioPlayer Click
-     * @param { AudioPlayer } target - Clicked Audioplayer reference
+     * @param { string } topic
+     * @param { string } age
      */
-    handleAudioPlayerClick = (topic, age, e) => {
+    handleAudioPlayerClick = (topic, age) => {
         this.updatePlayState(topic);
         this.changeActivePlayerRow(topic);
         this.updateAudiogramState(age);
@@ -233,6 +234,34 @@ export class Simulator extends Component {
          })
      };
 
+    /**
+     * Returns single AgeButton
+     * @param { string } topic
+     * @param { string | number } age
+     */
+    renderAgeButton = (topic, age) => {
+        return <AgeButton
+            topic={ topic }
+            onAgebuttonClick={  (topic, age, e) => this.handleAgeSelectorClick(topic, age, e)  }
+            age = { age }
+        />
+    };
+
+    /**
+     * Returns single AudioPlayer
+     * @param { number } index
+     */
+    renderAudioPlayer  = (index, volume) => {
+        return <AudioPlayer playState={  this.state.audioPlayer[ index ].playState  }
+                     name={  this.state.audioPlayer[ index ].topic  }
+                     age={  this.state.audioPlayer[ index ].age  }
+                     volume={  volume  }
+                     audiofile={  this.state.audioPlayer[ index ].audiofile  }
+                     onHandlePause={  (e) => this.handlePause(e)  }
+                     onClick={  (topic, age, e) => this.handleAudioPlayerClick(topic, age, e)  }
+        />
+    };
+
     render() {
         return <Fragment>
             <div className={ styles.gridSimulator }>
@@ -242,7 +271,7 @@ export class Simulator extends Component {
 
                 <div className={ styles.content }>
 
-                    <table width='100%' cellPadding='0' cellSpacing='0' className={  styles.soundTable  }>
+                    <table width='100%' cellPadding={ 0 } cellSpacing={ 0 } className={  styles.soundTable  }>
                         <thead>
                             <tr>
                                 <th colSpan='2'>
@@ -267,35 +296,16 @@ export class Simulator extends Component {
                                     <span className={  styles.nature  }>{ /* Nature Icon */ }</span>
                                 </td>
                                 <td>
-                                    <AudioPlayer playState={  this.state.audioPlayer[ 0 ].playState  }
-                                                 name={  this.state.audioPlayer[ 0 ].topic  }
-                                                 age={  this.state.audioPlayer[ 0 ].age  }
-                                                 volume={  100  }
-                                                 audiofile={  this.state.audioPlayer[ 0 ].audiofile  }
-                                                 onHandlePause={  (e) => this.handlePause(e)  }
-                                                 onClick={  (topic, age, e) => this.handleAudioPlayerClick(topic, age, e)  }
-                                    />
+                                    { this.renderAudioPlayer(0, 100) }
                                 </td>
                                 <td className={  styles.ageCell  }>
-                                    <AgeButton
-                                        topic={ 'nature' }
-                                        onAgebuttonClick={  (topic, age, e) => this.handleAgeSelectorClick(topic, age, e)  }
-                                        age = { 20 }
-                                    />
+                                    { this.renderAgeButton('nature', 20) }
                                 </td>
                                 <td className={  styles.ageCell  }>
-                                    <AgeButton
-                                        topic={ 'nature' }
-                                        onAgebuttonClick={  (topic, age, e) => this.handleAgeSelectorClick(topic, age, e)  }
-                                        age = { 60 }
-                                    />
+                                    { this.renderAgeButton('nature', 60) }
                                 </td>
                                 <td className={  styles.ageCell  }>
-                                    <AgeButton
-                                        topic={ 'nature' }
-                                        onAgebuttonClick={  (topic, age, e) => this.handleAgeSelectorClick(topic, age, e)  }
-                                        age = { 80 }
-                                    />
+                                    { this.renderAgeButton('nature', 80) }
                                 </td>
                                 { /* Exceptional audiogram column*/ }
                                 <td rowSpan={ 3 } className={  styles.audiogramCol  }>
@@ -308,35 +318,16 @@ export class Simulator extends Component {
                                     <span className={  styles.speech  }>{ /* speech Icon */ }</span>
                                 </td>
                                 <td>
-                                    <AudioPlayer playState={  this.state.audioPlayer[ 1 ].playState  }
-                                                 name={  this.state.audioPlayer[ 1 ].topic  }
-                                                 age={  this.state.audioPlayer[ 1 ].age  }
-                                                 volume={  100  }
-                                                 audiofile={  this.state.audioPlayer[ 1 ].audiofile  }
-                                                 onHandlePause={  (e) => this.handlePause(e)  }
-                                                 onClick={  (e) => this.handleAudioPlayerClick(e)  }
-                                    />
+                                    { this.renderAudioPlayer(1, 100) }
                                 </td>
                                 <td className={  styles.ageCell  }>
-                                    <AgeButton
-                                        topic={ 'speech' }
-                                        onAgebuttonClick={  (topic, age, e) => this.handleAgeSelectorClick(topic, age, e)  }
-                                        age = { 20 }
-                                    />
+                                    { this.renderAgeButton('speech', 20) }
                                 </td>
                                 <td className={  styles.ageCell  }>
-                                    <AgeButton
-                                        topic={ 'speech' }
-                                        onAgebuttonClick={  (topic, age, e) => this.handleAgeSelectorClick(topic, age, e)  }
-                                        age = { 60 }
-                                    />
+                                    { this.renderAgeButton('speech', 60) }
                                 </td>
                                 <td className={  styles.ageCell  }>
-                                    <AgeButton
-                                        topic={ 'speech' }
-                                        onAgebuttonClick={  (topic, age, e) => this.handleAgeSelectorClick(topic, age, e)  }
-                                        age = { 80 }
-                                    />
+                                    { this.renderAgeButton('speech', 80) }
                                 </td>
                             </tr>
 
@@ -345,35 +336,16 @@ export class Simulator extends Component {
                                     <span className={ styles.music }>{ /* Music Icon */ }</span>
                                 </td>
                                 <td>
-                                    <AudioPlayer playState={  this.state.audioPlayer[ 2 ].playState  }
-                                                 name={  this.state.audioPlayer[ 2 ].topic  }
-                                                 age={  this.state.audioPlayer[ 2 ].age  }
-                                                 volume={  100  }
-                                                 audiofile={  this.state.audioPlayer[ 2 ].audiofile  }
-                                                 onHandlePause={  (e) => this.handlePause(e)  }
-                                                 onClick={  (e) => this.handleAudioPlayerClick(e)  }
-                                    />
+                                    { this.renderAudioPlayer(2, 100) }
                                 </td>
                                 <td className={  styles.ageCell  }>
-                                    <AgeButton
-                                        topic={ 'music' }
-                                        onAgebuttonClick={  (topic, age, e) => this.handleAgeSelectorClick(topic, age, e)  }
-                                        age = { 20 }
-                                    />
+                                    { this.renderAgeButton('music', 20) }
                                 </td>
                                 <td className={  styles.ageCell  }>
-                                    <AgeButton
-                                        topic={ 'music' }
-                                        onAgebuttonClick={  (topic, age, e) => this.handleAgeSelectorClick(topic, age, e)  }
-                                        age = { 60 }
-                                    />
+                                    { this.renderAgeButton('music', 60) }
                                 </td>
                                 <td className={  styles.ageCell  }>
-                                    <AgeButton
-                                        topic={ 'music' }
-                                        onAgebuttonClick={  (topic, age, e) => this.handleAgeSelectorClick(topic, age, e)  }
-                                        age = { 80 }
-                                    />
+                                    { this.renderAgeButton('music', 80) }
                                 </td>
                             </tr>
                         </tbody>
@@ -382,7 +354,6 @@ export class Simulator extends Component {
                     <Audiogram onClick={ this.handleAudiogramButtonClick } show={ this.state.showAudiogramInfo }/>
 
                 </div>
-
                 <div className={ styles.side }>
                     <p className={ [ styles.mainParagraph, styles.spaceUp ].join(' ') }>
                         <FormattedHTMLMessage id='app.simulator.intro'/>
