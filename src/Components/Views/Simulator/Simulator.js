@@ -54,7 +54,7 @@ export const AgeButton = (props) => {
 
 AgeButton.propTypes = {
     onAgebuttonClick: PropTypes.any.isRequired,
-    topic: intlShape.isRequired,
+    topic: PropTypes.object.isRequired,
     age: PropTypes.any.isRequired
 };
 

@@ -10,7 +10,7 @@ const HeaderImage = (props) => (
 );
 
 HeaderImage.propTypes = {
-    title: PropTypes.string,
+    title: PropTypes.object,
 };
 
 export default HeaderImage;
