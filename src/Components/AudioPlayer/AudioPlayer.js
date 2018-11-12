@@ -1,78 +1,99 @@
-import React, {Component, Fragment} from 'react';
-import Sound from "react-sound";
+import React, { Component, Fragment } from 'react';
+import PropTypes from 'prop-types';
+import Sound from 'react-sound';
 import styles from './AudioPlayer.module.css';
 
 /**
- * PlayState Component
+ * PlayState Component.
+ * Renders tag with indicator if audio is playing or not.
+ * @param { object } props - Component props
+ * @returns { * } - div tag containig a 'PLAY' or 'PAUSE' Icon respectively
  */
 export const PlayState = (props) => {
     const isPlaying = props.isPlaying;
 
     if (isPlaying === 'PAUSED') {
-        return <div onClick={props.onClick} className={styles.iconPaused}/>
-    }
+        return <div onClick={ props.onClick } className={ styles.iconPaused }/>
+     }
 
-    return <div onClick={props.onClick} className={styles.iconPlaying}/>
-};
-
+    return <div onClick={ props.onClick } className={ styles.iconPlaying }/>
+ };
 
 /**
- * Audioplayer
+ * Props validation
+ */
+PlayState.propTypes = {
+    isPlaying: PropTypes.any.isRequired,
+    onClick: PropTypes.any.isRequired
+};
+
+/**
+ * Audioplayer Component
+ * Combines Playstate and Sound Component and handles audiofile position
  */
 class AudioPlayer extends Component {
 
     state = {
-        position: 0,
-        loading: true
-    };
+        position: 0 // Position of audiofile in MS
+     };
 
     /**
-     * Toggle Soundstate and pass self to parent when player changes to PLAY
+     * Pass reference of self to parent when state changes to 'PLAY'.
+     * @param { object } target - reference to this component
+     * @param { object } e - event object
      */
-    handleSoundState = (target, e) => {
-        this.props.onClick(target, e);
-    };
+    handleSoundState = (topic, age, e) => {
+        this.props.onClick(topic, age, e);
+     };
 
     /**
-     * Audio has changed to PAUSED
-     * @param e
+     * Store position of audiofile
+     * @param { object } e - event object
      */
     handlePause = (e) => {
         // Set state to pause if its not already.
-        this.setState({position: e.position});
-    };
+        this.setState({ position: e.position });
+     };
 
     /**
-     * Soundfile is completely loaded
+     * Starts playing from position
+     * @param { object } e - event object
      */
-    handleLoad = (e) => {
-        this.setState({loading: false})
-    };
-
     handlePlaying = (e) => {
-        this.setState({position: e.position})
-    };
+        this.setState({ position: e.position })
+     };
 
     render() {
         return (
             <Fragment>
-                {/* Reflect playstate */}
-                <PlayState isPlaying={this.props.playState} onClick={(e) => this.handleSoundState(this, e)}/>
+                { /* Reflect playstate */ }
+                <PlayState isPlaying={ this.props.playState } onClick={ (topic, age, e) => this.handleSoundState(this.props.name, this.props.age, e) }/>
 
                 <Sound
-                    url={this.props.audiofile}
-                    position={this.state.position}
-                    onLoad={(e) => this.handleLoad(e)}
-                    onPause={(e) => this.handlePause(e)}
-                    onPlaying={(e) => this.handlePlaying(e)}
-                    volume={this.props.volume}
-                    autoLoad={true}
-                    loop={true}
-                    playStatus={this.props.playState}
+                    url={ this.props.audiofile }
+                    position={ this.state.position }
+                    onPause={ (e) => this.handlePause(e) }
+                    onPlaying={ (e) => this.handlePlaying(e) }
+                    volume={ this.props.volume }
+                    autoLoad={ true }
+                    loop={ true }
+                    playStatus={ this.props.playState }
                 />
             </Fragment>
         );
-    }
-}
+     }
+ }
+
+/**
+ * Props validation
+ */
+AudioPlayer.propTypes = {
+    playState: PropTypes.any.isRequired,
+    audiofile: PropTypes.any.isRequired,
+    volume: PropTypes.any.isRequired,
+    onClick:PropTypes.any.isRequired,
+    name: PropTypes.any.isRequired,
+    age: PropTypes.any.isRequired
+};
 
 export default AudioPlayer;

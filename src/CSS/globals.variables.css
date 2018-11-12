@@ -14,6 +14,7 @@
     --natureIcon: '\67';
     --homeIcon: '\68';
     --closeIcon: '\6b';
+    --soundIcon: '\6a';
 
     /* COLORS */
     --mainColor: rgb(204, 17, 34);
@@ -21,4 +22,9 @@
     --activeColor: rgb(204,16,34);
     --inactiveColor: rgb(0, 0, 0);
     --hoverColor: rgb(128,128,128);
+    --breadCrumbBackground: rgb(245,245,245);
+
+    /* DIMENSIONS */
+    --headerHeight: 9.2rem;
+    --bernafonLayerHeight: 7px;
 }

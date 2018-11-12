@@ -13,21 +13,6 @@
 .crumb {
   color: var(--activeColor);
   text-decoration: none;
-  //margin-right: 1.1rem;
-
-  /*
-  &:after {
-    position: absolute;
-
-    content: var(--arrowIcon);
-
-    color: var(--mainColor);
-    font-family: var(--iconFont);
-    font-size: 1rem;
-
-    top: 0.1rem;
-  }
-  */
 }
 
 .icon {

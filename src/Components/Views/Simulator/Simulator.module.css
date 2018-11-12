@@ -2,29 +2,6 @@
 @import '../../../CSS/globals.variables.css';
 @import '../../../CSS/globals.layout.css';
 
-.container-25-25-25-25 {
-  display: grid;
-  grid-template-rows: auto;
-  grid-template-columns: 25% 25% 25% 25%;
-  grid-template-areas: "icon player1 player2 player3";
-}
-
-.itemIcon {
-  grid-area: icon;
-}
-
-.itemPlayer1 {
-  grid-area: player1
-}
-
-.itemPlayer2 {
-  grid-area: player2
-}
-
-.itemPlayer3 {
-  grid-area: player3
-}
-
 .ageButton {
   text-decoration: none;
   display: inline-block;
@@ -93,7 +70,8 @@
 }
 
 .music:before,
-.nature:before {
+.nature:before,
+.sound:before {
   font-family: var(--iconFont);
   font-size: 2rem;
 }
@@ -113,6 +91,20 @@
 
 .nature:before {
   content: var(--natureIcon);
+}
+
+.sound {
+  &:before {
+    content: var(--soundIcon);
+    font-size: 1.5rem;
+  }
+  &:after {
+    content: '';
+    position: relative;
+    display: block;
+    margin: 0 0.2rem;
+    border-bottom: solid 1px var(--mainColor);
+  }
 }
 
 .activeRow {
