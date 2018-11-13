@@ -47,13 +47,13 @@ export const AgeButton = (props) => {
         <button data-topic={  props.topic  }
                 data-age={  props.age  } id={  props.topic + '-' + props.age  }
                 className={  styles.ageButton  }
-                onClick={  (e) => props.onAgebuttonClick(props.topic, props.age, e)  }>{props.age}
+                onClick={  (e) => props.onAgeButtonClick(props.topic, props.age, e)  }>{props.age}
         </button>
     )
 };
 
 AgeButton.propTypes = {
-    onAgebuttonClick: PropTypes.any.isRequired,
+    onAgeButtonClick: PropTypes.any.isRequired,
     topic: PropTypes.string.isRequired,
     age: PropTypes.any.isRequired
 };
@@ -131,7 +131,7 @@ export class Simulator extends Component {
 
     /**
      * Change state of audiogram
-     * @param { number } age - audiogram of age to be displayed
+     * @param { number | string } age - audiogram of age to be displayed
      */
     updateAudiogramState = (age) => {
         this.setState({ audiogram: age });
@@ -195,7 +195,7 @@ export class Simulator extends Component {
      * @param { number } age - age to change to
      * @param { object } e - event object
      */
-    handleAgeSelectorClick = (topic, age, e) => {
+    handleAgeButtonClick = (topic, age, e) => {
         this.updatePlayStateWithAgeSelector(topic, age);
         this.changeActivePlayerRow(topic);
         this.updateAudiogramState(age);
@@ -239,11 +239,12 @@ export class Simulator extends Component {
      * Returns single AgeButton
      * @param { string } topic
      * @param { string | number } age
+     * @param { object } e
      */
     renderAgeButton = (topic, age, e) => {
         return <AgeButton
             topic={ topic }
-            onAgebuttonClick={  (topic, age, e) => this.handleAgeSelectorClick(topic, age, e)  }
+            onAgeButtonClick={  (topic, age, e) => this.handleAgeButtonClick(topic, age, e)  }
             age = { age }
         />
     };
@@ -251,8 +252,9 @@ export class Simulator extends Component {
     /**
      * Returns single AudioPlayer
      * @param { number } index
+     * @param { number } volume
      */
-    renderAudioPlayer  = (index, volume) => {
+    renderAudioPlayer = (index, volume) => {
         return <AudioPlayer playState={  this.state.audioPlayer[ index ].playState  }
                      name={  this.state.audioPlayer[ index ].topic  }
                      age={  this.state.audioPlayer[ index ].age  }
@@ -275,10 +277,10 @@ export class Simulator extends Component {
                     <table width='100%' cellPadding={ 0 } cellSpacing={ 0 } className={  styles.soundTable  }>
                         <thead>
                             <tr>
-                                <th colSpan='2'>
+                                <th colSpan={ 2 }>
                                     <span className={  styles.sound  }></span>
                                 </th>
-                                <th colSpan='3'>
+                                <th colSpan={ 3 }>
                                     <h3 className={  styles.ageTitle  }>
                                         <FormattedMessage id='app.simulator.age'/>
                                     </h3>
