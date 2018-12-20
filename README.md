@@ -10,8 +10,5 @@ You can find the most recent version of this guide [here](https://github.com/fac
 Copy / Clone repo and run npm install from the folder. Use the usual create-react-app build commands or `extract-messages` to create the translation files for babel.
 
 ## Building Offline App
-1. Checkout the electron branch
-2. Make sure in app.js the Router imports HashRouter instead of BrowserRouter
-`import {HashRouter as Router, Route, Switch} from 'react-router-dom'`
-3. Build a new Version of the CRA-App command: `yarn build`. The build files are in `/build`
-4. Run the electron-pack command: `yarn electron-pack`.  The finished application can be found in `/dist`
+1. Build a new Version of the CRA-App command: `yarn build`. The build files are in `/build`
+2. Run the electron-pack command: `yarn electron-pack`.  The finished application can be found in `/dist`
