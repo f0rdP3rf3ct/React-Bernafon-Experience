@@ -10,5 +10,6 @@ You can find the most recent version of this guide [here](https://github.com/fac
 Copy / Clone repo and run npm install from the folder. Use the usual create-react-app build commands or `extract-messages` to create the translation files for babel.
 
 ## Building Offline App
+1. Checkout the `electron` branch of this repository
 1. Build a new Version of the CRA-App command: `yarn build`. The build files are in `/build`
 2. Run the electron-pack command: `yarn electron-pack`.  The finished application can be found in `/dist`
