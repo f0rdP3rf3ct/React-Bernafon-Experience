@@ -260,7 +260,7 @@ export class Simulator extends Component {
                      volume={  volume  }
                      audiofile={  this.state.audioPlayer[ index ].audiofile  }
                      onHandlePause={  (e) => this.handlePause(e)  }
-                     onClick={  (topic, age, e) => this.handleAudioPlayerClick(topic, age)  }
+                     onClick={  (topic, age) => this.handleAudioPlayerClick(topic, age)  }
         />
     };
 
@@ -277,7 +277,7 @@ export class Simulator extends Component {
                         <thead>
                             <tr>
                                 <th colSpan={ 2 }>
-                                    <span className={  styles.sound  }></span>
+                                    <span className={styles.sound}/>
                                 </th>
                                 <th colSpan={ 3 }>
                                     <h3 className={  styles.ageTitle  }>
