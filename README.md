@@ -69,5 +69,30 @@ Erstellt einen Build der React-App im Ordner `/build`
 4. `yarn electron-pack` ausführen
 Erstellt einen Offline Build im Ordner `/Dist`
 
-
-
+## Projekt Struktur
++-- assets (Assets zum Projekt(Photoshopfiles, SVG's) )
++-- build (CRA-Builds)
++-- dist (Electron Builds)
++-- node_modules (node_modules)
++-- public (Öffentlice React-Files !Keine suffix)
++-- src (Projektcode)
+|   +-- Components (React-Components)
+|       +-- AudiogramImage
+|       +-- AudiogramInfoImage
+|       +-- AudioPlayer
+|       +-- Breadcrumbs
+|       +-- Header
+|       +-- HeaderImage
+|       +-- MainMenu
+|       +-- SpeechBanana
+|       +-- Views (Routing Views)
+|           +-- About
+|           +-- Audiogram
+|           +-- Hearingloss
+|           +-- Home
+|           +-- Simulator
+|           +-- index.js (index file for view import)
+|   +-- CSS (Globale CSS-Definitionen)
+|   +-- Files (React-Files !Mit suffix)
+|   +-- Translations (Übersetzungs-Files)
++-- App.js (Eintrittspunkt Applikation)
