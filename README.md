@@ -69,7 +69,7 @@ Damit wird die Offline App erstellt.
 In diesem File findet man die Build-Konfiguration für die Offline App.
 
 `public/electron.js`
-Definiert z.B. Fenstergrösse / Kiosk-Mode etc. für die Offline App. 
+Definiert z.B. Fenstergrösse / Kiosk-Mode etc. für die Offline App. Dieses File ist im `/public` folder damit kein suffix angefügt wird / berückschtigt werden muss. 
 
 ## Standalone Version erstellen
 Um einen Offline Build erfolgreich zu erstellen, wird yarn benötigt: (https://yarnpkg.com/en/):
