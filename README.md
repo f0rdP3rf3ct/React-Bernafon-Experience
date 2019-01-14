@@ -5,9 +5,9 @@ Standalone Version läuft. Sie besteht aus verschiedenen statischen Text-Seiten,
 ## Projekt Struktur
 ```text
 +-- assets (Assets zum Projekt(Photoshopfiles, SVG's) )
-+-- build (React-Builds)
-+-- dist (Electron Builds)
-+-- node_modules (node_modules)
++-- build (React-Builds | durch skript erstellt)
++-- dist (Electron Builds | durch skript erstellt)
++-- node_modules (node_modules | durch skript erstellt)
 +-- public (Öffentlice React-Files !Keine suffix)
 +-- src (Projektcode)
 |   +-- Components (React-Components)
@@ -69,7 +69,7 @@ Damit wird die Offline App erstellt.
 In diesem File findet man die Build-Konfiguration für die Offline App.
 
 `public/electron.js`
-Definiert z.B. Fenstergrösse / Kiosk-Mode etc. für die Offline App. 
+Definiert z.B. Fenstergrösse / Kiosk-Mode etc. für die Offline App. Dieses File ist im `/public` folder damit kein suffix angefügt wird / berückschtigt werden muss. 
 
 ## Standalone Version erstellen
 Um einen Offline Build erfolgreich zu erstellen, wird yarn benötigt: (https://yarnpkg.com/en/):
