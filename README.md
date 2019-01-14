@@ -65,10 +65,10 @@ Audioplayer Komponent für React. Zuständing für das Abspielen der Audiodateie
 (https://electronjs.org/) 
 Damit wird die Offline App erstellt.
 
-*package.json*
+`package.json`
 In diesem File findet man die Build-Konfiguration für die Offline App.
 
-*public/electron.js*
+`public/electron.js`
 Definiert z.B. Fenstergrösse / Kiosk-Mode etc. für die Offline App. 
 
 ## Standalone Version erstellen
