@@ -38,7 +38,7 @@ Damit ist das Routing der Applikation gelöst.
 
 **babel-plugin-react-intl** 
 (https://github.com/yahoo/babel-plugin-react-intl)
-Damit werden die Übersetzungsfiles geladen. Die Übersetzungen selbst sind für diese Applikation manuell in die Dateien in folgendem Ordner geschrieben worden: /src/Translations/xx.json
+Damit werden die Übersetzungsfiles geladen. Die Übersetzungen selbst sind für diese Applikation manuell in die Dateien in folgendem Ordner geschrieben worden: `/src/Translations/xx.json`
 
 **react-sound** 
 (https://github.com/leoasis/react-sound)
