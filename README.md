@@ -74,7 +74,7 @@ Definiert z.B. Fenstergrösse / Kiosk-Mode etc. für die Offline App.
 ## Standalone Version erstellen
 Um einen Offline Build erfolgreich zu erstellen, wird yarn benötigt: (https://yarnpkg.com/en/):
 
-1. Branch „Electron„ aus dem Repository herunterladen oder klonen.
+1. Branch `Electron` aus dem Repository herunterladen oder klonen.
 https://github.com/f0rdP3rf3ct/React-Bernafon-Experience
 
 2. `yarn install` ausführen
