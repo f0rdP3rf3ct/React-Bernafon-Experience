@@ -5,9 +5,9 @@ Standalone Version läuft. Sie besteht aus verschiedenen statischen Text-Seiten,
 ## Projekt Struktur
 ```text
 +-- assets (Assets zum Projekt(Photoshopfiles, SVG's) )
-+-- build (React-Builds)
-+-- dist (Electron Builds)
-+-- node_modules (node_modules)
++-- build (React-Builds | durch skript erstellt)
++-- dist (Electron Builds | durch skript erstellt)
++-- node_modules (node_modules | durch skript erstellt)
 +-- public (Öffentlice React-Files !Keine suffix)
 +-- src (Projektcode)
 |   +-- Components (React-Components)
