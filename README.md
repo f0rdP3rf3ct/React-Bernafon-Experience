@@ -70,6 +70,7 @@ Erstellt einen Build der React-App im Ordner `/build`
 Erstellt einen Offline Build im Ordner `/Dist`
 
 ## Projekt Struktur
+`
 +-- assets (Assets zum Projekt(Photoshopfiles, SVG's) )
 +-- build (CRA-Builds)
 +-- dist (Electron Builds)
@@ -96,3 +97,5 @@ Erstellt einen Offline Build im Ordner `/Dist`
 |   +-- Files (React-Files !Mit suffix)
 |   +-- Translations (Übersetzungs-Files)
 +-- App.js (Eintrittspunkt Applikation)
+`
+
