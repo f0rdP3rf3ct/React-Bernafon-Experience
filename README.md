@@ -72,7 +72,7 @@ Erstellt einen Offline Build im Ordner `/Dist`
 ## Projekt Struktur
 ```text
 +-- assets (Assets zum Projekt(Photoshopfiles, SVG's) )
-+-- build (CRA-Builds)
++-- build (React-Builds)
 +-- dist (Electron Builds)
 +-- node_modules (node_modules)
 +-- public (Öffentlice React-Files !Keine suffix)
