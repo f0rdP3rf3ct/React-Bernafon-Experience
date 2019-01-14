@@ -20,28 +20,34 @@ Standalone Version läuft. Sie besteht aus verschiedenen statischen Text-Seiten,
 ## Verwendete Module
 Plugins & Node-Modules in der Applikation:
 
-'''CRA / Create-React-App''' (https://github.com/facebook/create-react-app) 
+**CRA / Create-React-App** 
+(https://github.com/facebook/create-react-app) 
 Damit kann man ReactJS Applikationen erstellen, ohne grosses Konfigurationssetup. 
 
-'''react-app-rewired''' (https://github.com/timarney/react-app-rewired)
+**react-app-rewired** 
+(https://github.com/timarney/react-app-rewired)
 Damit kann man CRA Konfigurationen überschreiben ohne auf wichtige CRA-Updates verzichten zu müssen. 
 Ist hier gebraucht um postCSS und CSS-Modules in die Applikation zu laden. Folgendes File ist für das Laden der Zusatzmodule zuständig: config-overrides.js
 
-'''react-router-dom''' (https://www.npmjs.com/package/react-router-dom)
+**react-router-dom** 
+(https://www.npmjs.com/package/react-router-dom)
 Damit ist das Routing der Applikation gelöst.
 
-'''babel-plugin-react-intl''' (https://github.com/yahoo/babel-plugin-react-intl)
+**babel-plugin-react-intl** 
+(https://github.com/yahoo/babel-plugin-react-intl)
 Damit werden die Übersetzungsfiles geladen. Die Übersetzungen selbst sind für diese Applikation manuell in die Dateien in folgendem Ordner geschrieben worden: /src/Translations/xx.json
 
-'''react-sound''' (https://github.com/leoasis/react-sound)
+**react-sound** 
+(https://github.com/leoasis/react-sound)
 Audioplayer Komponent für React. Zuständing für das Apsielen der Audiodateien in der Audio-Tabelle
 
-'''ElectronJS''' (https://electronjs.org/) 
+**ElectronJS**
+(https://electronjs.org/) 
 Damit wird die Offline App erstellt.
 
-package.json
+*package.json*
 In diesem File findet man die Build-Konfiguration für die Offline App.
 
-public/electron.js
+*public/electron.js*
 Definiert z.B. Fenstergrösse / Kiosk-Mode etc. für die Offline App. 
 
