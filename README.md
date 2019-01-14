@@ -46,7 +46,7 @@ Damit kann man ReactJS Applikationen erstellen, ohne grosses Konfigurationssetup
 Damit kann man CRA Konfigurationen überschreiben ohne auf wichtige CRA-Updates verzichten zu müssen. 
 Ist hier gebraucht um postCSS und CSS-Modules in die Applikation zu laden.
 
-*config-overrides.js*
+`config-overrides.js`
 In diesem File können CRA-Konfigurationen überschrieben werden.
 
 **react-router-dom** 
@@ -84,4 +84,4 @@ Lädt Node-Modules herunter und erstellt den Ordner `/node_modules`
 Erstellt einen Build der React-App im Ordner `/build`
 
 4. `yarn electron-pack` ausführen
-Erstellt einen Offline Build im Ordner `/Dist`
+Erstellt einen Offline Build im Ordner `/dist`
