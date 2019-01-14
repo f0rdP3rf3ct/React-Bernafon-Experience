@@ -27,7 +27,10 @@ Damit kann man ReactJS Applikationen erstellen, ohne grosses Konfigurationssetup
 **react-app-rewired** 
 (https://github.com/timarney/react-app-rewired)
 Damit kann man CRA Konfigurationen überschreiben ohne auf wichtige CRA-Updates verzichten zu müssen. 
-Ist hier gebraucht um postCSS und CSS-Modules in die Applikation zu laden. Folgendes File ist für das Laden der Zusatzmodule zuständig: config-overrides.js
+Ist hier gebraucht um postCSS und CSS-Modules in die Applikation zu laden.
+
+*config-overrides.js*
+In diesem File können CRA-Konfigurationen überschrieben werden.
 
 **react-router-dom** 
 (https://www.npmjs.com/package/react-router-dom)
@@ -50,4 +53,21 @@ In diesem File findet man die Build-Konfiguration für die Offline App.
 
 *public/electron.js*
 Definiert z.B. Fenstergrösse / Kiosk-Mode etc. für die Offline App. 
+
+## Standalone Version erstellen
+Um einen Offline Build erfolgreich zu erstellen, wird yarn benötigt: (https://yarnpkg.com/en/):
+
+1. Branch „Electron„ aus dem Repository herunterladen oder klonen.
+https://github.com/f0rdP3rf3ct/React-Bernafon-Experience
+
+2. `yarn install` ausführen
+Lädt Node-Modules herunter und erstellt den Ordner `/node_modules`
+
+3. `yarn build` ausführen 
+Erstellt einen Build der React-App im Ordner `/build`
+
+4. `yarn electron-pack` ausführen
+Erstellt einen Offline Build im Ordner `/Dist`
+
+
 
